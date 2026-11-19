@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 390" role="img" aria-labelledby="title desc">
+  <title id="title">How a 3 by 3 filter responds to a vertical line</title>
+  <desc id="desc">A vertical-line patch and a learned filter are multiplied cell by cell. The product matrix has three twos in its middle column. Adding them gives a response of six.</desc>
+  <defs><marker id="response-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#64748b"/></marker></defs>
+  <rect width="1120" height="390" rx="18" fill="#f8fafc"/>
+  <text x="165" y="48" fill="#172554" font-family="Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle">Image patch</text>
+  <text x="165" y="75" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">vertical white stroke</text>
+  <text x="440" y="48" fill="#172554" font-family="Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle">Learned filter</text>
+  <text x="440" y="75" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">high center, low sides</text>
+  <text x="730" y="48" fill="#172554" font-family="Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle">Products</text>
+  <text x="730" y="75" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">multiply matching positions</text>
+  <text x="1000" y="48" fill="#172554" font-family="Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle">Add them</text>
+
+  <!-- input patch -->
+  <g stroke="#334155" stroke-width="1.5">
+    <rect x="75" y="115" width="60" height="60" fill="#e2e8f0"/><rect x="135" y="115" width="60" height="60" fill="#bfdbfe"/><rect x="195" y="115" width="60" height="60" fill="#e2e8f0"/>
+    <rect x="75" y="175" width="60" height="60" fill="#e2e8f0"/><rect x="135" y="175" width="60" height="60" fill="#bfdbfe"/><rect x="195" y="175" width="60" height="60" fill="#e2e8f0"/>
+    <rect x="75" y="235" width="60" height="60" fill="#e2e8f0"/><rect x="135" y="235" width="60" height="60" fill="#bfdbfe"/><rect x="195" y="235" width="60" height="60" fill="#e2e8f0"/>
+  </g>
+  <g fill="#172554" font-family="Arial,sans-serif" font-size="23" text-anchor="middle"><text x="105" y="153">0</text><text x="165" y="153" font-weight="700">1</text><text x="225" y="153">0</text><text x="105" y="213">0</text><text x="165" y="213" font-weight="700">1</text><text x="225" y="213">0</text><text x="105" y="273">0</text><text x="165" y="273" font-weight="700">1</text><text x="225" y="273">0</text></g>
+
+  <text x="286" y="218" fill="#64748b" font-family="Arial,sans-serif" font-size="30" text-anchor="middle">×</text>
+
+  <!-- filter weights -->
+  <g stroke="#334155" stroke-width="1.5">
+    <rect x="330" y="115" width="60" height="60" fill="#dbeafe"/><rect x="390" y="115" width="60" height="60" fill="#a7f3d0"/><rect x="450" y="115" width="60" height="60" fill="#dbeafe"/>
+    <rect x="330" y="175" width="60" height="60" fill="#dbeafe"/><rect x="390" y="175" width="60" height="60" fill="#a7f3d0"/><rect x="450" y="175" width="60" height="60" fill="#dbeafe"/>
+    <rect x="330" y="235" width="60" height="60" fill="#dbeafe"/><rect x="390" y="235" width="60" height="60" fill="#a7f3d0"/><rect x="450" y="235" width="60" height="60" fill="#dbeafe"/>
+  </g>
+  <g fill="#172554" font-family="Arial,sans-serif" font-size="22" text-anchor="middle"><text x="360" y="153">−1</text><text x="420" y="153" font-weight="700">2</text><text x="480" y="153">−1</text><text x="360" y="213">−1</text><text x="420" y="213" font-weight="700">2</text><text x="480" y="213">−1</text><text x="360" y="273">−1</text><text x="420" y="273" font-weight="700">2</text><text x="480" y="273">−1</text></g>
+
+  <path d="M530 205H585" stroke="#64748b" stroke-width="3" marker-end="url(#response-arrow)"/>
+
+  <!-- cell-wise products -->
+  <g stroke="#334155" stroke-width="1.5">
+    <rect x="615" y="115" width="60" height="60" fill="#e2e8f0"/><rect x="675" y="115" width="60" height="60" fill="#a7f3d0"/><rect x="735" y="115" width="60" height="60" fill="#e2e8f0"/>
+    <rect x="615" y="175" width="60" height="60" fill="#e2e8f0"/><rect x="675" y="175" width="60" height="60" fill="#a7f3d0"/><rect x="735" y="175" width="60" height="60" fill="#e2e8f0"/>
+    <rect x="615" y="235" width="60" height="60" fill="#e2e8f0"/><rect x="675" y="235" width="60" height="60" fill="#a7f3d0"/><rect x="735" y="235" width="60" height="60" fill="#e2e8f0"/>
+  </g>
+  <g fill="#172554" font-family="Arial,sans-serif" font-size="22" text-anchor="middle"><text x="645" y="153">0</text><text x="705" y="153" font-weight="700">2</text><text x="765" y="153">0</text><text x="645" y="213">0</text><text x="705" y="213" font-weight="700">2</text><text x="765" y="213">0</text><text x="645" y="273">0</text><text x="705" y="273" font-weight="700">2</text><text x="765" y="273">0</text></g>
+
+  <path d="M815 205H870" stroke="#64748b" stroke-width="3" marker-end="url(#response-arrow)"/>
+  <rect x="890" y="125" width="205" height="160" rx="16" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <text x="992" y="171" fill="#065f46" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">Add every product</text>
+  <text x="992" y="211" fill="#064e3b" font-family="Arial,sans-serif" font-size="25" font-weight="700" text-anchor="middle">0 + 2 + 0</text>
+  <text x="992" y="246" fill="#064e3b" font-family="Arial,sans-serif" font-size="25" font-weight="700" text-anchor="middle">+ 0 + 2 + 0</text>
+  <text x="992" y="274" fill="#064e3b" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle">+ 0 + 2 + 0 = 6</text>
+  <text x="560" y="344" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">Zero pixels contribute zero. Each highlighted middle pixel multiplies by a weight of 2.</text>
+</svg>

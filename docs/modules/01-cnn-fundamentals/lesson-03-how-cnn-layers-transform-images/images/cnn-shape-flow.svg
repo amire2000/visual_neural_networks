@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 490" role="img" aria-labelledby="title desc">
+  <title id="title">CNN tensor shapes from MNIST image to predicted digit</title>
+  <desc id="desc">A one-channel 28 by 28 image becomes 16 feature maps. ReLU keeps shape and pooling shrinks each map to 14 by 14. A second convolution creates 32 maps, pooling shrinks them to 7 by 7, flattening creates 1568 values, and a linear layer outputs ten logits.</desc>
+  <defs><marker id="shape-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#64748b"/></marker></defs>
+  <rect width="1500" height="490" rx="20" fill="#f8fafc"/>
+  <text x="750" y="42" fill="#172554" font-family="Arial,sans-serif" font-size="25" font-weight="700" text-anchor="middle">One MNIST image through a two-layer CNN</text>
+  <text x="750" y="70" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">Spatial maps shrink at pooling. Channel count changes at convolution.</text>
+  <!-- image -->
+  <text x="90" y="125" fill="#334155" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Input</text>
+  <rect x="48" y="150" width="84" height="84" rx="4" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <path d="M68 177Q89 159 111 177L80 215H111" fill="none" stroke="#111827" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="90" y="266" fill="#172554" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">[1, 28, 28]</text>
+  <text x="90" y="289" fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">one image</text>
+
+  <!-- conv 1 -->
+  <path d="M140 192H190" stroke="#64748b" stroke-width="3" marker-end="url(#shape-arrow)"/>
+  <text x="255" y="125" fill="#334155" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Conv 1 + ReLU</text>
+  <g stroke="#334155" stroke-width="1.2"><rect x="233" y="157" width="76" height="76" fill="#c4b5fd"/><rect x="221" y="169" width="76" height="76" fill="#bfdbfe"/><rect x="209" y="181" width="76" height="76" fill="#dbeafe"/></g>
+  <text x="255" y="284" fill="#172554" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">[16, 28, 28]</text>
+  <text x="255" y="307" fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">16 feature maps</text>
+
+  <!-- pool 1 -->
+  <path d="M310 192H360" stroke="#64748b" stroke-width="3" marker-end="url(#shape-arrow)"/>
+  <text x="425" y="125" fill="#334155" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Max pool</text>
+  <g stroke="#334155" stroke-width="1.2"><rect x="405" y="171" width="62" height="62" fill="#c4b5fd"/><rect x="395" y="181" width="62" height="62" fill="#bfdbfe"/><rect x="385" y="191" width="62" height="62" fill="#dbeafe"/></g>
+  <text x="425" y="284" fill="#172554" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">[16, 14, 14]</text>
+  <text x="425" y="307" fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">half the width and height</text>
+
+  <!-- conv2 -->
+  <path d="M480 192H530" stroke="#64748b" stroke-width="3" marker-end="url(#shape-arrow)"/>
+  <text x="600" y="125" fill="#334155" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Conv 2 + ReLU</text>
+  <g stroke="#334155" stroke-width="1.2"><rect x="574" y="165" width="72" height="72" fill="#a5b4fc"/><rect x="562" y="177" width="72" height="72" fill="#c4b5fd"/><rect x="550" y="189" width="72" height="72" fill="#bfdbfe"/></g>
+  <text x="600" y="284" fill="#172554" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">[32, 14, 14]</text>
+  <text x="600" y="307" fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">32 richer feature maps</text>
+
+  <!-- pool 2 -->
+  <path d="M655 192H705" stroke="#64748b" stroke-width="3" marker-end="url(#shape-arrow)"/>
+  <text x="775" y="125" fill="#334155" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Max pool</text>
+  <g stroke="#334155" stroke-width="1.2"><rect x="757" y="181" width="48" height="48" fill="#a5b4fc"/><rect x="745" y="193" width="48" height="48" fill="#c4b5fd"/><rect x="733" y="205" width="48" height="48" fill="#bfdbfe"/></g>
+  <text x="775" y="284" fill="#172554" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">[32, 7, 7]</text>
+  <text x="775" y="307" fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">compact feature maps</text>
+
+  <!-- flatten -->
+  <path d="M830 192H880" stroke="#64748b" stroke-width="3" marker-end="url(#shape-arrow)"/>
+  <text x="945" y="125" fill="#334155" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Flatten</text>
+  <g fill="#818cf8" stroke="#4338ca" stroke-width="1"><rect x="920" y="166" width="50" height="13" rx="3"/><rect x="920" y="184" width="50" height="13" rx="3"/><rect x="920" y="202" width="50" height="13" rx="3"/><rect x="920" y="220" width="50" height="13" rx="3"/><rect x="920" y="238" width="50" height="13" rx="3"/></g>
+  <text x="945" y="284" fill="#172554" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">[1,568]</text>
+  <text x="945" y="307" fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">one long vector</text>
+
+  <!-- linear -->
+  <path d="M1000 192H1050" stroke="#64748b" stroke-width="3" marker-end="url(#shape-arrow)"/>
+  <text x="1125" y="125" fill="#334155" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Linear classifier</text>
+  <g stroke="#94a3b8" stroke-width="1" opacity=".7"><path d="M970 172L1090 163M970 195L1090 183M970 214L1090 203M970 232L1090 223M970 172L1090 243M970 195L1090 243M970 214L1090 243M970 232L1090 163"/></g>
+  <g fill="#a7f3d0" stroke="#059669" stroke-width="2"><circle cx="1090" cy="163" r="9"/><circle cx="1090" cy="183" r="9"/><circle cx="1090" cy="203" r="9"/><circle cx="1090" cy="223" r="9"/><circle cx="1090" cy="243" r="9"/></g>
+  <text x="1125" y="284" fill="#172554" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">10 scores</text>
+  <text x="1125" y="307" fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">one logit per digit</text>
+
+  <!-- output class -->
+  <path d="M1175 192H1230" stroke="#64748b" stroke-width="3" marker-end="url(#shape-arrow)"/>
+  <text x="1340" y="125" fill="#334155" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Prediction</text>
+  <g fill="#fecaca" stroke="#dc2626" stroke-width="2"><circle cx="1300" cy="170" r="13"/><circle cx="1300" cy="210" r="13"/><circle cx="1300" cy="250" r="13"/></g>
+  <g fill="#334155" font-family="Arial,sans-serif" font-size="14" font-weight="700"><text x="1325" y="175">0</text><text x="1325" y="215">1</text><text x="1325" y="255">⋮</text><text x="1325" y="295">9</text></g>
+  <circle cx="1300" cy="290" r="13" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+  <text x="1340" y="330" fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">argmax picks highest</text>
+
+  <rect x="185" y="380" width="1130" height="58" rx="14" fill="#e0f2fe"/>
+  <text x="750" y="405" fill="#0c4a6e" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">Shape rule in this example: Conv(3 × 3, padding 1, stride 1) keeps H and W.</text>
+  <text x="750" y="426" fill="#0c4a6e" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">ReLU keeps shape. MaxPool(2 × 2, stride 2) halves H and W. Flatten multiplies C × H × W.</text>
+</svg>

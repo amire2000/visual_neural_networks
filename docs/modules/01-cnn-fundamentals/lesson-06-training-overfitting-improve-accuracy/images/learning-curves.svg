@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 540" role="img" aria-labelledby="title desc">
+  <title id="title">Schematic training and validation accuracy curves</title>
+  <desc id="desc">Three small charts compare training and validation accuracy over epochs. Underfitting has both curves low. A useful fit has both rising and close. Overfitting has training accuracy continuing upward while validation accuracy peaks and then declines.</desc>
+  <rect width="1500" height="540" rx="20" fill="#f8fafc"/>
+  <text x="750" y="42" fill="#172554" font-family="Arial,sans-serif" font-size="26" font-weight="700" text-anchor="middle">Training curves tell us whether learning generalizes</text>
+  <text x="750" y="70" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">Schematic patterns, not measurements. Compare both the training and validation curves.</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <rect x="35" y="100" width="450" height="390" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="525" y="100" width="450" height="390" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="1015" y="100" width="450" height="390" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="260" y="139" fill="#334155" font-size="20" font-weight="700">Underfitting</text>
+    <text x="750" y="139" fill="#334155" font-size="20" font-weight="700">Useful fit</text>
+    <text x="1240" y="139" fill="#334155" font-size="20" font-weight="700">Overfitting</text>
+  </g>
+  <g stroke="#e2e8f0" stroke-width="1"><path d="M95 190H445M95 260H445M95 330H445M95 400H445M585 190H935M585 260H935M585 330H935M585 400H935M1075 190H1425M1075 260H1425M1075 330H1425M1075 400H1425"/></g>
+  <g stroke="#64748b" stroke-width="2"><path d="M95 175V420H445M585 175V420H935M1075 175V420H1425"/></g>
+  <g fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle"><text x="270" y="450">Epochs</text><text x="760" y="450">Epochs</text><text x="1250" y="450">Epochs</text></g>
+  <g fill="#64748b" font-family="Arial,sans-serif" font-size="12" text-anchor="end"><text x="88" y="404">low</text><text x="88" y="194">high</text><text x="578" y="404">low</text><text x="578" y="194">high</text><text x="1068" y="404">low</text><text x="1068" y="194">high</text></g>
+  <path d="M110 397C170 380 220 369 280 359S380 345 430 337" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+  <path d="M110 405C170 393 220 382 280 373S380 358 430 350" fill="none" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+  <path d="M600 402C650 370 685 294 735 252S835 205 920 194" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+  <path d="M600 410C650 380 685 307 735 265S835 220 920 210" fill="none" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+  <path d="M1090 403C1145 366 1180 285 1230 238S1340 195 1410 185" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+  <path d="M1090 410C1145 380 1180 316 1230 276S1305 248 1340 259S1380 286 1410 315" fill="none" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+  <g font-family="Arial,sans-serif" font-size="15" fill="#334155"><path d="M600 475H638" stroke="#2563eb" stroke-width="5"/><text x="648" y="480">training</text><path d="M765 475H803" stroke="#ea580c" stroke-width="5"/><text x="813" y="480">validation</text></g>
+  <text x="750" y="520" fill="#475569" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">Accuracy curves shown. Loss curves add another view: validation loss rising while training loss falls can signal overfitting.</text>
+</svg>

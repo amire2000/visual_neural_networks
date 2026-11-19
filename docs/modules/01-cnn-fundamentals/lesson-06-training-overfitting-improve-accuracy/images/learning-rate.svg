@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 410" role="img" aria-labelledby="title desc">
+  <title id="title">How learning rate affects loss during training</title>
+  <desc id="desc">Three schematic loss plots show that a learning rate that is too high can oscillate, a suitable learning rate can reduce loss steadily, and a very low learning rate can make slow progress.</desc>
+  <rect width="1200" height="410" rx="18" fill="#f8fafc"/>
+  <text x="600" y="40" fill="#172554" font-family="Arial,sans-serif" font-size="24" font-weight="700" text-anchor="middle">Learning rate changes the size of weight updates</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle"><rect x="30" y="70" width="360" height="295" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="2"/><rect x="420" y="70" width="360" height="295" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="2"/><rect x="810" y="70" width="360" height="295" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="2"/><text x="210" y="108" fill="#334155" font-size="18" font-weight="700">Too high</text><text x="600" y="108" fill="#334155" font-size="18" font-weight="700">Useful range</text><text x="990" y="108" fill="#334155" font-size="18" font-weight="700">Too low</text></g>
+  <g stroke="#e2e8f0" stroke-width="1"><path d="M80 150H350M80 220H350M80 290H350M470 150H740M470 220H740M470 290H740M860 150H1130M860 220H1130M860 290H1130"/></g>
+  <g stroke="#64748b" stroke-width="2"><path d="M80 135V320H350M470 135V320H740M860 135V320H1130"/></g>
+  <g fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle"><text x="215" y="345">Training updates</text><text x="605" y="345">Training updates</text><text x="995" y="345">Training updates</text></g>
+  <g fill="#64748b" font-family="Arial,sans-serif" font-size="13"><text x="42" y="165">high loss</text><text x="42" y="305">low</text></g>
+  <path d="M90 160 125 275 160 175 195 265 230 185 265 260 300 200 340 250" fill="none" stroke="#dc2626" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M480 160C520 205 545 242 580 267S650 292 730 300" fill="none" stroke="#059669" stroke-width="5" stroke-linecap="round"/>
+  <path d="M870 160C930 170 980 178 1030 186S1090 195 1130 202" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+  <text x="600" y="390" fill="#475569" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">Schematic only. The best learning rate depends on the model, data, optimizer, and batch size.</text>
+</svg>

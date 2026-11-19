@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" role="img" aria-labelledby="title desc">
+  <title id="title">ReLU graph with zero threshold</title>
+  <desc id="desc">The horizontal axis is input x and the vertical axis is output ReLU of x. For negative inputs the output stays zero. At zero it changes direction, then for positive inputs output equals input.</desc>
+  <rect width="680" height="420" rx="12" fill="#fff"/>
+  <text x="340" y="32" fill="#172554" font-family="Arial, sans-serif" font-size="21" font-weight="700" text-anchor="middle">ReLU(x) = max(0, x)</text>
+  <g stroke="#dbe3ee" stroke-width="1">
+    <path d="M90 70H570M90 140H570M90 210H570M90 280H570"/>
+    <path d="M90 70V280M170 70V280M250 70V280M330 70V280M410 70V280M490 70V280M570 70V280"/>
+  </g>
+  <g stroke="#334155" stroke-width="2">
+    <path d="M90 280H600M330 305V52"/>
+    <path d="m600 280-9-5v10zM330 52l-5 9h10z" fill="#334155"/>
+  </g>
+  <path d="M90 280H330L570 70" fill="none" stroke="#4f46e5" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+  <circle cx="330" cy="280" r="7" fill="#4f46e5" stroke="#fff" stroke-width="3"/>
+  <g fill="#334155" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">
+    <text x="90" y="310">−3</text><text x="170" y="310">−2</text><text x="250" y="310">−1</text>
+    <text x="330" y="310">0</text><text x="410" y="310">1</text><text x="490" y="310">2</text><text x="570" y="310">3</text>
+    <text x="63" y="285">0</text><text x="63" y="215">1</text><text x="63" y="145">2</text><text x="63" y="75">3</text>
+    <text x="335" y="350" font-weight="700">Input x</text>
+    <text x="26" y="175" font-weight="700" transform="rotate(-90 26 175)">Output ReLU(x)</text>
+  </g>
+  <g fill="#0f766e" font-family="Arial, sans-serif" font-size="15" font-weight="700">
+    <text x="140" y="258">Negative input → output stays 0</text>
+    <text x="390" y="105">Positive input → output equals input</text>
+  </g>
+  <path d="M320 255V270" stroke="#0f766e" stroke-width="2"/>
+</svg>

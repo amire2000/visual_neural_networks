@@ -1,0 +1,46 @@
+site_name: Visual Neural Networks
+site_description: A visual, beginner-friendly guide to neural networks and modern computer vision
+theme:
+  name: material
+  icon:
+    logo: material/brain
+  favicon: assets/vision-mark.svg
+  features:
+    - content.code.copy
+extra_javascript:
+  - javascripts/quiz.js
+  - javascripts/convolution-demo.js
+  - javascripts/grid-transform-demo.js
+  - javascripts/mermaid.mjs
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+extra_css:
+  - stylesheets/quiz.css
+  - stylesheets/convolution-demo.css
+  - stylesheets/mermaid.css
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.snippets:
+      base_path:
+        - .
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+nav:
+  - Home: index.md
+  - Roadmap: roadmap.md
+  - Syllabus: syllabus.md
+  - Lesson 0: lesson-00-setup-lab/index.md
+  - Stage 1:
+      - Lesson 1: modules/01-cnn-fundamentals/lesson-01-how-neural-networks-see-images/index.md
+      - Lesson 2: modules/01-cnn-fundamentals/lesson-02-how-cnn-filters-learn-patterns/index.md
+      - Lesson 3: modules/01-cnn-fundamentals/lesson-03-how-cnn-layers-transform-images/index.md
+      - Lesson 4: modules/01-cnn-fundamentals/lesson-04-build-first-cnn-pytorch/index.md
+      - Lesson 5: modules/01-cnn-fundamentals/lesson-05-what-cnn-learns/index.md
+      - Lesson 6: modules/01-cnn-fundamentals/lesson-06-training-overfitting-improve-accuracy/index.md
+      - Lesson 6.1 (optional): modules/01-cnn-fundamentals/lesson-06-1-tensorboard-dashboard/index.md

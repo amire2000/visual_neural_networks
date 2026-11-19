@@ -1,0 +1,147 @@
+.convolution-demo {
+  --conv-cell-size: 3rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.6rem;
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+}
+
+.conv-visuals {
+  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 1.25rem 0;
+}
+
+.conv-panel h4 {
+  margin: 0 0 0.6rem;
+}
+
+.conv-input-stage {
+  position: relative;
+  width: max-content;
+}
+
+.conv-grid {
+  display: grid;
+  gap: 0.25rem;
+  grid-template-columns: repeat(var(--grid-cols), var(--conv-cell-size));
+}
+
+.conv-cell {
+  align-items: center;
+  border-radius: 0.25rem;
+  display: flex;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  height: var(--conv-cell-size);
+  justify-content: center;
+  width: var(--conv-cell-size);
+}
+
+.conv-input-grid .conv-cell[data-value]:not([data-value="0"]) {
+  background: #f5be42;
+  color: #1e293b;
+}
+
+.conv-input-grid .conv-cell[data-value="0"] {
+  background: #202b3b;
+  color: #fff;
+}
+
+.conv-input-grid .conv-cell[data-value^="-"] {
+  background: #f2c9cb;
+  color: #521b1e;
+}
+
+.conv-input-grid .conv-cell.conv-pad-cell {
+  background: #dce8f5;
+  color: #334155;
+}
+
+.conv-kernel-grid .conv-cell {
+  background: #dce8f5;
+  color: #17324f;
+}
+
+.conv-output-grid .conv-cell {
+  background: var(--md-default-fg-color--lightest);
+}
+
+.conv-output-grid .conv-cell.is-filled {
+  background: #d8f1e4;
+  color: #14532d;
+}
+
+.conv-kernel-outline {
+  border: 3px solid #d14b30;
+  box-sizing: border-box;
+  border-radius: 0.3rem;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: left 550ms ease, top 550ms ease, width 150ms ease, height 150ms ease;
+  z-index: 1;
+}
+
+.conv-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.conv-controls button {
+  border: 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.55rem 0.9rem;
+}
+
+.conv-run {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+.conv-reset {
+  background: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color);
+}
+
+.conv-controls button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.conv-status {
+  min-height: 1.5em;
+}
+
+.conv-note {
+  font-size: 0.85rem;
+  margin: 0.5rem 0 0;
+}
+
+@media (max-width: 480px) {
+  .convolution-demo {
+    padding: 0.8rem;
+  }
+
+  .conv-visuals {
+    gap: 1.3rem;
+  }
+
+  .convolution-demo {
+    --conv-cell-size: 2.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .conv-kernel-outline {
+    transition: none;
+  }
+}

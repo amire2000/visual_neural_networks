@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 440" role="img" aria-labelledby="title desc">
+  <title id="title">A convolution filter spans every input channel</title>
+  <desc id="desc">A convolution receives 16 input feature maps. One output filter contains a 3 by 3 kernel for every input channel and combines the responses into one output feature map. Using 32 such filters produces 32 output maps.</desc>
+  <defs><marker id="channel-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#64748b"/></marker></defs>
+  <rect width="1100" height="440" rx="18" fill="#f8fafc"/>
+  <text x="550" y="42" fill="#172554" font-family="Arial,sans-serif" font-size="23" font-weight="700" text-anchor="middle">One output filter reads all 16 input channels</text>
+
+  <text x="150" y="104" fill="#334155" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle">Input tensor</text>
+  <text x="150" y="129" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">16 feature maps</text>
+  <g stroke="#334155" stroke-width="1.5"><rect x="116" y="165" width="118" height="108" fill="#c4b5fd"/><rect x="102" y="177" width="118" height="108" fill="#bfdbfe"/><rect x="88" y="189" width="118" height="108" fill="#dbeafe"/></g>
+  <g stroke="#93c5fd" stroke-width="2"><path d="M99 220h96M99 245h96M99 270h96M130 195v96M162 195v96"/></g>
+  <text x="150" y="325" fill="#172554" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">[16, 14, 14]</text>
+  <text x="150" y="349" fill="#64748b" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">[channels, height, width]</text>
+
+  <path d="M250 235H340" stroke="#64748b" stroke-width="3" marker-end="url(#channel-arrow)"/>
+  <text x="460" y="104" fill="#334155" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle">One learned filter</text>
+  <text x="460" y="129" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">a 3 × 3 kernel on each channel</text>
+  <g stroke="#334155" stroke-width="1.5">
+    <rect x="365" y="165" width="82" height="82" fill="#dbeafe"/><rect x="375" y="175" width="82" height="82" fill="#c4b5fd"/><rect x="385" y="185" width="82" height="82" fill="#bfdbfe"/><rect x="395" y="195" width="82" height="82" fill="#ddd6fe"/><rect x="405" y="205" width="82" height="82" fill="#bfdbfe"/>
+  </g>
+  <g fill="#334155" font-family="Arial,sans-serif" font-size="19" font-weight="700" text-anchor="middle"><text x="406" y="235">3 × 3</text><text x="416" y="245">3 × 3</text><text x="426" y="255">3 × 3</text></g>
+  <text x="455" y="312" fill="#172554" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">16 × 3 × 3 weights</text>
+  <text x="455" y="337" fill="#64748b" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">combine channel responses</text>
+
+  <path d="M520 235H625" stroke="#64748b" stroke-width="3" marker-end="url(#channel-arrow)"/>
+  <text x="720" y="104" fill="#334155" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle">One output map</text>
+  <rect x="665" y="175" width="112" height="112" rx="6" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+  <path d="M680 260 705 220 727 242 754 195" fill="none" stroke="#059669" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="720" y="325" fill="#172554" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">one feature map</text>
+  <text x="720" y="349" fill="#64748b" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">one filter → one channel</text>
+
+  <path d="M795 235H875" stroke="#64748b" stroke-width="3" marker-end="url(#channel-arrow)"/>
+  <text x="970" y="104" fill="#334155" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle">32 filters</text>
+  <g stroke="#334155" stroke-width="1.5"><rect x="944" y="179" width="68" height="68" fill="#a7f3d0"/><rect x="934" y="189" width="68" height="68" fill="#bfdbfe"/><rect x="924" y="199" width="68" height="68" fill="#c4b5fd"/><rect x="914" y="209" width="68" height="68" fill="#dbeafe"/></g>
+  <text x="964" y="325" fill="#172554" font-family="Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle">32 output maps</text>
+  <text x="964" y="349" fill="#64748b" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">[32, 14, 14]</text>
+
+  <rect x="140" y="383" width="820" height="34" rx="17" fill="#e0f2fe"/>
+  <text x="550" y="406" fill="#0c4a6e" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">Filter weights: [output channels, input channels, kernel height, kernel width] = [32, 16, 3, 3]</text>
+</svg>

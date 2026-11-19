@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">CNN training cycle from image to weight update</title>
+  <desc id="desc">The forward pass turns an image into class scores. The scores and correct label produce loss. Backpropagation computes gradients, and an optimizer uses them to update the CNN weights before the next training example.</desc>
+  <defs><marker id="train-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#64748b"/></marker></defs>
+  <rect width="1200" height="430" rx="18" fill="#f8fafc"/>
+  <text x="600" y="42" fill="#172554" font-family="Arial,sans-serif" font-size="23" font-weight="700" text-anchor="middle">One training step</text>
+
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <rect x="35" y="105" width="155" height="110" rx="16" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+    <text x="112" y="145" fill="#0c4a6e" font-size="18" font-weight="700">Training example</text>
+    <text x="112" y="175" fill="#334155" font-size="16">image + true label</text>
+
+    <rect x="245" y="105" width="170" height="110" rx="16" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+    <text x="330" y="145" fill="#5b21b6" font-size="18" font-weight="700">Forward pass</text>
+    <text x="330" y="175" fill="#334155" font-size="16">CNN uses its weights</text>
+
+    <rect x="470" y="105" width="150" height="110" rx="16" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+    <text x="545" y="145" fill="#3730a3" font-size="18" font-weight="700">Prediction</text>
+    <text x="545" y="175" fill="#334155" font-size="16">scores for 0–9</text>
+
+    <rect x="675" y="105" width="175" height="110" rx="16" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+    <text x="762" y="145" fill="#9a3412" font-size="18" font-weight="700">Loss</text>
+    <text x="762" y="175" fill="#334155" font-size="16">compare score + label</text>
+
+    <rect x="905" y="105" width="205" height="110" rx="16" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
+    <text x="1007" y="145" fill="#9d174d" font-size="18" font-weight="700">Backpropagation</text>
+    <text x="1007" y="175" fill="#334155" font-size="16">calculate gradients</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#train-arrow)">
+    <path d="M190 160H235M415 160H460M620 160H665M850 160H895"/>
+  </g>
+
+  <rect x="445" y="285" width="300" height="86" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="595" y="320" fill="#166534" font-family="Arial,sans-serif" font-size="19" font-weight="700" text-anchor="middle">Optimizer update</text>
+  <text x="595" y="348" fill="#334155" font-family="Arial,sans-serif" font-size="16" text-anchor="middle">use gradients to adjust weights</text>
+  <path d="M1007 215V255H595V275" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#train-arrow)"/>
+  <path d="M445 328H285V255H330V225" fill="none" stroke="#64748b" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#train-arrow)"/>
+  <text x="273" y="352" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">next batch</text>
+  <rect x="785" y="285" width="330" height="86" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="950" y="320" fill="#334155" font-family="Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle">Backpropagation finds the direction</text>
+  <text x="950" y="348" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">The optimizer makes the actual change</text>
+</svg>

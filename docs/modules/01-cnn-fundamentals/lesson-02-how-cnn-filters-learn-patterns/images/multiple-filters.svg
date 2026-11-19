@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-labelledby="title desc">
+  <title id="title">Multiple convolution filters produce separate feature maps</title>
+  <desc id="desc">The same input image patch is processed by four different filters, producing separate feature maps. The visual pattern names are illustrative interpretations, not assigned jobs.</desc>
+  <defs><marker id="map-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 9 4.5 0 9z" fill="#64748b"/></marker></defs>
+  <rect width="1000" height="430" rx="18" fill="#f8fafc"/>
+  <text x="500" y="42" fill="#172554" font-family="Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle">Each filter has its own weights and its own feature map</text>
+  <rect x="38" y="130" width="118" height="118" rx="10" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <path d="M65 195 95 158 129 210" fill="none" stroke="#111827" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="97" y="278" fill="#334155" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">same image patch</text>
+
+  <!-- branch lines -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <path d="M156 188H190V100H225M190 188V175H225M190 188V250H225M190 188V325H225"/>
+    <path d="M365 100H575M365 175H575M365 250H575M365 325H575"/>
+  </g>
+
+  <!-- filters -->
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <text x="285" y="76" fill="#334155" font-size="15" font-weight="700">Filter A</text>
+    <text x="285" y="151" fill="#334155" font-size="15" font-weight="700">Filter B</text>
+    <text x="285" y="226" fill="#334155" font-size="15" font-weight="700">Filter C</text>
+    <text x="285" y="301" fill="#334155" font-size="15" font-weight="700">Filter D</text>
+    <text x="285" y="95" fill="#64748b" font-size="12">learned weights</text>
+    <text x="285" y="170" fill="#64748b" font-size="12">learned weights</text>
+    <text x="285" y="245" fill="#64748b" font-size="12">learned weights</text>
+    <text x="285" y="320" fill="#64748b" font-size="12">learned weights</text>
+  </g>
+  <g stroke="#334155" stroke-width="1.5">
+    <rect x="245" y="101" width="80" height="32" rx="5" fill="#dbeafe"/>
+    <rect x="245" y="176" width="80" height="32" rx="5" fill="#ede9fe"/>
+    <rect x="245" y="251" width="80" height="32" rx="5" fill="#ffedd5"/>
+    <rect x="245" y="326" width="80" height="32" rx="5" fill="#d1fae5"/>
+  </g>
+  <g fill="#334155" font-family="Arial,sans-serif" font-size="14" text-anchor="middle"><text x="285" y="122">3 × 3</text><text x="285" y="197">3 × 3</text><text x="285" y="272">3 × 3</text><text x="285" y="347">3 × 3</text></g>
+
+  <!-- feature maps -->
+  <g stroke="#334155" stroke-width="1.5">
+    <rect x="590" y="82" width="95" height="46" rx="5" fill="#bfdbfe"/><rect x="590" y="157" width="95" height="46" rx="5" fill="#c4b5fd"/><rect x="590" y="232" width="95" height="46" rx="5" fill="#fed7aa"/><rect x="590" y="307" width="95" height="46" rx="5" fill="#a7f3d0"/>
+  </g>
+  <g fill="none" stroke-width="5" stroke-linecap="round">
+    <path d="M604 116 626 92" stroke="#2563eb"/><path d="M604 167H659" stroke="#7c3aed"/><path d="M607 267 635 238" stroke="#ea580c"/><path d="M615 340Q636 312 657 340" stroke="#059669"/>
+  </g>
+  <g font-family="Arial,sans-serif" text-anchor="start"><text x="710" y="101" fill="#334155" font-size="15" font-weight="700">Feature map A</text><text x="710" y="121" fill="#64748b" font-size="13">where this filter responds</text><text x="710" y="176" fill="#334155" font-size="15" font-weight="700">Feature map B</text><text x="710" y="196" fill="#64748b" font-size="13">response at each location</text><text x="710" y="251" fill="#334155" font-size="15" font-weight="700">Feature map C</text><text x="710" y="271" fill="#64748b" font-size="13">a different response pattern</text><text x="710" y="326" fill="#334155" font-size="15" font-weight="700">Feature map D</text><text x="710" y="346" fill="#64748b" font-size="13">another learned response</text></g>
+
+  <rect x="115" y="385" width="770" height="28" rx="14" fill="#e0f2fe"/>
+  <text x="500" y="405" fill="#0c4a6e" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">Possible visual interpretations are examples only. Training does not assign filters these names.</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="124" viewBox="0 0 900 124" role="img" aria-labelledby="title desc">
+<title id="title">MNIST handwritten digits zero through nine</title>
+<desc id="desc">Ten real training images, arranged in one row and labeled with their target digit.</desc>
+<style>text{font-family:Arial,sans-serif;fill:#172033}.label{font-size:18px;font-weight:700}</style>
+<rect x="4" y="3" width="82" height="116" rx="8" fill="#eef2f7"/>
+<rect x="12" y="8" width="66" height="66" rx="3" fill="#05070a"/>
+<image x="13" y="9" width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAA1klEQVR4nGNgGNRAL/MfEPx/r4kppVp2799fMLhshi7Hd+LvX6jk3xJUKYEFb/6CJb89xZRMBusASl5NxpCUPASSa05c+TcWU/Lc37+/X9ZzMgipMfOvRpM0//D370soW34XmuQGoFH1SLajSzZz4pAs//fvhTecN+/fv1IkybK/f2cheHNQdeKT1LuHJMle8u3vFk4cOkuA7lnHgF0y79vfvx+c0STfXTcUERFxuv7x79eXDshyDEFPoVEFDPgP2QxoYANCMgddjkHjPVRyoSULhiS1AQAA5bHoRucgqQAAAABJRU5ErkJggg==" style="image-rendering:pixelated"/>
+<text class="label" x="45" y="103" text-anchor="middle">0</text>
+<rect x="93" y="3" width="82" height="116" rx="8" fill="#eef2f7"/>
+<rect x="101" y="8" width="66" height="66" rx="3" fill="#05070a"/>
+<image x="102" y="9" width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAoElEQVR4nGNgGPyg8l8HTjneZ39/JOOQYyn7+/ehFg5J279//3rhkFM49/fvLk4ckpf//n3viss5//7+bcUl1/f/7y4OHHJTn/47L4pDzuzp33+ZuAyd8e/fVSkccgW///7FJSd75e+vqTjkVK79/duJy0JvYLhZ45KM/ft3ryAuyQd//4bgktN+/beOEZdk8o+/5bjkGBgevjbELUlVAAA5hEDCe6YeZQAAAABJRU5ErkJggg==" style="image-rendering:pixelated"/>
+<text class="label" x="134" y="103" text-anchor="middle">1</text>
+<rect x="182" y="3" width="82" height="116" rx="8" fill="#eef2f7"/>
+<rect x="190" y="8" width="66" height="66" rx="3" fill="#05070a"/>
+<image x="191" y="9" width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAA1UlEQVR4nGNgGGCgFBAQYIVVpmv+/OP//v174oQho2634A9Q5t/Ll/++OqPJ6V4BSuwqKiry8v797ySa5Mt/Xy5ZCYFYcj8xJJubU6CsFf8wJOHA/e2/f7Y45Fjm/vt3gB+HXM+/f6dlcWjMBrq5Goec0Jl/R8KZscspX/n3pxKXS2v+HUjFJef76WcZLjmGu/+e4JRjOPLvVw1OSd1//46U+DAUGDAwCJQAAYok9yygL18d+nv70KHT/z6+fYvmornH/kHA2rlqmCYr+kEAL26X0RwAAPSxZqzpQXyAAAAAAElFTkSuQmCC" style="image-rendering:pixelated"/>
+<text class="label" x="223" y="103" text-anchor="middle">2</text>
+<rect x="271" y="3" width="82" height="116" rx="8" fill="#eef2f7"/>
+<rect x="279" y="8" width="66" height="66" rx="3" fill="#05070a"/>
+<image x="280" y="9" width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAvElEQVR4nGNgGGaAWzi+HwoU0aSipl74Cwc3xVAl///9fe/ewp5kIOj/+7cQVfLmpTAoS3bh379BOKxWPP337zperFJcfi+Admpj19cFdtCBLVsaFDAl18FdvJIZQ1LLFgiCN/jnff97mAWb0dYH5BgYjE7/1cIiZ3HYEkQV/H2KRXLNGUEQZfXjLxbJA3932DEwhC75i01ywt+/n+/f//X3bwIWSfYZEL/MwPQLELAJVfX29oYzYpMbBAAAtnNjn06A8SkAAAAASUVORK5CYII=" style="image-rendering:pixelated"/>
+<text class="label" x="312" y="103" text-anchor="middle">3</text>
+<rect x="360" y="3" width="82" height="116" rx="8" fill="#eef2f7"/>
+<rect x="368" y="8" width="66" height="66" rx="3" fill="#05070a"/>
+<image x="369" y="9" width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAwElEQVR4nGNgGL5Aa8kfe+wy4koMX/4VgFihGHIs+x4y/N/JC2LGo8uxrfp31OGfNQM2Sc6Wf2fEC/7JgDm+aPqW/7thJfHpoQA2x/j8+7cotOvfHiDTIFQSTZJ5/j8QeDJ9+rVf/7zRtbL7N8/79+/Rw4cP901Rx2J0/b8pUJY7hpz4j5MwpgqGZOi/MmxOBQOevY/FcEoW/UvHKafzaD0HTskpp61xykl96sEpx9C8ErdrhF864ta4Lhe3HFYAAPRWQaWip44aAAAAAElFTkSuQmCC" style="image-rendering:pixelated"/>
+<text class="label" x="401" y="103" text-anchor="middle">4</text>
+<rect x="449" y="3" width="82" height="116" rx="8" fill="#eef2f7"/>
+<rect x="457" y="8" width="66" height="66" rx="3" fill="#05070a"/>
+<image x="458" y="9" width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAApklEQVR4nGNgGPaATVUVuwSHcd6C83//YpMy7bjy99/fv3/3oEvYBxz+/+/fva3btraboEkJ3P/19++/bUJcmMYxtz75+/3GdFcBbHZZAW0qYcHheLXH//4+DschyaC47ee/07gkGRic/17HLenydy424fYYELnjby02yX+39BgYpD/9NcMmuerfv+tP/v9rxWqb/IJzf6/15GANACBgU+HG7dLBAgCHuUDQ6FqbFwAAAABJRU5ErkJggg==" style="image-rendering:pixelated"/>
+<text class="label" x="490" y="103" text-anchor="middle">5</text>
+<rect x="538" y="3" width="82" height="116" rx="8" fill="#eef2f7"/>
+<rect x="546" y="8" width="66" height="66" rx="3" fill="#05070a"/>
+<image x="547" y="9" width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAA2UlEQVR4nGNgGGjA1PC/Apec4qK/fzfjklz39++PTBxyanf+/i3EIScOlPtri0sjUO6wOA7JCjxyDAv/3pYAUgIzG+QxrXz8twRImZ3++/eBILpk9d/PQNcIbgba/FcCXXL230tAEhgMR6ZiSIq8+LsWSB34+1QuDkNS8u/fMAYG409PLRkOYpPcyyCy528HQ8n32wJokgI3/353tfj7t6Hl+21VDK/M/vv35TOQU/8WYMgxyF3/CwHVLJiSDHK9t/7+XZElxIxFDggUb+OMFSDYcoAJtyR9AACvqmkBffjE6gAAAABJRU5ErkJggg==" style="image-rendering:pixelated"/>
+<text class="label" x="579" y="103" text-anchor="middle">6</text>
+<rect x="627" y="3" width="82" height="116" rx="8" fill="#eef2f7"/>
+<rect x="635" y="8" width="66" height="66" rx="3" fill="#05070a"/>
+<image x="636" y="9" width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAuklEQVR4nGNgGHaAMRcI8nIb/+blyqNJicbd/AMEf8H4cZsWiuSGP38Qkn/+3OvmRpIE6WvIgYAXIAXuSJJa8//8uQSzSxVNkoG1/NKfGnm45HNjVDfJHz4Mlez583ceLk9p3f2znx+X5K2/f0NwycV9/3MJl5zolT+P0IMIDib8/dOCSy757/97mrgMPfnnrzlO1/z5s54LlyQwjO1wya3++3dVnh8OSXCU4bITJDkLl51AyRW4rMQAABRcbSuXi0QNAAAAAElFTkSuQmCC" style="image-rendering:pixelated"/>
+<text class="label" x="668" y="103" text-anchor="middle">7</text>
+<rect x="716" y="3" width="82" height="116" rx="8" fill="#eef2f7"/>
+<rect x="724" y="8" width="66" height="66" rx="3" fill="#05070a"/>
+<image x="725" y="9" width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAA6klEQVR4nGNgGLpAtqnp4f//uewln0+woUlxxN/8CwM/uFHlpK/+/fuhP38GSO6QHYbc9Ux5BvaZQLkvnmiGTv37TAlIuYI0+qM7Zurfu7wMDDJzgHIbuNEl7d/8Xc/HsAsod4QX0x/uf/+uMzr+9+9bLyye5Ix5BbIPqxwQ+ALl3nhjl+NeCJScjl2OKxVo5st52CWb//5dq7ZrJ1a52rd/i4BewSpp9+7vBl4G0cvYJLk//H0EDJelfzuwSNb9/ezKwJD47bEKFsmOv5sKCg79+OuDzcoOSBz3MWOT5AfKvG7UZcLqEdIBAEOTfnDoK+v+AAAAAElFTkSuQmCC" style="image-rendering:pixelated"/>
+<text class="label" x="757" y="103" text-anchor="middle">8</text>
+<rect x="805" y="3" width="82" height="116" rx="8" fill="#eef2f7"/>
+<rect x="813" y="8" width="66" height="66" rx="3" fill="#05070a"/>
+<image x="814" y="9" width="64" height="64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAp0lEQVR4nNWRIRDCMAxF47GrBT2NR8LsqtG1eCbxWPBIqJ5lunadBVsNsgl0tSTcIXm5q+i7tP8SgP9l1hGSV6wrbcRULefW4elMUeGek6GvQZnuXDCuoQPAYjuenzgcr1vcsHHIH1cW79yrAJec1bEOQJ/cgEaQCYyy1BREVz5wKcoKpTipMcRalM2XH9WNn07G8vvIaOz5ySUm/rUTG+fxOhXlr7wBXmtGVQxzJgUAAAAASUVORK5CYII=" style="image-rendering:pixelated"/>
+<text class="label" x="846" y="103" text-anchor="middle">9</text>
+</svg>

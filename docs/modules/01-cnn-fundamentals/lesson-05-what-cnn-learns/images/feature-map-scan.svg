@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 390" role="img" aria-labelledby="title desc">
+  <title id="title">Sliding a filter creates a feature map</title>
+  <desc id="desc">A 3 by 3 vertical-line filter slides across a 5 by 5 image containing a centered vertical line. With valid padding and no bias, the response map has three rows of negative three, six, negative three. The bright center column marks the strongest response.</desc>
+  <defs><marker id="scan-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#64748b"/></marker></defs>
+  <rect width="1050" height="390" rx="18" fill="#f8fafc"/>
+  <text x="185" y="46" fill="#172554" font-family="Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle">Input image</text>
+  <text x="185" y="72" fill="#475569" font-family="Arial,sans-serif" font-size="15" text-anchor="middle">5 × 5, vertical white line</text>
+  <g stroke="#334155" stroke-width="1.5">
+    <rect x="65" y="105" width="48" height="48" fill="#e2e8f0"/><rect x="113" y="105" width="48" height="48" fill="#bfdbfe"/><rect x="161" y="105" width="48" height="48" fill="#bfdbfe"/><rect x="209" y="105" width="48" height="48" fill="#bfdbfe"/><rect x="257" y="105" width="48" height="48" fill="#e2e8f0"/>
+    <rect x="65" y="153" width="48" height="48" fill="#e2e8f0"/><rect x="113" y="153" width="48" height="48" fill="#bfdbfe"/><rect x="161" y="153" width="48" height="48" fill="#bfdbfe"/><rect x="209" y="153" width="48" height="48" fill="#bfdbfe"/><rect x="257" y="153" width="48" height="48" fill="#e2e8f0"/>
+    <rect x="65" y="201" width="48" height="48" fill="#e2e8f0"/><rect x="113" y="201" width="48" height="48" fill="#bfdbfe"/><rect x="161" y="201" width="48" height="48" fill="#bfdbfe"/><rect x="209" y="201" width="48" height="48" fill="#bfdbfe"/><rect x="257" y="201" width="48" height="48" fill="#e2e8f0"/>
+    <rect x="65" y="249" width="48" height="48" fill="#e2e8f0"/><rect x="113" y="249" width="48" height="48" fill="#bfdbfe"/><rect x="161" y="249" width="48" height="48" fill="#bfdbfe"/><rect x="209" y="249" width="48" height="48" fill="#bfdbfe"/><rect x="257" y="249" width="48" height="48" fill="#e2e8f0"/>
+    <rect x="65" y="297" width="48" height="48" fill="#e2e8f0"/><rect x="113" y="297" width="48" height="48" fill="#bfdbfe"/><rect x="161" y="297" width="48" height="48" fill="#bfdbfe"/><rect x="209" y="297" width="48" height="48" fill="#bfdbfe"/><rect x="257" y="297" width="48" height="48" fill="#e2e8f0"/>
+  </g>
+  <g fill="#1e293b" font-family="Arial,sans-serif" font-size="18" text-anchor="middle"><text x="89" y="136">0</text><text x="137" y="136">0</text><text x="185" y="136" font-weight="700">1</text><text x="233" y="136">0</text><text x="281" y="136">0</text><text x="89" y="184">0</text><text x="137" y="184">0</text><text x="185" y="184" font-weight="700">1</text><text x="233" y="184">0</text><text x="281" y="184">0</text><text x="89" y="232">0</text><text x="137" y="232">0</text><text x="185" y="232" font-weight="700">1</text><text x="233" y="232">0</text><text x="281" y="232">0</text><text x="89" y="280">0</text><text x="137" y="280">0</text><text x="185" y="280" font-weight="700">1</text><text x="233" y="280">0</text><text x="281" y="280">0</text><text x="89" y="328">0</text><text x="137" y="328">0</text><text x="185" y="328" font-weight="700">1</text><text x="233" y="328">0</text><text x="281" y="328">0</text></g>
+  <rect x="112" y="152" width="146" height="146" fill="none" stroke="#7c3aed" stroke-width="4" stroke-dasharray="8 5"/>
+  <text x="185" y="372" fill="#6d28d9" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">outlined 3 × 3 window is one filter position</text>
+
+  <path d="M335 225H420" stroke="#64748b" stroke-width="3" marker-end="url(#scan-arrow)"/>
+  <text x="510" y="145" fill="#172554" font-family="Arial,sans-serif" font-size="20" font-weight="700" text-anchor="middle">Filter</text>
+  <g stroke="#334155" stroke-width="1.5"><rect x="450" y="165" width="40" height="40" fill="#dbeafe"/><rect x="490" y="165" width="40" height="40" fill="#a7f3d0"/><rect x="530" y="165" width="40" height="40" fill="#dbeafe"/><rect x="450" y="205" width="40" height="40" fill="#dbeafe"/><rect x="490" y="205" width="40" height="40" fill="#a7f3d0"/><rect x="530" y="205" width="40" height="40" fill="#dbeafe"/><rect x="450" y="245" width="40" height="40" fill="#dbeafe"/><rect x="490" y="245" width="40" height="40" fill="#a7f3d0"/><rect x="530" y="245" width="40" height="40" fill="#dbeafe"/></g>
+  <g fill="#172554" font-family="Arial,sans-serif" font-size="17" text-anchor="middle"><text x="470" y="191">−1</text><text x="510" y="191" font-weight="700">2</text><text x="550" y="191">−1</text><text x="470" y="231">−1</text><text x="510" y="231" font-weight="700">2</text><text x="550" y="231">−1</text><text x="470" y="271">−1</text><text x="510" y="271" font-weight="700">2</text><text x="550" y="271">−1</text></g>
+  <text x="510" y="318" fill="#475569" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">strong center, dark sides</text>
+
+  <path d="M595 225H680" stroke="#64748b" stroke-width="3" marker-end="url(#scan-arrow)"/>
+  <text x="835" y="145" fill="#172554" font-family="Arial,sans-serif" font-size="20" font-weight="700" text-anchor="middle">Feature map</text>
+  <text x="835" y="170" fill="#475569" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">one response for each 3 × 3 position</text>
+  <g stroke="#334155" stroke-width="1.5">
+    <rect x="750" y="195" width="56" height="56" fill="#dbeafe"/><rect x="806" y="195" width="56" height="56" fill="#86efac"/><rect x="862" y="195" width="56" height="56" fill="#dbeafe"/>
+    <rect x="750" y="251" width="56" height="56" fill="#dbeafe"/><rect x="806" y="251" width="56" height="56" fill="#86efac"/><rect x="862" y="251" width="56" height="56" fill="#dbeafe"/>
+    <rect x="750" y="307" width="56" height="56" fill="#dbeafe"/><rect x="806" y="307" width="56" height="56" fill="#86efac"/><rect x="862" y="307" width="56" height="56" fill="#dbeafe"/>
+  </g>
+  <g fill="#172554" font-family="Arial,sans-serif" font-size="20" text-anchor="middle"><text x="778" y="231">−3</text><text x="834" y="231" font-weight="700">6</text><text x="890" y="231">−3</text><text x="778" y="287">−3</text><text x="834" y="287" font-weight="700">6</text><text x="890" y="287">−3</text><text x="778" y="343">−3</text><text x="834" y="343" font-weight="700">6</text><text x="890" y="343">−3</text></g>
+  <text x="1014" y="229" fill="#047857" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle">6 = strongest</text>
+  <path d="M920 223H964" stroke="#059669" stroke-width="2" marker-end="url(#scan-arrow)"/>
+  <text x="525" y="375" fill="#475569" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">Illustration uses valid padding, no bias, and the same vertical-line patch at every row.</text>
+</svg>
