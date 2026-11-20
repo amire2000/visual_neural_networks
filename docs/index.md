@@ -12,6 +12,6 @@ Learn how neural networks make sense of images, from the first pixel to real-tim
 
 ## Learning approach
 
-Each lesson makes ideas visible and understandable before introducing technical detail. Start with [Lesson 0: Setup Lab](lesson-00-setup-lab/index.md) to create the course environment and download MNIST. Then [Lesson 1](modules/01-cnn-fundamentals/lesson-01-how-neural-networks-see-images/index.md) explains how an image becomes numerical input and how a CNN turns it into a prediction. Lesson 0 is course setup and is not counted in the 15-lesson syllabus.
+Each lesson makes ideas visible and understandable before introducing technical detail. Start with [0 - Setup Lab](lesson-00-setup-lab/index.md) to create the course environment and download MNIST. Then [1 - How Neural Networks See Images](modules/01-cnn-fundamentals/lesson-01-how-neural-networks-see-images/index.md) explains how an image becomes numerical input and how a CNN turns it into a prediction. Lesson 0 is course setup and is not counted in the 15-lesson syllabus.
 
 Start with the [roadmap](roadmap.md) for the learning path or open the complete [syllabus](syllabus.md).

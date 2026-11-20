@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" role="img" aria-labelledby="title desc">
+  <title id="title">An object detection result pairs a box with a class and score</title>
+  <desc id="desc">A simple scene has a box drawn around a car. A nearby result card lists the class car, the box coordinates, and a model confidence score.</desc>
+  <rect width="1000" height="340" rx="20" fill="#f8fafc"/>
+  <text x="500" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#172554">A detection says what the object is and where it appears</text>
+  <rect x="55" y="75" width="500" height="220" rx="14" fill="#dbeafe" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="55" y="230" width="500" height="65" rx="0" fill="#dcfce7"/>
+  <path d="M150 230h220v55H150zM200 195h115l45 35H170z" fill="#ef4444"/>
+  <circle cx="210" cy="278" r="20" fill="#334155"/><circle cx="330" cy="278" r="20" fill="#334155"/>
+  <rect x="162" y="184" width="205" height="116" fill="none" stroke="#dc2626" stroke-width="4"/>
+  <rect x="160" y="157" width="100" height="28" rx="5" fill="#dc2626"/>
+  <text x="210" y="177" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">car · 0.94</text>
+  <rect x="620" y="88" width="320" height="195" rx="15" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="660" y="128" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#172554">One detection record</text>
+  <text x="660" y="170" font-family="Arial,sans-serif" font-size="17" fill="#334155">Class: car</text>
+  <text x="660" y="205" font-family="Arial,sans-serif" font-size="17" fill="#334155">Box: (x₁, y₁, x₂, y₂)</text>
+  <text x="660" y="240" font-family="Arial,sans-serif" font-size="17" fill="#334155">Score: 0.94</text>
+  <text x="500" y="321" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#475569">Illustration only: a real model estimates each field from image pixels.</text>
+</svg>

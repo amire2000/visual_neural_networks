@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 280" role="img" aria-labelledby="title desc">
+  <title id="title">CIFAR-10 sample image preview</title>
+  <desc id="desc">A schematic colorful grid represents the ten CIFAR-10 classes. Run the lesson script to view actual downloaded dataset examples.</desc>
+  <rect width="1000" height="280" rx="20" fill="#f8fafc"/>
+  <text x="500" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#172554">CIFAR-10 contains varied object photographs</text>
+  <g font-family="Arial,sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#172554">
+    <g><rect x="35" y="70" width="170" height="145" rx="12" fill="#bfdbfe"/><path d="M65 165l45-63 15 26 18-18 38 55z" fill="#fff"/><text x="120" y="240">airplane / sky</text></g>
+    <g><rect x="225" y="70" width="170" height="145" rx="12" fill="#fef3c7"/><rect x="263" y="130" width="95" height="42" rx="12" fill="#ef4444"/><circle cx="283" cy="177" r="12" fill="#334155"/><circle cx="339" cy="177" r="12" fill="#334155"/><text x="310" y="240">automobile / road</text></g>
+    <g><rect x="415" y="70" width="170" height="145" rx="12" fill="#dcfce7"/><path d="M460 155q35-65 78 0l-39 16z" fill="#16a34a"/><circle cx="490" cy="123" r="15" fill="#facc15"/><text x="500" y="240">bird / foliage</text></g>
+    <g><rect x="605" y="70" width="170" height="145" rx="12" fill="#fce7f3"/><circle cx="690" cy="135" r="43" fill="#fb7185"/><circle cx="675" cy="126" r="5" fill="#111827"/><circle cx="705" cy="126" r="5" fill="#111827"/><path d="M680 148q10 10 20 0" fill="none" stroke="#111827" stroke-width="3"/><text x="690" y="240">cat / close-up</text></g>
+    <g><rect x="795" y="70" width="170" height="145" rx="12" fill="#e0f2fe"/><path d="M830 162q12-42 43-35l19 12 35-3 9 26z" fill="#a16207"/><text x="880" y="240">deer / outdoors</text></g>
+  </g>
+  <text x="500" y="266" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475569">Schematic illustration. The example script displays actual CIFAR-10 images.</text>
+</svg>

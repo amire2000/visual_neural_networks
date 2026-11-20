@@ -1,19 +1,52 @@
 # Visual Neural Networks
 
-A beginner-friendly, visual course on how neural networks understand images, progressing from CNN fundamentals to real-time computer vision.
+Visual Neural Networks is a beginner-friendly course on how computers interpret images. It starts with pixels and simple CNNs, then builds toward modern vision methods and real-time inference. The lessons favor visual explanations, intuitive examples, and small amounts of mathematics.
 
-## Run the site
+The course uses **MNIST**, **CIFAR-10**, and **PyTorch** to connect concepts to practical image-classification and computer-vision examples.
+
+## What you will learn
+
+- **Stage 1 — CNN fundamentals:** how images become tensors, filters learn patterns, and a CNN is trained and evaluated.
+- **Stage 2 — Modern CNNs:** color images, deeper networks, ResNet, and transfer learning.
+- **Stage 3 — Modern computer vision:** Vision Transformers, self-supervised learning, and object detection.
+- **Stage 4 — Practical computer vision:** model optimization, latency, throughput, and real-time deployment.
+
+There are 15 core lessons, one optional TensorBoard supplement, and a standalone [GTSRB traffic-sign capstone](docs/capstone-gtsrb/index.md). Lessons include diagrams, animations, quizzes, hands-on activities, and runnable examples. The [vocabulary](docs/vocabulary.md) page summarizes important terms and links back to the lessons.
+
+## Start learning
+
+1. Read the [roadmap](docs/roadmap.md) and [syllabus](docs/syllabus.md).
+2. Follow [0 - Setup Lab](docs/lesson-00-setup-lab/index.md) to prepare the environment and download MNIST.
+3. Continue with [1 - How Neural Networks See Images](docs/modules/01-cnn-fundamentals/lesson-01-how-neural-networks-see-images/index.md).
+
+## Run the course site
+
+The project requires Python 3.12 or newer and [`uv`](https://docs.astral.sh/uv/). From the repository root:
 
 ```bash
 uv sync
 uv run mkdocs serve
 ```
 
-## Course structure
+Open the local address printed by MkDocs. Stop the server with `Ctrl+C`.
 
-Read the [course overview](docs/index.md), [roadmap](docs/roadmap.md), and [15-lesson syllabus](docs/syllabus.md). Start with the [Lesson 0 setup lab](docs/lesson-00-setup-lab/index.md), then continue to [Lesson 1](docs/modules/01-cnn-fundamentals/lesson-01-how-neural-networks-see-images/index.md) for a small runnable pixel example and interactive checkpoints.
+The site dependencies are installed by `uv sync`. The image examples also use PyTorch, TorchVision, and Matplotlib; follow the Setup Lab to install the PyTorch build that matches your computer.
 
-## Build
+For example, after installing the vision packages, download MNIST and inspect its files with:
+
+```bash
+uv run python examples/00-setup/download_mnist.py
+```
+
+Example-specific READMEs describe other dataset or pretrained-weight downloads, run commands, expected output, and limitations.
+
+## Project layout
+
+- `docs/` — course pages, syllabus, roadmap, glossary, and lesson visuals.
+- `examples/` — runnable Python demonstrations organized by stage and lesson.
+- `design/` — notes on course structure and example decisions.
+
+## Build the site
 
 ```bash
 uv run mkdocs build --strict

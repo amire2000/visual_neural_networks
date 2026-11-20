@@ -12,7 +12,7 @@ From the repository root:
 uv run python examples/01-cnn-fundamentals/lesson-05/visualize_cnn.py
 ```
 
-The script reuses the MNIST test set under `data/mnist/` and saves its plots under `examples/01-cnn-fundamentals/lesson-05/outputs/`.
+The script reuses the MNIST test set under `data/mnist/`, saves its plots under `examples/01-cnn-fundamentals/lesson-05/outputs/`, and opens the three figures together at the end. A graphical Matplotlib backend is needed to display the windows.
 
 ## Expected outputs
 

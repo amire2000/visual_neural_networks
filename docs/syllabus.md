@@ -4,6 +4,8 @@
 
 **Scope:** 15 lessons across four stages. This page defines course structure only. It does not contain lesson materials, code implementations, or exercises.
 
+After the 15 lessons, learners can apply the course in the standalone [German Traffic Sign Recognition capstone](capstone-gtsrb/index.md). It is a separate project and is not an additional numbered lesson.
+
 ## Course overview
 
 | Stage | Lessons | Module | Goal |
@@ -36,10 +38,10 @@
 
 | Lesson | Title | Description / key concepts | Intended outcome |
 |---:|---|---|---|
-| 7 | From MNIST to CIFAR-10 | RGB inputs, three channels, richer image content, data augmentation, and increased classification difficulty. | Describe why color images and more varied objects require stronger models. |
-| 8 | Building Deeper CNNs | Network depth and width, receptive fields, Batch Normalization, training stability, and feature hierarchy. | Explain the trade-offs and benefits of adding layers to a CNN. |
-| 9 | Understanding ResNet | Residual blocks, skip connections, gradient flow, and why residual learning enables deeper networks. | Understand the main design idea behind ResNet. |
-| 10 | Transfer Learning | Pretraining, feature reuse, frozen backbones, linear probing, fine-tuning, and adapting classification heads. | Distinguish common strategies for adapting a pretrained vision model. |
+| 7 | [From MNIST to CIFAR-10](modules/02-modern-cnns/lesson-07-from-mnist-to-cifar10/index.md) | RGB inputs, three channels, richer image content, data augmentation, and increased classification difficulty. | Describe why color images and more varied objects require stronger models. |
+| 8 | [Building Deeper CNNs](modules/02-modern-cnns/lesson-08-building-deeper-cnns/index.md) | Network depth and width, receptive fields, Batch Normalization, training stability, and global average pooling. | Explain how deeper features and pooling affect a CNN. |
+| 9 | [Understanding ResNet](modules/02-modern-cnns/lesson-09-understanding-resnet/index.md) | Residual blocks, skip connections, gradient flow, and projection shortcuts. | Explain how a residual block combines its input with a learned change. |
+| 10 | [Transfer Learning](modules/02-modern-cnns/lesson-10-transfer-learning/index.md) | Pretraining, feature reuse, frozen backbones, linear probing, fine-tuning, and adapting classification heads. | Choose which pretrained parameters to update for a new image task. |
 
 ## Stage 3 — Modern Computer Vision (Lessons 11–13)
 
@@ -47,9 +49,9 @@
 
 | Lesson | Title | Description / key concepts | Intended outcome |
 |---:|---|---|---|
-| 11 | Vision Transformers (ViT) | Image patches, patch embeddings, tokens, self-attention, and CNN–Transformer differences. | Explain how a Transformer can process an image. |
-| 12 | Self-Supervised Learning | Learning visual representations without manual class labels, DINO, student–teacher ideas, and using learned embeddings. | Understand why useful image features can be learned without standard classification labels. |
-| 13 | Object Detection | Image classification versus localization, bounding boxes, object classes, and the high-level ideas behind YOLO. | Explain what changes when a model must find and classify multiple objects in an image. |
+| 11 | [Vision Transformers (ViT)](modules/03-modern-computer-vision/lesson-11-vision-transformers/index.md) | Image patches, patch embeddings, tokens, self-attention, and CNN–Transformer differences. | Explain how a Transformer can process an image. |
+| 12 | [Self-Supervised Learning](modules/03-modern-computer-vision/lesson-12-self-supervised-learning/index.md) | Learning visual representations without manual class labels, DINO, student–teacher ideas, and using learned embeddings. | Understand why useful image features can be learned without standard classification labels. |
+| 13 | [Object Detection](modules/03-modern-computer-vision/lesson-13-object-detection/index.md) | Image classification versus localization, bounding boxes, object classes, and the high-level ideas behind YOLO. | Explain what changes when a model must find and classify multiple objects in an image. |
 
 ## Stage 4 — Practical Computer Vision (Lessons 14–15)
 
@@ -57,8 +59,8 @@
 
 | Lesson | Title | Description / key concepts | Intended outcome |
 |---:|---|---|---|
-| 14 | Model Optimization | Model size, inference performance, floating-point precision, FP16, INT8 quantization, and TensorRT. | Understand basic techniques and trade-offs for accelerating inference. |
-| 15 | Real-Time Computer Vision | Latency, throughput, FPS, batch size, preprocessing, GPU inference, and deployment on edge hardware. | Identify the main factors affecting real-time vision-system performance. |
+| 14 | [Model Optimization](modules/04-practical-computer-vision/lesson-14-model-optimization/index.md) | Model size, inference performance, floating-point precision, FP16, INT8 quantization, and TensorRT. | Understand basic techniques and trade-offs for accelerating inference. |
+| 15 | [Real-Time Computer Vision](modules/04-practical-computer-vision/lesson-15-real-time-computer-vision/index.md) | Latency, throughput, FPS, batch size, preprocessing, GPU inference, and deployment on edge hardware. | Identify the main factors affecting real-time vision-system performance. |
 
 ## Milestones
 

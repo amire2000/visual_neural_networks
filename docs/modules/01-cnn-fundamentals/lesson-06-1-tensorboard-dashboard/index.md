@@ -17,6 +17,16 @@
 
 > **Optional supplement:** This dashboard lesson extends Lesson 6. It is not part of the 15 core lessons.
 
+## Before you begin
+
+**TensorBoard** is a dashboard for viewing training information—such as loss, accuracy, images, and weight histograms—that a script records as it runs. Install it into the course `.venv` from the repository root:
+
+```bash
+uv pip install --python .venv/bin/python tensorboard
+```
+
+This lesson assumes PyTorch and TorchVision are already installed, as in Lesson 4. If not, follow the [Lesson 4 setup](../lesson-04-build-first-cnn-pytorch/index.md#set-up-the-optional-vision-packages) first.
+
 ---
 
 ## 1. Why look inside a training run?

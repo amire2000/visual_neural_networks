@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="title desc">
+  <title id="title">Animated feature hierarchy in a deeper CNN</title>
+  <desc id="desc">A park camera image passes through three convolution stages, from edges to textures to larger object parts.</desc>
+  <style>
+    text { font: 17px sans-serif; fill: #18324f; }
+    .small { font-size: 14px; fill: #425b75; }
+    .flow { fill: none; stroke: #6683a1; stroke-width: 4; stroke-dasharray: 9 9; animation: move 1.4s linear infinite; }
+    .stage { fill: #eef5fc; stroke: #376b9e; stroke-width: 2; }
+    .pulse { transform-box: fill-box; transform-origin: center; animation: rise 2.6s ease-in-out infinite; }
+    .pulse.second { animation-delay: .45s; }
+    .pulse.third { animation-delay: .9s; }
+    @keyframes move { to { stroke-dashoffset: -36; } }
+    @keyframes rise { 50% { transform: translateY(-5px); fill: #d9ecfc; } }
+    @media (prefers-reduced-motion: reduce) { .flow, .pulse { animation: none; } }
+  </style>
+  <rect width="960" height="340" rx="18" fill="#fff"/>
+  <text x="480" y="34" text-anchor="middle" font-weight="700">Park trail camera: build a useful picture in stages</text>
+  <rect x="28" y="110" width="145" height="112" rx="12" fill="#e8efe8" stroke="#54745b" stroke-width="2"/>
+  <circle cx="85" cy="160" r="26" fill="#87a9c2"/><path d="M111 141l39 19-39 19z" fill="#87a9c2"/>
+  <path d="M40 199h120" stroke="#597a54" stroke-width="8"/><path d="M54 178l21-28 18 24 22-34 28 38" fill="none" stroke="#688550" stroke-width="5"/>
+  <text x="100" y="252" text-anchor="middle">32 × 32 image</text>
+  <path class="flow" d="M178 166H250"/>
+  <g class="pulse"><rect class="stage" x="265" y="100" width="170" height="132" rx="14"/><text x="350" y="135" text-anchor="middle" font-weight="700">Stage 1</text><text class="small" x="350" y="165" text-anchor="middle">edges · color</text><path d="M306 196l28-27 20 18 34-34" fill="none" stroke="#e07a28" stroke-width="5"/></g>
+  <path class="flow" d="M438 166H505"/>
+  <g class="pulse second"><rect class="stage" x="520" y="100" width="170" height="132" rx="14"/><text x="605" y="135" text-anchor="middle" font-weight="700">Stage 2</text><text class="small" x="605" y="165" text-anchor="middle">textures · corners</text><circle cx="580" cy="195" r="16" fill="none" stroke="#e07a28" stroke-width="5"/><path d="M602 207q24-44 50-4" fill="none" stroke="#e07a28" stroke-width="5"/></g>
+  <path class="flow" d="M693 166H760"/>
+  <g class="pulse third"><rect class="stage" x="775" y="100" width="158" height="132" rx="14"/><text x="854" y="135" text-anchor="middle" font-weight="700">Stage 3</text><text class="small" x="854" y="165" text-anchor="middle">parts · class clues</text><path d="M810 205v-27q0-23 21-23t21 23v27M852 205v-27q0-23 21-23t21 23v27" fill="none" stroke="#e07a28" stroke-width="5"/></g>
+  <text class="small" x="480" y="292" text-anchor="middle">Each stage sees combinations from earlier stages. More layers do not guarantee better accuracy.</text>
+</svg>

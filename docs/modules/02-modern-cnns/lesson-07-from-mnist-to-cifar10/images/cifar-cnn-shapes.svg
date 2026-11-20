@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">CIFAR-10 image shapes through a three-block CNN</title>
+  <desc id="desc">A 3 by 32 by 32 color image passes through convolution and pooling blocks, producing 32 by 16 by 16, 64 by 8 by 8, and 128 by 4 by 4 feature tensors, then ten class scores.</desc>
+  <rect width="1200" height="320" rx="20" fill="#f8fafc"/>
+  <text x="600" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#172554">Spatial size shrinks while feature channels grow</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <rect x="25" y="90" width="145" height="150" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="2"/><text x="97" y="140" font-size="19" font-weight="700" fill="#172554">RGB image</text><text x="97" y="176" font-size="18" fill="#334155">[3, 32, 32]</text>
+    <rect x="220" y="90" width="185" height="150" rx="14" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/><text x="312" y="132" font-size="18" font-weight="700" fill="#1e3a8a">Conv · ReLU</text><text x="312" y="160" font-size="16" fill="#334155">3 → 32 channels</text><text x="312" y="190" font-size="16" fill="#334155">Pool 2 × 2</text><text x="312" y="220" font-size="16" font-weight="700" fill="#172554">[32, 16, 16]</text>
+    <rect x="455" y="90" width="185" height="150" rx="14" fill="#dcfce7" stroke="#86efac" stroke-width="2"/><text x="547" y="132" font-size="18" font-weight="700" fill="#166534">Conv · ReLU</text><text x="547" y="160" font-size="16" fill="#334155">32 → 64 channels</text><text x="547" y="190" font-size="16" fill="#334155">Pool 2 × 2</text><text x="547" y="220" font-size="16" font-weight="700" fill="#172554">[64, 8, 8]</text>
+    <rect x="690" y="90" width="185" height="150" rx="14" fill="#fef3c7" stroke="#fcd34d" stroke-width="2"/><text x="782" y="132" font-size="18" font-weight="700" fill="#92400e">Conv · ReLU</text><text x="782" y="160" font-size="16" fill="#334155">64 → 128 channels</text><text x="782" y="190" font-size="16" fill="#334155">Pool 2 × 2</text><text x="782" y="220" font-size="16" font-weight="700" fill="#172554">[128, 4, 4]</text>
+    <rect x="925" y="90" width="130" height="150" rx="14" fill="#ede9fe" stroke="#c4b5fd" stroke-width="2"/><text x="990" y="146" font-size="18" font-weight="700" fill="#5b21b6">Flatten</text><text x="990" y="184" font-size="16" fill="#334155">2,048 values</text>
+    <rect x="1090" y="90" width="90" height="150" rx="14" fill="#fee2e2" stroke="#fca5a5" stroke-width="2"/><text x="1135" y="145" font-size="17" font-weight="700" fill="#991b1b">10</text><text x="1135" y="178" font-size="15" fill="#334155">scores</text>
+  </g>
+  <g stroke="#64748b" stroke-width="3" fill="none"><path d="M170 165h42M405 165h45M640 165h45M875 165h45M1055 165h30"/></g>
+  <g fill="#64748b"><path d="M212 158l12 7-12 7z"/><path d="M450 158l12 7-12 7z"/><path d="M685 158l12 7-12 7z"/><path d="M920 158l12 7-12 7z"/><path d="M1085 158l12 7-12 7z"/></g>
+  <text x="600" y="286" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#475569">The batch dimension is omitted in these per-image shapes.</text>
+</svg>

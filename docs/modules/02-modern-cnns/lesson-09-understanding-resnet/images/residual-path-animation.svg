@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="title desc">
+  <title id="title">Animated residual block with a skip connection</title>
+  <desc id="desc">Input features split: one path carries them unchanged, while another learns a change. The paths add to form output features.</desc>
+  <style>
+    text { font: 18px sans-serif; fill: #18324f; }
+    .label { font-size: 15px; fill: #425b75; }
+    .signal { fill: none; stroke-width: 5; stroke-dasharray: 10 9; animation: flow 1.4s linear infinite; }
+    .skip { stroke: #238b70; }
+    .learn { stroke: #e07a28; }
+    .box { fill: #f0f5fb; stroke: #376b9e; stroke-width: 2; }
+    .join { fill: #fff4df; stroke: #d47b22; stroke-width: 3; }
+    @keyframes flow { to { stroke-dashoffset: -38; } }
+    @media (prefers-reduced-motion: reduce) { .signal { animation: none; } }
+  </style>
+  <rect width="960" height="340" rx="18" fill="#fff"/>
+  <text x="480" y="36" text-anchor="middle" font-weight="700">A residual block learns a change and keeps the original signal</text>
+  <rect class="box" x="35" y="128" width="120" height="70" rx="14"/><text x="95" y="170" text-anchor="middle">Input x</text>
+  <path d="M155 163H215V93H690" class="signal skip"/>
+  <text class="label" x="425" y="78" text-anchor="middle">identity / skip path: carry x forward</text>
+  <path d="M215 163V233H270" fill="none" stroke="#8ca0b4" stroke-width="4"/>
+  <rect class="box" x="270" y="196" width="220" height="74" rx="14"/><text x="380" y="227" text-anchor="middle">Convolutions learn</text><text class="label" x="380" y="250" text-anchor="middle">a change F(x)</text>
+  <path d="M490 233H690" class="signal learn"/>
+  <circle class="join" cx="720" cy="163" r="34"/><text x="720" y="171" text-anchor="middle" font-size="28">+</text>
+  <path d="M690 93V163M754 163H815" fill="none" stroke="#526a82" stroke-width="4"/>
+  <rect x="815" y="128" width="120" height="70" rx="14" fill="#e6f4ef" stroke="#238b70" stroke-width="2"/><text x="875" y="170" text-anchor="middle">x + F(x)</text>
+  <text class="label" x="480" y="310" text-anchor="middle">The add requires matching tensor shapes. A projection can adjust shape when needed.</text>
+</svg>

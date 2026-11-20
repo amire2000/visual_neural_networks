@@ -16,3 +16,7 @@ Build an intuitive understanding of how modern vision models learn from images a
 Before Stage 1, complete [Lesson 0: Setup Lab](lesson-00-setup-lab/index.md) to prepare the Python environment and download MNIST. Then work through the stages in order. The first stage builds the image and CNN mental model; later stages extend it to richer images, newer model families, and practical inference constraints.
 
 See the [syllabus](syllabus.md) for each lesson's concepts and intended outcome.
+
+## Capstone project
+
+After Stage 4, apply the course ideas in the standalone [German Traffic Sign Recognition capstone](capstone-gtsrb/index.md). Design and train a 43-class classifier with a custom CNN, then optionally compare it with pretrained ResNet-18. This project is separate from the numbered lesson sequence.

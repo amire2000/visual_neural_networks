@@ -83,7 +83,7 @@ def save_map_grid(images, labels, maps, filename, layer_name, map_count=8):
     fig.suptitle(layer_name)
     fig.tight_layout()
     fig.savefig(filename)
-    plt.close(fig)
+    return fig
 # --8<-- [end:plot_maps]
 
 
@@ -97,7 +97,7 @@ def save_kernel_grid(model):
         axis.axis("off")
     fig.tight_layout()
     fig.savefig(OUTPUT_DIR / "trained_kernels.png")
-    plt.close(fig)
+    return fig
 
 
 def main():
@@ -114,10 +114,22 @@ def main():
     assert tuple(first_maps.shape) == (3, 16, 28, 28)
     assert tuple(second_maps.shape) == (3, 32, 14, 14)
 
-    save_map_grid(images, labels, first_maps, OUTPUT_DIR / "first_layer_maps.png", "Conv1 feature maps")
-    save_map_grid(images, labels, second_maps, OUTPUT_DIR / "second_layer_maps.png", "Conv2 feature maps")
-    save_kernel_grid(model)
+    figures = [
+        save_map_grid(
+            images, labels, first_maps,
+            OUTPUT_DIR / "first_layer_maps.png", "Conv1 feature maps",
+        ),
+        save_map_grid(
+            images, labels, second_maps,
+            OUTPUT_DIR / "second_layer_maps.png", "Conv2 feature maps",
+        ),
+        save_kernel_grid(model),
+    ]
     print("Saved first- and second-layer maps and trained kernels to:", OUTPUT_DIR)
+    # Keep all saved figures open so the viewer can inspect them together.
+    plt.show()
+    for figure in figures:
+        plt.close(figure)
 
 
 if __name__ == "__main__":

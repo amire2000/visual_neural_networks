@@ -13,7 +13,7 @@
     <text x="1240" y="139" fill="#334155" font-size="20" font-weight="700">Overfitting</text>
   </g>
   <g stroke="#e2e8f0" stroke-width="1"><path d="M95 190H445M95 260H445M95 330H445M95 400H445M585 190H935M585 260H935M585 330H935M585 400H935M1075 190H1425M1075 260H1425M1075 330H1425M1075 400H1425"/></g>
-  <g stroke="#64748b" stroke-width="2"><path d="M95 175V420H445M585 175V420H935M1075 175V420H1425"/></g>
+  <g fill="none" stroke="#64748b" stroke-width="2"><path d="M95 175V420H445M585 175V420H935M1075 175V420H1425"/></g>
   <g fill="#64748b" font-family="Arial,sans-serif" font-size="13" text-anchor="middle"><text x="270" y="450">Epochs</text><text x="760" y="450">Epochs</text><text x="1250" y="450">Epochs</text></g>
   <g fill="#64748b" font-family="Arial,sans-serif" font-size="12" text-anchor="end"><text x="88" y="404">low</text><text x="88" y="194">high</text><text x="578" y="404">low</text><text x="578" y="194">high</text><text x="1068" y="404">low</text><text x="1068" y="194">high</text></g>
   <path d="M110 397C170 380 220 369 280 359S380 345 430 337" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>

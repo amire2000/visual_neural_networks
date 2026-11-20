@@ -38,7 +38,7 @@ In Lesson 4, the training cycle was:
 Image → prediction → loss → gradients → weight update
 ```
 
-The architecture stays the same during this cycle; the learned parameter values change.
+The architecture **stays** the same during this cycle; the learned parameter values **change**.
 
 ---
 
@@ -82,7 +82,7 @@ The layer produces 16 feature maps, giving the tensor shape `[16, 28, 28]` for o
 
 ## 4. Deeper layers combine earlier features
 
-After the first convolution, ReLU, and pooling, the next layer receives `[16, 14, 14]` feature values. It does not receive the original pixels again. Each second-layer filter reads all 16 input channels and combines local evidence from them.
+After the <u>first</u> convolution, ReLU, and pooling, the next layer receives `[16, 14, 14]` feature values. It does not receive the original pixels again. Each second-layer filter reads all 16 input channels and combines local evidence from them.
 
 ![Sixteen input channels feed a convolution whose filters combine their local responses into new feature maps.](../lesson-03-how-cnn-layers-transform-images/images/channel-convolution.svg)
 
@@ -101,17 +101,25 @@ A useful mental model is that early layers respond to local edges and strokes, w
 
 ## 5. Compare before and after training carefully
 
-Lesson 4's training script saves `kernels_before_after.png`. It compares the same model's first-layer kernels before and after training, using one color scale. Use that image to see which values changed during training.
+The image below compares the first-layer kernels from one training run. Each column is the same filter: the top tile shows its initial weights, and the tile below shows those weights after training.
+
+![The 16 first-layer kernels before training in the top row and after training in the bottom row.](images/kernels-before-after-example.png)
+
+The shared color scale makes the two rows comparable. **Blue** represents negative weights, **red** positive weights, and pale neutral colors values near zero. Since MNIST pixel values are non-negative, a positive weight lets a bright pixel add to the filter's response, while a negative weight lets it subtract. The 3 × 3 arrangement can suggest what contrast a filter may respond to. For example, a positive center surrounded by negative weights could respond to a bright center against darker neighbors.
+
+These grids show weights, not input colors or activation strength, and they are not tiny pictures of digits. A changed filter does not automatically have one clear, human-readable purpose. Kernel colors can help you inspect what changed, but they do not tell you whether the model improved. Use validation loss and accuracy to guide tuning, changing one setting at a time.
+
+This is a sample from one run. Your values may look different after training with another initialization.
 
 Comparing activation maps from a newly initialized model with maps from a separately trained model is also possible, but filter 1 from one model is not guaranteed to correspond to filter 1 from the other. Their initializations differ, so filter numbering does not identify the same learned feature.
 
-A model is trained to reduce classification error. Some learned weights may look like simple edge detectors, but interpretability is not the objective.
+**A model is trained to reduce classification error**. Some learned weights may look like simple edge detectors, but interpretability is not the objective.
 
 ---
 
 ## 6. Visualize your trained CNN
 
-The runnable example loads the Lesson 4 checkpoint and displays digits 1, 5, and 8 beside selected feature maps from both convolutional layers. It also saves a grid of the trained first-layer kernels.
+The runnable example loads the Lesson 4 checkpoint and displays digits 1, 5, and 8 beside selected feature maps from both convolutional layers. It also saves a grid of the trained first-layer kernels. The images below are sample outputs; your maps can differ if you trained a different checkpoint.
 
 The model definition must match Lesson 4 so the checkpoint weights fit the same layer shapes:
 
@@ -125,7 +133,7 @@ Run it from the repository root after completing Lesson 4:
 uv run python examples/01-cnn-fundamentals/lesson-05/visualize_cnn.py
 ```
 
-It loads the test set and saves three images under `examples/01-cnn-fundamentals/lesson-05/outputs/`:
+It loads the test set, saves three images under `examples/01-cnn-fundamentals/lesson-05/outputs/`, and opens the figures together after saving:
 
 - `first_layer_maps.png`: each input beside the first eight Conv1 maps.
 - `second_layer_maps.png`: each input beside the first eight Conv2 maps.
@@ -156,6 +164,24 @@ The plotting helper places each input beside eight maps from the selected layer:
 ```python
 --8<-- "examples/01-cnn-fundamentals/lesson-05/visualize_cnn.py:plot_maps"
 ```
+
+### First convolution layer
+
+![Three MNIST inputs and eight first-layer feature maps for each input.](images/first-layer-maps-example.png)
+
+Each row starts with the original digit, followed by eight of the 16 maps produced by the first convolution and ReLU. These maps retain the 28 × 28 image size. Bright areas show where a filter has a stronger activation for that input. Notice that one map can respond to more than one digit; it is not a digit classifier.
+
+### Second convolution layer
+
+![Three MNIST inputs and eight second-layer feature maps for each input.](images/second-layer-maps-example.png)
+
+These maps come after the first max-pooling step, so their spatial size is 14 × 14. Each second-layer filter combines information from all 16 first-layer channels. The blockier patterns reflect the smaller map size, and the activations can combine several earlier responses. They still represent intermediate features, not final predictions.
+
+### Learned first-layer kernels
+
+![A grid of the 16 learned 3 by 3 first-layer kernels.](images/trained-kernels-example.png)
+
+Each tile shows the 3 × 3 weights of one first-layer filter. The diverging colors distinguish positive and negative weights; near-neutral colors are closer to zero. The display rescales each kernel independently, so compare the pattern within a tile rather than using color intensity to compare weight magnitudes across different filters. A tiny kernel is not itself an image of the digit pattern it detects.
 
 <div class="quiz" data-answer="c" data-explanation="These visualizations show intermediate activations and filter weights, not the model's final class probabilities.">
   <p><strong>Checkpoint 3:</strong> What does a feature-map visualization show?</p>

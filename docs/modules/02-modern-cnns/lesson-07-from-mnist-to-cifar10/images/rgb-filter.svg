@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" role="img" aria-labelledby="title desc">
+  <title id="title">A learned filter contains weights for red, green, and blue</title>
+  <desc id="desc">Three small colored grids represent the red, green, and blue slices of one first-layer convolution filter. Together they contain 27 learned weights plus a bias.</desc>
+  <rect width="900" height="280" rx="20" fill="#f8fafc"/>
+  <text x="450" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#172554">One first-layer filter = three 3 × 3 weight slices + bias</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <text x="180" y="82" font-size="18" font-weight="700" fill="#b91c1c">Red weights</text>
+    <text x="450" y="82" font-size="18" font-weight="700" fill="#15803d">Green weights</text>
+    <text x="720" y="82" font-size="18" font-weight="700" fill="#1d4ed8">Blue weights</text>
+  </g>
+  <g stroke="#fff" stroke-width="4">
+    <rect x="105" y="100" width="150" height="120" fill="#fca5a5"/><path d="M155 100v120M205 100v120M105 140h150M105 180h150"/>
+    <rect x="375" y="100" width="150" height="120" fill="#86efac"/><path d="M425 100v120M475 100v120M375 140h150M375 180h150"/>
+    <rect x="645" y="100" width="150" height="120" fill="#93c5fd"/><path d="M695 100v120M745 100v120M645 140h150M645 180h150"/>
+  </g>
+  <text x="450" y="257" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#475569">The weights are learned numerical values; the colors only distinguish channel slices.</text>
+</svg>

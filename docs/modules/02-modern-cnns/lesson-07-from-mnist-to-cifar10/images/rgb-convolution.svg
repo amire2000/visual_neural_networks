@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" role="img" aria-labelledby="title desc">
+  <title id="title">One convolution filter combines three color channels</title>
+  <desc id="desc">A red, green, and blue 3 by 3 patch each interacts with its own learned weight grid. The responses are summed with a bias to make one output feature-map value.</desc>
+  <rect width="1000" height="340" rx="20" fill="#f8fafc"/>
+  <text x="500" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#172554">One RGB filter combines three channel responses</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <text x="150" y="91" font-size="19" font-weight="700" fill="#b91c1c">Red patch</text>
+    <text x="390" y="91" font-size="19" font-weight="700" fill="#15803d">Green patch</text>
+    <text x="630" y="91" font-size="19" font-weight="700" fill="#1d4ed8">Blue patch</text>
+    <text x="845" y="91" font-size="19" font-weight="700" fill="#334155">One output</text>
+  </g>
+  <g stroke="#fff" stroke-width="3">
+    <rect x="88" y="115" width="124" height="124" fill="#fecaca"/><path d="M129 115v124M170 115v124M88 156h124M88 197h124" stroke="#fff"/>
+    <rect x="328" y="115" width="124" height="124" fill="#bbf7d0"/><path d="M369 115v124M410 115v124M328 156h124M328 197h124" stroke="#fff"/>
+    <rect x="568" y="115" width="124" height="124" fill="#bfdbfe"/><path d="M609 115v124M650 115v124M568 156h124M568 197h124" stroke="#fff"/>
+  </g>
+  <g fill="#334155" font-family="Arial,sans-serif" font-size="14" text-anchor="middle"><text x="150" y="270">3 × 3 weights</text><text x="390" y="270">3 × 3 weights</text><text x="630" y="270">3 × 3 weights</text></g>
+  <g fill="none" stroke="#64748b" stroke-width="3"><path d="M225 177H292"/><path d="M465 177H532"/><path d="M705 177H770"/></g>
+  <g fill="#64748b"><path d="M292 169l14 8-14 8z"/><path d="M532 169l14 8-14 8z"/><path d="M770 169l14 8-14 8z"/></g>
+  <rect x="790" y="120" width="150" height="116" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="865" y="164" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#334155">sum + bias</text>
+  <text x="865" y="199" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#172554">one value</text>
+  <text x="500" y="316" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#475569">Slide this filter over the image to fill one feature map. 32 filters create 32 maps.</text>
+</svg>

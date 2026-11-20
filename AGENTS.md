@@ -48,6 +48,9 @@ When adding a lesson:
    line. Bold the operator symbol and include its name, meaning, and a short
    inline example. Use the same format for groups of syntax symbols, naming
    them accurately as patterns, markers, or punctuation rather than operators.
+10. In runnable examples and embedded code snippets, use named constants for
+    configurable values instead of scattering magic numbers. Add concise
+    comments to clarify the purpose of important steps and settings.
 
 Use the existing `.quiz` radio-option pattern from `docs/javascripts/quiz.js`:
 each checkpoint must have plausible options, one correct answer, a unique radio

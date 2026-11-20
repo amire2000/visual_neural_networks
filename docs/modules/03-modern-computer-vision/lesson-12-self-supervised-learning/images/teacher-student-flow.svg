@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 360" role="img" aria-labelledby="title desc">
+  <title id="title">Teacher and student learn from two views of one unlabeled image</title>
+  <desc id="desc">Two augmented views go to student and teacher networks. The teacher output guides the student's prediction. The student's weights update, and a slow moving average updates the teacher.</desc>
+  <rect width="1100" height="360" rx="20" fill="#f8fafc"/>
+  <text x="550" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#172554">Learn by matching views, not by reading class labels</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <rect x="30" y="115" width="140" height="90" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="2"/><text x="100" y="153" font-size="17" font-weight="700" fill="#334155">Unlabeled</text><text x="100" y="178" font-size="17" fill="#334155">image</text>
+    <rect x="220" y="75" width="150" height="80" rx="14" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/><text x="295" y="108" font-size="17" font-weight="700" fill="#1e3a8a">View A</text><text x="295" y="132" font-size="15" fill="#334155">student input</text>
+    <rect x="220" y="200" width="150" height="80" rx="14" fill="#ffedd5" stroke="#fdba74" stroke-width="2"/><text x="295" y="233" font-size="17" font-weight="700" fill="#9a3412">View B</text><text x="295" y="257" font-size="15" fill="#334155">teacher input</text>
+    <rect x="440" y="75" width="175" height="80" rx="14" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/><text x="527" y="108" font-size="17" font-weight="700" fill="#1e3a8a">Student network</text><text x="527" y="132" font-size="15" fill="#334155">learns by gradient</text>
+    <rect x="440" y="200" width="175" height="80" rx="14" fill="#ffedd5" stroke="#fdba74" stroke-width="2"/><text x="527" y="233" font-size="17" font-weight="700" fill="#9a3412">Teacher network</text><text x="527" y="257" font-size="15" fill="#334155">changes slowly</text>
+    <rect x="690" y="75" width="170" height="80" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="2"/><text x="775" y="108" font-size="16" font-weight="700" fill="#334155">Student</text><text x="775" y="132" font-size="15" fill="#334155">probabilities</text>
+    <rect x="690" y="200" width="170" height="80" rx="14" fill="#fff" stroke="#cbd5e1" stroke-width="2"/><text x="775" y="233" font-size="16" font-weight="700" fill="#334155">Teacher target</text><text x="775" y="257" font-size="15" fill="#334155">distribution</text>
+    <rect x="920" y="115" width="150" height="90" rx="14" fill="#dcfce7" stroke="#86efac" stroke-width="2"/><text x="995" y="153" font-size="17" font-weight="700" fill="#166534">Match</text><text x="995" y="178" font-size="15" fill="#334155">across views</text>
+  </g>
+  <g fill="none" stroke="#64748b" stroke-width="3">
+    <path d="M170 150L215 115M170 175L215 235M370 115H435M370 240H435M615 115H685M615 240H685M860 115L915 145M860 240L915 175"/>
+    <path d="M527 158V194" stroke="#2563eb" stroke-dasharray="7 6"/>
+    <path d="M615 277C650 325 465 325 465 285" stroke="#f97316" stroke-dasharray="7 6"/>
+  </g>
+  <g fill="#64748b"><path d="M209 108l13 2-7 11z"/><path d="M209 229l13 11-13 2z"/><path d="M429 108l12 7-12 7z"/><path d="M429 233l12 7-12 7z"/><path d="M679 108l12 7-12 7z"/><path d="M679 233l12 7-12 7z"/><path d="M909 138l13 6-12 8z"/><path d="M909 170l12 8-13 6z"/></g>
+  <text x="730" y="329" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#475569">The student updates with gradients; the teacher follows through a slow weight average.</text>
+</svg>

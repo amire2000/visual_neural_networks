@@ -36,6 +36,16 @@ The script prints tensor shapes, train and validation metrics each epoch, and fi
 
 These files are written to `examples/01-cnn-fundamentals/lesson-04/outputs/`.
 
+## Run inference on a random batch
+
+After training has saved `mnist_cnn.pth`, run:
+
+```bash
+uv run python examples/01-cnn-fundamentals/lesson-04/infer_mnist_batch.py
+```
+
+The script selects a repeatable shuffled batch of 16 test images and saves a plot with predicted and correct labels to `outputs/random_inference_batch.png`. Green titles indicate correct predictions; red titles indicate mistakes.
+
 ## Limitations
 
 Training time and accuracy depend on hardware and the installed PyTorch build. The example uses a fixed architecture and five epochs by default; it does not tune hyperparameters or guarantee a particular accuracy.

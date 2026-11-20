@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="380" viewBox="0 0 1100 380" role="img" aria-labelledby="title desc">
+  <title id="title">Traffic-sign recognition capstone workflow</title>
+  <desc id="desc">A German traffic sign image is resized and augmented, passes through a custom CNN or pretrained ResNet, and produces one of 43 class predictions. Validation selects the model and the official test set checks it once.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#52627a"/></marker>
+    <style>
+      text{font-family:Arial,sans-serif;fill:#17243b}.small{font-size:17px}.label{font-size:21px;font-weight:700}.sub{font-size:15px;fill:#52627a}.box{stroke:#c4d0df;stroke-width:2;rx:16}.arrow{stroke:#52627a;stroke-width:3;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1100" height="380" rx="22" fill="#f7f9fc"/>
+  <text x="550" y="42" text-anchor="middle" font-size="25" font-weight="700">From road sign to tested model</text>
+  <rect class="box" x="30" y="110" width="175" height="170" fill="#e8f3ff"/>
+  <circle cx="117" cy="175" r="39" fill="#fff" stroke="#e43d3d" stroke-width="9"/><path d="M92 174h50M117 150v49" stroke="#2364aa" stroke-width="8"/>
+  <text class="label" x="117" y="244" text-anchor="middle">GTSRB image</text><text class="sub" x="117" y="267" text-anchor="middle">one of 43 signs</text>
+  <path class="arrow" d="M215 195h45"/>
+  <rect class="box" x="270" y="110" width="185" height="170" fill="#fff3dd"/>
+  <text class="label" x="362" y="157" text-anchor="middle">Prepare</text><text class="small" x="362" y="191" text-anchor="middle">resize to a fixed size</text><text class="small" x="362" y="219" text-anchor="middle">train-only small shifts</text><text class="sub" x="362" y="253" text-anchor="middle">no horizontal flips</text>
+  <path class="arrow" d="M465 195h42"/>
+  <rect class="box" x="517" y="92" width="235" height="206" fill="#e8f7ef"/>
+  <text class="label" x="634" y="135" text-anchor="middle">Train a model</text><text class="small" x="634" y="177" text-anchor="middle">Custom CNN</text><text class="sub" x="634" y="201" text-anchor="middle">required, learned from GTSRB</text><line x1="550" y1="221" x2="718" y2="221" stroke="#c4d0df"/><text class="small" x="634" y="253" text-anchor="middle">ResNet-18</text><text class="sub" x="634" y="276" text-anchor="middle">optional pretrained comparison</text>
+  <path class="arrow" d="M762 195h42"/>
+  <rect class="box" x="814" y="110" width="245" height="170" fill="#f1eaff"/>
+  <text class="label" x="936" y="153" text-anchor="middle">Choose and inspect</text><text class="small" x="936" y="190" text-anchor="middle">validation picks checkpoint</text><text class="small" x="936" y="218" text-anchor="middle">official test checks it once</text><text class="sub" x="936" y="252" text-anchor="middle">curves • confusion • errors</text>
+  <text x="550" y="337" text-anchor="middle" font-size="16" fill="#52627a">Keep images from the same recording track together when making the validation split.</text>
+</svg>

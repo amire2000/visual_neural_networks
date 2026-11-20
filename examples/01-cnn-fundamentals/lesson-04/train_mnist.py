@@ -13,10 +13,31 @@ from torchvision import datasets, transforms
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 DATA_DIR = PROJECT_ROOT / "data" / "mnist"
 OUTPUT_DIR = Path(__file__).resolve().parent / "outputs"
+# Course example settings. Edit these to try small, controlled experiments.
+# --8<-- [start:config]
+# Image and model dimensions.
+IMAGE_SIZE = 28
+INPUT_CHANNELS = 1
+NUM_CLASSES = 10
+CONV1_CHANNELS = 16
+CONV2_CHANNELS = 32
+KERNEL_SIZE = 3
+PADDING = KERNEL_SIZE // 2
+POOL_SIZE = 2
+POOLING_STAGES = 2
+# Two 2 × 2 pooling steps reduce 28 × 28 to 7 × 7.
+FEATURE_MAP_SIDE = IMAGE_SIZE // (POOL_SIZE**POOLING_STAGES)
+# Data and training settings.
 BATCH_SIZE = 64
 EPOCHS = 5
+# Hold out part of the original training split for validation.
 TRAIN_SIZE = 54000
 VALIDATION_SIZE = 6000
+LEARNING_RATE = 0.001
+SEED = 0
+EXPECTED_TRAINABLE_PARAMETERS = 20490
+FILTERS_PER_ROW = 4
+# --8<-- [end:config]
 
 
 # --8<-- [start:model]
@@ -26,15 +47,22 @@ class SimpleCNN(nn.Module):
     def __init__(self):
         """Create the convolutional and classification layers."""
         super().__init__()
-        self.conv1 = nn.Conv2d(1, 16, kernel_size=3, padding=1)
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, padding=1)
+        self.conv1 = nn.Conv2d(
+            INPUT_CHANNELS, CONV1_CHANNELS, kernel_size=KERNEL_SIZE, padding=PADDING
+        )
+        self.conv2 = nn.Conv2d(
+            CONV1_CHANNELS, CONV2_CHANNELS, kernel_size=KERNEL_SIZE, padding=PADDING
+        )
         self.relu = nn.ReLU()
-        self.pool = nn.MaxPool2d(kernel_size=2)
+        self.pool = nn.MaxPool2d(kernel_size=POOL_SIZE)
         self.flatten = nn.Flatten()
-        self.fc = nn.Linear(32 * 7 * 7, 10)
+        self.fc = nn.Linear(
+            CONV2_CHANNELS * FEATURE_MAP_SIDE * FEATURE_MAP_SIDE, NUM_CLASSES
+        )
 
     def forward(self, x):
         """Return ten raw digit scores for each image in the batch."""
+        # Each convolution finds features, then pooling halves height and width.
         x = self.pool(self.relu(self.conv1(x)))
         x = self.pool(self.relu(self.conv2(x)))
         return self.fc(self.flatten(x))
@@ -44,13 +72,15 @@ class SimpleCNN(nn.Module):
 # --8<-- [start:loaders]
 def make_loaders():
     """Create separate training, validation, and test loaders for MNIST."""
+    # ToTensor converts grayscale pixels to [1, 28, 28] floats in [0, 1].
     transform = transforms.ToTensor()
     train_data = datasets.MNIST(DATA_DIR, train=True, download=True, transform=transform)
     test_data = datasets.MNIST(DATA_DIR, train=False, download=True, transform=transform)
+    # Use only the official training split for fitting and validation.
     train_subset, validation_subset, _ = random_split(
         train_data,
         [TRAIN_SIZE, VALIDATION_SIZE, len(train_data) - TRAIN_SIZE - VALIDATION_SIZE],
-        generator=torch.Generator().manual_seed(0),
+        generator=torch.Generator().manual_seed(SEED),
     )
     train_loader = DataLoader(train_subset, batch_size=BATCH_SIZE, shuffle=True)
     validation_loader = DataLoader(validation_subset, batch_size=BATCH_SIZE, shuffle=False)
@@ -63,7 +93,7 @@ def make_loaders():
 def inspect_shapes(model, device):
     """Print each layer's output shape for one dummy image."""
     model.eval()
-    x = torch.zeros(1, 1, 28, 28, device=device)
+    x = torch.zeros(1, INPUT_CHANNELS, IMAGE_SIZE, IMAGE_SIZE, device=device)
     print("Input:", list(x.shape))
     with torch.no_grad():
         x = model.conv1(x)
@@ -90,9 +120,11 @@ def train_one_epoch(model, loader, loss_fn, optimizer, device):
     model.train()
     for images, labels in loader:
         images, labels = images.to(device), labels.to(device)
+        # Forward pass: predict, then measure the error against the labels.
         optimizer.zero_grad()
         logits = model(images)
         loss = loss_fn(logits, labels)
+        # Backpropagate the error and update the trainable weights.
         loss.backward()
         optimizer.step()
 # --8<-- [end:train]
@@ -157,7 +189,7 @@ def save_visualizations(model, sample, initial_kernels, device):
     model.eval()
     with torch.no_grad():
         features = model.relu(model.conv1(image.unsqueeze(0).to(device))).cpu()[0]
-    fig, axes = plt.subplots(4, 4, figsize=(8, 8))
+    fig, axes = plt.subplots(FILTERS_PER_ROW, CONV1_CHANNELS // FILTERS_PER_ROW, figsize=(8, 8))
     for index, axis in enumerate(axes.flat):
         axis.imshow(features[index], cmap="gray")
         axis.set_title(f"Map {index + 1}")
@@ -169,8 +201,8 @@ def save_visualizations(model, sample, initial_kernels, device):
     before = initial_kernels[:, 0]
     after = model.conv1.weight.detach().cpu()[:, 0]
     limit = max(before.abs().max().item(), after.abs().max().item())
-    fig, axes = plt.subplots(2, 16, figsize=(16, 3))
-    for index in range(16):
+    fig, axes = plt.subplots(2, CONV1_CHANNELS, figsize=(CONV1_CHANNELS, 3))
+    for index in range(CONV1_CHANNELS):
         axes[0, index].imshow(before[index], cmap="coolwarm", vmin=-limit, vmax=limit)
         axes[1, index].imshow(after[index], cmap="coolwarm", vmin=-limit, vmax=limit)
         axes[0, index].set_title(str(index + 1))
@@ -186,7 +218,7 @@ def save_visualizations(model, sample, initial_kernels, device):
 
 def main():
     """Train, evaluate, and save the example MNIST CNN."""
-    torch.manual_seed(0)
+    torch.manual_seed(SEED)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Device:", device)
     test_data, train_loader, validation_loader, test_loader = make_loaders()
@@ -194,13 +226,14 @@ def main():
 
     model = SimpleCNN().to(device)
     parameter_count = sum(parameter.numel() for parameter in model.parameters())
-    assert parameter_count == 20490
+    # This guard checks the default architecture against the Lesson 3 count.
+    assert parameter_count == EXPECTED_TRAINABLE_PARAMETERS
     print("Trainable parameters:", parameter_count)
     inspect_shapes(model, device)
 
     initial_kernels = model.conv1.weight.detach().cpu().clone()
     loss_fn = nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
     history = []
     for epoch in range(EPOCHS):
         train_one_epoch(model, train_loader, loss_fn, optimizer, device)
@@ -220,6 +253,7 @@ def main():
             f"validation loss = {validation_loss:.4f}, validation accuracy = {validation_accuracy:.2f}%"
         )
 
+    # Keep the official test split for a single final evaluation.
     test_loss, test_accuracy = evaluate(model, test_loader, loss_fn, device)
     print(f"Test loss: {test_loss:.4f}, test accuracy: {test_accuracy:.2f}%")
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

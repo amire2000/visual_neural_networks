@@ -7,6 +7,7 @@
 - Describe the roles of **[loss and optimizer](#5-choose-a-loss-and-optimizer)** during a training step.
 - Train the model and measure **[test accuracy](#7-evaluate-on-validation-and-test-images)** on held-out images.
 - Inspect **[feature maps and filter weights](#8-visualize-what-the-cnn-learned)** and save model weights.
+- Use a saved model for **[batch inference](#10-run-inference-on-a-random-batch)** and view its predictions.
 
 ## In this lesson
 
@@ -14,6 +15,7 @@
 - Download and visualize MNIST, then check tensor shapes.
 - Train for five epochs and evaluate on the test set.
 - Save the model and compare filters and feature maps.
+- Load the saved model and visualize predictions on a random test batch.
 
 ---
 
@@ -41,6 +43,12 @@ The second command installs the default packages for your platform. If you need 
 ## 2. Load MNIST
 
 TorchVision downloads 60,000 training images and 10,000 test images the first time the script runs. `ToTensor()` converts each grayscale image to a tensor of shape `[1, 28, 28]` and scales pixels to values between 0 and 1. By default, the script uses 54,000 images for training and holds 6,000 from the training set for validation. It keeps all 10,000 test images separate until final evaluation. The `TRAIN_SIZE` constant can be reduced for the small-data experiment in Lesson 6. The dataset is stored under `data/mnist/` in the repository, which is ignored by Git.
+
+The example groups the image dimensions, data split, batch size, epochs, and learning rate into named constants so settings are easy to find and change:
+
+```python
+--8<-- "examples/01-cnn-fundamentals/lesson-04/train_mnist.py:config"
+```
 
 The loader function used by the runnable example is:
 
@@ -193,6 +201,24 @@ model.eval()
 ```
 
 The checkpoint stores weights, not the Python class definition. Keep `SimpleCNN` available when loading it.
+
+---
+
+## 10. Run inference on a random batch
+
+Training updates the weights. **Inference** uses the saved weights to make predictions without updating them. This example loads the checkpoint from the previous section, chooses a shuffled batch of 16 images from MNIST's test set, and shows each prediction beside the correct label. Correct predictions have green titles; mistakes have red titles. The displayed percentage is the model's softmax score for its predicted digit.
+
+```python
+--8<-- "examples/01-cnn-fundamentals/lesson-04/infer_mnist_batch.py:inference_example"
+```
+
+Run it after training, from the repository root:
+
+```bash
+uv run python examples/01-cnn-fundamentals/lesson-04/infer_mnist_batch.py
+```
+
+It saves `random_inference_batch.png` under `examples/01-cnn-fundamentals/lesson-04/outputs/`. The seed makes the selected batch repeatable. Change `SEED` in the script to see a different batch. A confidence score is the model's score, not a guarantee that its prediction is correct.
 
 ---
 

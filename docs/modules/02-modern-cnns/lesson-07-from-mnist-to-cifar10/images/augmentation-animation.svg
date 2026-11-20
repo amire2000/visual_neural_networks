@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" role="img" aria-labelledby="title desc">
+  <title id="title">Animated examples of CIFAR-10 training augmentation</title>
+  <desc id="desc">A small park-camera scene is copied, randomly cropped, and horizontally flipped to create varied training views.</desc>
+  <style>
+    text { font: 17px sans-serif; fill: #18324f; }
+    .small { font-size: 14px; fill: #425b75; }
+    .frame { fill: #edf3e9; stroke: #54745b; stroke-width: 2; }
+    .flow { fill: none; stroke: #6683a1; stroke-width: 4; stroke-dasharray: 9 9; animation: move 1.4s linear infinite; }
+    .crop { stroke: #e07a28; stroke-width: 3; stroke-dasharray: 6 5; fill: #ffe2c5; fill-opacity: .28; }
+    .flip { transform-box: fill-box; transform-origin: center; animation: mirror 2.8s ease-in-out infinite; }
+    @keyframes move { to { stroke-dashoffset: -36; } }
+    @keyframes mirror { 50% { transform: scaleX(-1); } }
+    @media (prefers-reduced-motion: reduce) { .flow, .flip { animation: none; } }
+  </style>
+  <rect width="960" height="330" rx="18" fill="#fff"/>
+  <text x="480" y="34" text-anchor="middle" font-weight="700">Augmentation gives the training set plausible camera variations</text>
+  <g transform="translate(40 78)">
+    <rect class="frame" width="205" height="155" rx="10"/>
+    <path d="M8 120h189" stroke="#648a55" stroke-width="13"/>
+    <circle cx="83" cy="82" r="23" fill="#9a6e45"/><ellipse cx="116" cy="99" rx="38" ry="20" fill="#9a6e45"/><path d="M144 95l20-9 8 13-23 7M101 115v18M132 114v19" fill="none" stroke="#65482f" stroke-width="7" stroke-linecap="round"/>
+    <path d="M68 59l-8-14m20 14 9-14" stroke="#65482f" stroke-width="5"/>
+    <text x="102" y="184" text-anchor="middle">Original park frame</text>
+  </g>
+  <path class="flow" d="M250 155h76"/>
+  <g transform="translate(335 78)">
+    <rect class="frame" width="205" height="155" rx="10"/>
+    <path d="M8 120h189" stroke="#648a55" stroke-width="13"/>
+    <circle cx="83" cy="82" r="23" fill="#9a6e45"/><ellipse cx="116" cy="99" rx="38" ry="20" fill="#9a6e45"/><path d="M144 95l20-9 8 13-23 7M101 115v18M132 114v19" fill="none" stroke="#65482f" stroke-width="7" stroke-linecap="round"/>
+    <rect class="crop" x="42" y="25" width="124" height="102" rx="3"/>
+    <text x="102" y="184" text-anchor="middle">Random crop / shift</text>
+  </g>
+  <path class="flow" d="M545 155h76"/>
+  <g transform="translate(630 78)">
+    <rect class="frame" width="205" height="155" rx="10"/>
+    <path d="M8 120h189" stroke="#648a55" stroke-width="13"/>
+    <g class="flip"><circle cx="83" cy="82" r="23" fill="#9a6e45"/><ellipse cx="116" cy="99" rx="38" ry="20" fill="#9a6e45"/><path d="M144 95l20-9 8 13-23 7M101 115v18M132 114v19" fill="none" stroke="#65482f" stroke-width="7" stroke-linecap="round"/><path d="M68 59l-8-14m20 14 9-14" stroke="#65482f" stroke-width="5"/></g>
+    <text x="102" y="184" text-anchor="middle">Horizontal flip</text>
+  </g>
+  <text class="small" x="480" y="294" text-anchor="middle">Use only transformations that keep the class label meaningful. Validation and test images stay unchanged.</text>
+</svg>
