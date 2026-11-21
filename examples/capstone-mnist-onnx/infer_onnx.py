@@ -40,6 +40,7 @@ def parse_args():
 
 def make_test_batch():
     """Load a reproducible shuffled batch from the official MNIST test split."""
+    # ToTensor converts grayscale pixels to float32 in [0, 1] with shape [1, 28, 28].
     test_data = datasets.MNIST(
         DATA_DIR,
         train=False,
@@ -52,6 +53,7 @@ def make_test_batch():
         shuffle=True,
         generator=torch.Generator().manual_seed(SEED),
     )
+    # The labels are kept for evaluation and figure titles, not passed to ONNX.
     return next(iter(test_loader))
 
 
@@ -66,19 +68,24 @@ def main():
         )
     images, labels = make_test_batch()
     # --8<-- [start:inference]
-    # Run the deployed graph without loading the PyTorch training model.
+    # Create a CPU session for the ONNX graph, not the original PyTorch model.
     session = ort.InferenceSession(
         str(onnx_path), providers=["CPUExecutionProvider"]
     )
+    # Convert the float32 image batch to NumPy for ONNX Runtime's named input.
     scores = session.run(
         [OUTPUT_NAME], {INPUT_NAME: images.numpy()}
     )[0]
+    # Argmax works directly on logits; softmax is only needed for probabilities.
     predictions = scores.argmax(axis=1)
-    # --8<-- [end:inference]
+    # Stable softmax: subtract each row's largest score before exponentiating.
     probabilities = np.exp(scores - scores.max(axis=1, keepdims=True))
     confidences = probabilities / probabilities.sum(axis=1, keepdims=True)
+    # Labels are used here only to measure this sample batch's accuracy.
     batch_accuracy = 100.0 * (predictions == labels.numpy()).mean()
+    # --8<-- [end:inference]
 
+    # Show each prediction beside its true test label, with color marking correctness.
     figure, axes = plt.subplots(
         GRID_ROWS, GRID_COLUMNS, figsize=(9, 9), squeeze=False
     )
@@ -95,6 +102,7 @@ def main():
     figure.suptitle(f"MNIST digits predicted by ONNX Runtime · {batch_accuracy:.1f}% batch accuracy")
     figure.tight_layout()
     result_path = OUTPUT_DIR / result_name
+    # Save the visual result before opening it in a plotting window.
     figure.savefig(result_path, dpi=160, bbox_inches="tight")
     print("Batch size:", len(images))
     print("Model:", onnx_path.name)

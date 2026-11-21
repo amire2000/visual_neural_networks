@@ -282,11 +282,29 @@ Run the exported model with ONNX Runtime:
 uv run python examples/capstone-mnist-onnx/infer_onnx.py
 ```
 
-The script loads a shuffled batch from MNIST's official test set, runs it through `mnist_mlp.onnx`, and saves `outputs/onnx_predictions.png`. Each image shows the correct label and the ONNX Runtime prediction; green titles are correct and red titles are mistakes. The script also prints the batch accuracy and opens the saved figure when a graphical display is available.
+Inference has three parts: **preprocessing** to prepare the image in the format the model expects, **model execution** to get scores, and **postprocessing** to turn scores into a digit prediction and display it.
+
+![MNIST image tensors are prepared and passed to the ONNX graph, which returns logits. Postprocessing selects a digit and score. The true label is used separately to evaluate and label the result.](images/onnx-inference-flow.svg)
+
+### Preprocessing: prepare the model input
+
+`make_test_batch()` loads images from MNIST's official test split. `transforms.ToTensor()` converts each grayscale image from pixel values in the 0–255 range to `float32` values in the 0–1 range, with shape `[1, 28, 28]`. `DataLoader` groups 16 images into a batch shaped `[16, 1, 28, 28]`.
+
+The `labels` returned with the images are the correct answers. They are kept separate: only `images.numpy()` is sent to the ONNX model. The MLP's ONNX graph already contains the flattening and linear layers, so the script does not flatten the image a second time.
+
+### Model execution: run the ONNX graph
+
+`InferenceSession` loads the `.onnx` file and selects the CPU execution provider. The dictionary key `images` must match the input name used during export. ONNX Runtime returns a NumPy array of ten raw **logits** per image, shaped `[16, 10]`. Each row has one score for every digit from 0 through 9.
 
 ```python
 --8<-- "examples/capstone-mnist-onnx/infer_onnx.py:inference"
 ```
+
+### Postprocessing: turn scores into a result
+
+`argmax` selects the index of the largest logit in each row, giving the predicted digit. Softmax is applied separately to turn logits into ten values that sum to 1; the script displays the predicted digit's value as a score. **Softmax is not needed to choose the digit**, because it does not change which score is largest. The score is useful for display, but should not be treated as a calibrated measure of certainty.
+
+The true labels are used after prediction to calculate accuracy and to show `true` and `pred` above each image. Green means they match; red means they differ. The script saves the grid as `outputs/onnx_predictions.png`. The `--quantized` option follows the same preprocessing and postprocessing steps with the int8 ONNX file.
 
 Open `examples/capstone-mnist-onnx/outputs/onnx_predictions.png` after the script runs. The output folder is ignored by Git, so the image appears on your computer after inference rather than in the published course site.
 
@@ -318,6 +336,34 @@ uv run python examples/capstone-mnist-onnx/infer_onnx.py --quantized
 The second command loads `mnist_mlp_int8.onnx` and saves `outputs/onnx_int8_predictions.png`. Compare its printed batch accuracy and image titles with `onnx_predictions.png`. The batch is useful for inspection, but it is not a full test-set evaluation.
 
 Quantization can change scores and predictions. A smaller file does not guarantee faster inference: this model is small, and integer-operation support and conversion overhead depend on the CPU. Measure both models on the hardware where you plan to run them.
+
+### Compare loading and runtime
+
+These options contain the same learned classifier in different formats and use different inference engines:
+
+| Model | File loaded | How it is loaded | Runtime | Numeric format |
+|---|---|---|---|---|
+| PyTorch | `best_mlp.pth` | Recreate `MNISTMLP`, then load its `state_dict` | PyTorch CPU | FP32 |
+| ONNX FP32 | `mnist_mlp.onnx` | ONNX Runtime creates an `InferenceSession` from the graph | ONNX Runtime CPU | FP32 |
+| ONNX int8 | `mnist_mlp_int8.onnx` | ONNX Runtime creates a session from the quantized graph | ONNX Runtime CPU | Int8 weights with dynamic activation quantization |
+
+To measure all three on the same batch, first make sure training, export, and ONNX quantization have completed, then run:
+
+```bash
+uv run python examples/capstone-mnist-onnx/benchmark_inference.py
+```
+
+The script prints a Markdown table with model load time, average batch time, average time per image, images per second, and accuracy on the displayed 16-image batch. It uses a single CPU thread and warms each model before timing. Image loading and preprocessing are excluded from inference timing; model and session initialization are included in load time. The measurements depend on your machine and should be treated as a comparison on that setup, not general performance claims.
+
+One run in this project environment measured:
+
+| Model | Loaded artifact | Runtime | Load time (ms) | Batch inference (ms) | Per image (ms) | Throughput (images/s) | Batch accuracy |
+|---|---|---|---:|---:|---:|---:|---:|
+| PyTorch FP32 | `best_mlp.pth` | PyTorch CPU | 6.12 | 0.184 | 0.012 | 86,758.5 | 93.75% |
+| ONNX FP32 | `mnist_mlp.onnx` | ONNX Runtime CPU | 6.74 | 0.123 | 0.008 | 130,155.7 | 93.75% |
+| ONNX int8 | `mnist_mlp_int8.onnx` | ONNX Runtime CPU | 1.64 | 0.048 | 0.003 | 332,207.2 | 93.75% |
+
+This sample used an Intel Core Ultra 9 285H, one CPU thread, batch size 16, 10 warmup runs, 100 timed runs, PyTorch 2.15.0, and ONNX Runtime 1.32.0. These very small-model timings are sensitive to measurement noise and processor/runtime versions. Use the benchmark script on your own machine before drawing performance conclusions.
 
 ---
 

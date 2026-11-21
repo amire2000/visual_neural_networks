@@ -221,4 +221,4 @@ There is no single correct filter or handwritten image, and each training run ca
 - Deeper layers combine earlier feature maps, but their features are not always easy to name.
 - Visualizations help us inspect the model without turning activations into human-written rules.
 
-Next, [Lesson 6: Training, Overfitting, and Improving Accuracy](../../../syllabus.md#stage-1-cnn-fundamentals-lessons-16) will compare training and test performance, explore overfitting, and discuss ways to improve a baseline. Review [Lesson 4: Build Your First CNN in PyTorch](../lesson-04-build-first-cnn-pytorch/index.md) to train the checkpoint used here.
+Next, [Lesson 6: Training, Overfitting, and Improving Accuracy](../../../syllabus.md#cnn-basics-lessons-16) will compare training and test performance, explore overfitting, and discuss ways to improve a baseline. Review [Lesson 4: Build Your First CNN in PyTorch](../lesson-04-build-first-cnn-pytorch/index.md) to train the checkpoint used here.

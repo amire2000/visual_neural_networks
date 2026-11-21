@@ -137,4 +137,4 @@ The demo's square image size is divisible by both patch sizes. This keeps the pa
 - Self-attention lets tokens combine information from other patches.
 - The example uses color averages to make attention visible; a trained ViT learns richer embeddings and projections.
 
-**Next:** [Lesson 12 — Self-Supervised Learning](../lesson-12-self-supervised-learning/index.md) explores how a model can learn visual representations without human-provided class labels. Review [Stage 2: Modern CNNs](../../../syllabus.md#stage-2-understanding-modern-cnns-lessons-710) for the preceding lessons.
+**Next:** [Lesson 12 — Self-Supervised Learning](../lesson-12-self-supervised-learning/index.md) explores how a model can learn visual representations without human-provided class labels. Review [Modern CNNs](../../../syllabus.md#modern-cnns-lessons-710) for the preceding lessons.

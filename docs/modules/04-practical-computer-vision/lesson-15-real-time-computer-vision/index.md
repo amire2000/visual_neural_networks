@@ -136,4 +136,4 @@ The model uses random weights. Do not treat its outputs as package inspection re
 - Higher throughput does not necessarily mean lower response latency.
 - Resolution, preprocessing, transfers, batching, hardware, and application stages all affect real-time behavior.
 
-**Stage 4 complete.** You have now seen the path from image tensors through trained models to optimized, real-time inference. Revisit [Lesson 14 — Model Optimization](../lesson-14-model-optimization/index.md) to compare precision and hardware latency.
+**Vision in Practice complete.** You have now seen the path from image tensors through trained models to optimized, real-time inference. Revisit [Lesson 14 — Model Optimization](../lesson-14-model-optimization/index.md) to compare precision and hardware latency.

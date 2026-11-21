@@ -6,10 +6,10 @@ The course uses **MNIST**, **CIFAR-10**, and **PyTorch** to connect concepts to 
 
 ## What you will learn
 
-- **Stage 1 — CNN fundamentals:** how images become tensors, filters learn patterns, and a CNN is trained and evaluated.
-- **Stage 2 — Modern CNNs:** color images, deeper networks, ResNet, and transfer learning.
-- **Stage 3 — Modern computer vision:** Vision Transformers, self-supervised learning, and object detection.
-- **Stage 4 — Practical computer vision:** model optimization, latency, throughput, and real-time deployment.
+- **CNN basics:** how images become tensors, filters learn patterns, and a CNN is trained and evaluated.
+- **Modern CNNs:** color images, deeper networks, ResNet, and transfer learning.
+- **Beyond CNNs:** Vision Transformers, self-supervised learning, and object detection.
+- **Vision in practice:** model optimization, latency, throughput, and real-time deployment.
 
 There are 15 core lessons, one optional TensorBoard supplement, and standalone [MNIST-to-ONNX](docs/capstone-mnist-onnx/index.md), [MNIST Vision Transformer](docs/capstone-mnist-vit/index.md), and [GTSRB traffic-sign](docs/capstone-gtsrb/index.md) capstones. Lessons include diagrams, animations, quizzes, hands-on activities, and runnable examples. The [vocabulary](docs/vocabulary.md) page summarizes important terms and links back to the lessons.
 

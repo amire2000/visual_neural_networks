@@ -4,7 +4,7 @@ Learn how neural networks make sense of images, from the first pixel to real-tim
 
 ## Course at a glance
 
-- **15 lessons** across four progressive stages.
+- **15 lessons** across four progressive parts.
 - Start with grayscale MNIST digits and build a mental model of CNNs.
 - Move to color images, deeper CNNs, ResNet, and transfer learning.
 - Explore Vision Transformers, self-supervised learning, and object detection.

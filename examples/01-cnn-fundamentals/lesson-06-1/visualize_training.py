@@ -120,6 +120,7 @@ def main():
     checkpoint_dir = OUTPUT_DIR / "checkpoints"
     checkpoint_dir.mkdir(parents=True, exist_ok=True)
     checkpoint_path = checkpoint_dir / f"{args.run_name}.pth"
+    # A run-specific event folder lets TensorBoard compare separate experiments.
     writer = SummaryWriter(log_dir=str(run_dir))
     best_validation_loss = float("inf")
 
@@ -148,6 +149,8 @@ def main():
             if epoch % 5 == 0:
                 writer.add_histogram("Weights/conv1", model.conv1.weight.detach().cpu(), epoch)
                 writer.add_histogram("Weights/conv2", model.conv2.weight.detach().cpu(), epoch)
+            # Make this epoch's event records available to an open dashboard.
+            writer.flush()
             # --8<-- [end:logging]
 
             # --8<-- [start:checkpoint]
@@ -162,7 +165,6 @@ def main():
                 f"train accuracy={train_accuracy:.2f}%, "
                 f"validation accuracy={validation_accuracy:.2f}%"
             )
-            writer.flush()
     finally:
         writer.close()
 

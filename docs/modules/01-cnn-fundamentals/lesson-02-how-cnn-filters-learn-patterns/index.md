@@ -209,4 +209,4 @@ In `filter_response.py`, change one weight in the vertical-line filter. Predict 
 
 ## What's next? Lesson 3
 
-[Lesson 3: How CNN Layers Transform Images](../../../syllabus.md#stage-1-cnn-fundamentals-lessons-16) follows an MNIST image through feature maps, ReLU, max pooling, and classification. You can revisit [Lesson 1: How Neural Networks See Images](../lesson-01-how-neural-networks-see-images/index.md) for the image and CNN basics.
+[Lesson 3: How CNN Layers Transform Images](../../../syllabus.md#cnn-basics-lessons-16) follows an MNIST image through feature maps, ReLU, max pooling, and classification. You can revisit [Lesson 1: How Neural Networks See Images](../lesson-01-how-neural-networks-see-images/index.md) for the image and CNN basics.

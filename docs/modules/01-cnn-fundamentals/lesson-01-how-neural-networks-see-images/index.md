@@ -274,4 +274,4 @@ Change one `0` in the example image to `255`. Run the script again and predict h
 
 A CNN is not a collection of explicit rules such as “if there are two loops, predict 8.” It is a set of numerical parameters learned from examples. Filters help transform pixels into features, and later layers use those features to produce class scores.
 
-The next lesson follows **one 3 × 3 filter learning to detect a vertical line**, step by step. See the [course overview](../../../index.md) for context and the [Stage 1 syllabus](../../../syllabus.md#stage-1-cnn-fundamentals-lessons-16) for the course sequence.
+The next lesson follows **one 3 × 3 filter learning to detect a vertical line**, step by step. See the [course overview](../../../index.md) for context and the [CNN Basics syllabus](../../../syllabus.md#cnn-basics-lessons-16) for the course sequence.

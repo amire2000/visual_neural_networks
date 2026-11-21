@@ -11,6 +11,7 @@
 ## In this lesson
 
 - Track training and validation metrics over time.
+- Open TensorBoard during training or review saved logs afterward.
 - View recorded validation images and weight histograms.
 - Compare learning rates while keeping the data split and model fixed.
 - Run final test evaluation only after choosing a model.
@@ -40,6 +41,30 @@ The workflow is:
 TensorBoard is a visualization tool: the training code writes event records, and TensorBoard displays them. We will track scalar values such as loss and accuracy, sample images, and weight histograms. Each record includes a **step** (here, the epoch number), so values can be compared over time.
 
 The example uses the same small MNIST CNN as Lesson 4. It makes a fixed split of the 60,000 training images into 50,000 training and 10,000 validation examples. The official 10,000-image test set stays separate while runs are compared.
+
+### View a run while it trains or afterward
+
+The training script saves TensorBoard event files under a separate folder for each `--run-name`. Start the training script in one terminal. In a second terminal, run the TensorBoard command below and open `http://localhost:6006`:
+
+```bash
+uv run tensorboard --logdir examples/01-cnn-fundamentals/lesson-06-1/outputs/tensorboard/runs --host 127.0.0.1
+```
+
+**While training**, TensorBoard reads new event records as the script writes them at the end of each epoch. **After training**, start the same dashboard command to inspect the saved event files; the training process does not need to be running. This is local monitoring and review, not a cloud service, and the saved logs can be viewed without an internet connection.
+
+The essential pattern inside the training loop is to calculate metrics, record them with the epoch as the step, then flush the writer so an open dashboard can see the latest values:
+
+```python
+--8<-- "examples/01-cnn-fundamentals/lesson-06-1/visualize_training.py:logging"
+```
+
+To record a simple run before opening TensorBoard, use one unique run name:
+
+```bash
+uv run python examples/01-cnn-fundamentals/lesson-06-1/visualize_training.py --learning-rate 0.001 --run-name mnist_lr_0p001
+```
+
+If no run has written event files yet, TensorBoard has no metrics to display. Keep the dashboard command running while you inspect it, and stop it with `Ctrl+C` when finished.
 
 ---
 
@@ -74,13 +99,25 @@ The example records 16 validation images so you can confirm what the model is pr
 
 A **histogram** groups numerical values into ranges and shows how many weights fall in each range. It can reveal whether a distribution is shifting or becoming unusually concentrated. A histogram does not tell us by itself whether a filter has learned a useful visual feature; pair it with feature-map visualizations from Lesson 5.
 
-These summaries are logged in the training script. The example sends scalar series under clear tags such as `Loss/Train` and `Loss/Validation`:
+These summaries are logged in the training script under clear scalar tags such as `Loss/Train` and `Loss/Validation`.
 
-```python
---8<-- "examples/01-cnn-fundamentals/lesson-06-1/visualize_training.py:logging"
-```
+### Read the graphs and tabs
 
-When opening TensorBoard, the **Images** tab shows the recorded MNIST examples and the **Histograms** tab shows weight distributions. The **Scalars** tab is where we will compare loss and accuracy.
+![TensorBoard Scalars page showing three MNIST learning-rate runs, their training and validation accuracy curves, a learning-rate graph, and the run selector. The Loss section is collapsed near the bottom.](images/tensorboard-browser-snapshot.png)
+
+This is a snapshot of the actual TensorBoard page for the three saved runs. The run list on the left lets you show or hide a run; its color identifies that run's line. The horizontal axis is the epoch. The **Accuracy/Train** graph shows fit on training data, while **Accuracy/Validation** shows results on held-out data. The **Learning rate** graph confirms each run's setting. The **Loss** section is collapsed in this snapshot; expand it to compare `Loss/Train` and `Loss/Validation`.
+
+For this experiment, start with **Loss/Validation** and **Accuracy/Validation**. The training script saves a checkpoint when validation loss improves. A widening gap where training loss continues to fall but validation loss rises can indicate overfitting. Use the run checkboxes to compare learning rates, and lower the **Smoothing** setting toward zero when you want to inspect the unsmoothed values.
+
+| Tab | What it displays | How to use it in this lesson |
+|---|---|---|
+| **Time Series** | A combined view of scalar graphs, images, and histograms | Scan related summaries together while training |
+| **Scalars** | Numeric values recorded at each step, such as loss, accuracy, and learning rate | Compare train and validation curves across runs |
+| **Images** | Images recorded by the training script | Check the MNIST examples the model receives |
+| **Distributions** | How a tensor's value distribution changes over training steps | Notice whether weight values spread out or become concentrated |
+| **Histograms** | Weight-value counts at the recorded steps | Inspect the distributions for `conv1` and `conv2`, logged every five epochs |
+
+The example only records weight histograms every five epochs, so those tabs update less often than the scalar graphs. A histogram can show how weights change, but it cannot prove that a filter detects a meaningful feature. See the official [TensorBoard visualization guide](https://github.com/tensorflow/tensorboard#the-visualizations) for more on the dashboard views.
 
 ---
 
@@ -91,6 +128,10 @@ Each run uses its own name and event directory. Keep the seed, architecture, dat
 ![Illustrative loss curves for several learning rates: too small may learn slowly, a useful setting may reduce loss steadily, and too large may be unstable. Curves are schematic, not measured results.](images/learning_rates.svg)
 
 The curve shapes are tendencies, not promises. A learning rate that looks good on one model or dataset may not be best for another. Compare the validation metrics from the actual runs.
+
+![Snapshot of TensorBoard scalar data from three MNIST learning-rate runs. Dashed loss curves are training data, solid loss curves are validation data, and the second panel compares validation accuracy.](images/tensorboard-scalars-snapshot.png)
+
+This snapshot is plotted from the runs' saved TensorBoard event files. The lower learning rate improves more gradually, while the highest learning rate's validation loss rises later in training. The medium learning rate performs well in these runs. Your results may differ; use your own validation curves when choosing a checkpoint.
 
 When validation loss improves, the script saves that model as the current best checkpoint:
 
@@ -151,4 +192,4 @@ Replace the run name if another configuration was selected. Record the test resu
 - Validation results help compare runs and select a checkpoint.
 - The test set stays separate until choices are complete.
 
-You can revisit [Lesson 6: Training, Overfitting, and Improving Accuracy](../lesson-06-training-overfitting-improve-accuracy/index.md) for curve interpretation, or continue to [Lesson 7: From MNIST to CIFAR-10](../../../syllabus.md#stage-2-understanding-modern-cnns-lessons-710) to move from grayscale digits to color images.
+You can revisit [Lesson 6: Training, Overfitting, and Improving Accuracy](../lesson-06-training-overfitting-improve-accuracy/index.md) for curve interpretation, or continue to [Lesson 7: From MNIST to CIFAR-10](../../../syllabus.md#modern-cnns-lessons-710) to move from grayscale digits to color images.

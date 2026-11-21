@@ -8,14 +8,14 @@ After the 15 lessons, learners can apply the course in the standalone [MNIST MLP
 
 ## Course overview
 
-| Stage | Lessons | Module | Goal |
+| Part | Lessons | Module | Goal |
 |---|---:|---|---|
-| 1 | 1–6 | CNN Fundamentals | Understand how images are represented, processed, and learned from by a basic CNN. |
-| 2 | 7–10 | Understanding Modern CNNs | Understand richer image data, deeper architectures, ResNet, and transfer learning. |
-| 3 | 11–13 | Modern Computer Vision | Learn the central ideas behind Vision Transformers, self-supervised learning, and object detection. |
-| 4 | 14–15 | Practical Computer Vision | Understand inference optimization and deployment in real-time systems. |
+| CNN Basics | 1–6 | CNN Fundamentals | Understand how images are represented, processed, and learned from by a basic CNN. |
+| Modern CNNs | 7–10 | Understanding Modern CNNs | Understand richer image data, deeper architectures, ResNet, and transfer learning. |
+| Beyond CNNs | 11–13 | Modern Computer Vision | Learn the central ideas behind Vision Transformers, self-supervised learning, and object detection. |
+| Vision in Practice | 14–15 | Practical Computer Vision | Understand inference optimization and deployment in real-time systems. |
 
-## Stage 1 — CNN Fundamentals (Lessons 1–6)
+## CNN Basics — Lessons 1–6
 
 **Dataset focus:** MNIST  
 **Learning objective:** Build an intuitive mental model of a CNN, how training works, and how to interpret its outputs.
@@ -31,7 +31,7 @@ After the 15 lessons, learners can apply the course in the standalone [MNIST MLP
 
 **Optional supplement:** [Lesson 6.1: See CNN Training with TensorBoard](modules/01-cnn-fundamentals/lesson-06-1-tensorboard-dashboard/index.md) visualizes MNIST training runs. It supplements Lesson 6 and is not counted among the 15 core lessons.
 
-## Stage 2 — Understanding Modern CNNs (Lessons 7–10)
+## Modern CNNs — Lessons 7–10
 
 **Dataset focus:** CIFAR-10  
 **Learning objective:** Understand how CNNs scale to more complex images and why modern architectural techniques matter.
@@ -43,7 +43,7 @@ After the 15 lessons, learners can apply the course in the standalone [MNIST MLP
 | 9 | [Understanding ResNet](modules/02-modern-cnns/lesson-09-understanding-resnet/index.md) | Residual blocks, skip connections, gradient flow, and projection shortcuts. | Explain how a residual block combines its input with a learned change. |
 | 10 | [Transfer Learning](modules/02-modern-cnns/lesson-10-transfer-learning/index.md) | Pretraining, feature reuse, frozen backbones, linear probing, fine-tuning, and adapting classification heads. | Choose which pretrained parameters to update for a new image task. |
 
-## Stage 3 — Modern Computer Vision (Lessons 11–13)
+## Beyond CNNs — Lessons 11–13
 
 **Learning objective:** Develop a conceptual understanding of important architectures and learning methods beyond traditional CNN classification.
 
@@ -53,7 +53,7 @@ After the 15 lessons, learners can apply the course in the standalone [MNIST MLP
 | 12 | [Self-Supervised Learning](modules/03-modern-computer-vision/lesson-12-self-supervised-learning/index.md) | Learning visual representations without manual class labels, DINO, student–teacher ideas, and using learned embeddings. | Understand why useful image features can be learned without standard classification labels. |
 | 13 | [Object Detection](modules/03-modern-computer-vision/lesson-13-object-detection/index.md) | Image classification versus localization, bounding boxes, object classes, and the high-level ideas behind YOLO. | Explain what changes when a model must find and classify multiple objects in an image. |
 
-## Stage 4 — Practical Computer Vision (Lessons 14–15)
+## Vision in Practice — Lessons 14–15
 
 **Learning objective:** Understand what is required to run vision models efficiently outside the training environment.
 

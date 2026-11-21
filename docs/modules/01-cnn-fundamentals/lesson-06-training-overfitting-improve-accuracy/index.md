@@ -157,4 +157,4 @@ There is no fixed diagnosis because the values depend on initialization and hard
 - Learning rate and training duration should be adjusted based on observed curves.
 - Keep the test set for one final evaluation after choices are complete.
 
-**Stage 1 complete:** You can now trace, train, visualize, and diagnose a basic MNIST CNN. Optionally, [Lesson 6.1: See CNN Training with TensorBoard](../lesson-06-1-tensorboard-dashboard/index.md) adds a dashboard workflow. Continue to [Lesson 7: From MNIST to CIFAR-10](../../../syllabus.md#stage-2-understanding-modern-cnns-lessons-710) to see why color images are more challenging.
+**CNN Basics complete:** You can now trace, train, visualize, and diagnose a basic MNIST CNN. Optionally, [Lesson 6.1: See CNN Training with TensorBoard](../lesson-06-1-tensorboard-dashboard/index.md) adds a dashboard workflow. Continue to [Lesson 7: From MNIST to CIFAR-10](../../../syllabus.md#modern-cnns-lessons-710) to see why color images are more challenging.

@@ -377,4 +377,4 @@ The flattened size per image is `16 × 7 × 7 = 784`, so the linear layer is `Li
 
 ## What's next? Lesson 4
 
-[Lesson 4: Build Your First CNN in PyTorch](../../../syllabus.md#stage-1-cnn-fundamentals-lessons-16) will load MNIST, implement these layers, train the model, and visualize feature maps. Revisit [Lesson 2: How CNN Filters Learn Patterns](../lesson-02-how-cnn-filters-learn-patterns/index.md) if you want to review how filters are trained.
+[Lesson 4: Build Your First CNN in PyTorch](../../../syllabus.md#cnn-basics-lessons-16) will load MNIST, implement these layers, train the model, and visualize feature maps. Revisit [Lesson 2: How CNN Filters Learn Patterns](../lesson-02-how-cnn-filters-learn-patterns/index.md) if you want to review how filters are trained.

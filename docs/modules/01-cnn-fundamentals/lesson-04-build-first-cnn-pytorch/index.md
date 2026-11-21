@@ -263,4 +263,4 @@ The exact accuracy change is empirical. Fewer filters or layers may reduce capac
 - Training updates weights using loss, gradients, and an optimizer; evaluation measures predictions without updates.
 - Feature maps and kernel plots offer two different views into the trained network.
 
-Next, [Lesson 5: What Does a CNN Actually Learn?](../../../syllabus.md#stage-1-cnn-fundamentals-lessons-16) will compare filters and activations before and after training. Review [Lesson 3: How CNN Layers Transform Images](../lesson-03-how-cnn-layers-transform-images/index.md) for the shape-by-shape explanation.
+Next, [Lesson 5: What Does a CNN Actually Learn?](../../../syllabus.md#cnn-basics-lessons-16) will compare filters and activations before and after training. Review [Lesson 3: How CNN Layers Transform Images](../lesson-03-how-cnn-layers-transform-images/index.md) for the shape-by-shape explanation.
