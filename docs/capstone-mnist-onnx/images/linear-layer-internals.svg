@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="430" viewBox="0 0 1080 430" role="img" aria-labelledby="title desc">
+  <title id="title">Inside a fully connected linear layer</title>
+  <desc id="desc">Three input values each connect to two output units through learned weights. Each output unit adds its own bias after summing the weighted inputs.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#53647c"/></marker>
+    <style>
+      text{font-family:Arial,sans-serif;fill:#17243b}.title{font-size:24px;font-weight:700}.label{font-size:18px;font-weight:700}.small{font-size:15px}.hint{font-size:14px;fill:#53647c}.edge{stroke:#9aabc0;stroke-width:2;opacity:.68}.flow{stroke:#53647c;stroke-width:3;marker-end:url(#arrow)}.input{fill:#2878b5;stroke:#fff;stroke-width:3}.output{fill:#27a27a;stroke:#fff;stroke-width:3}.box{fill:#f3f6fa;stroke:#c7d2df;stroke-width:2;rx:12}
+    </style>
+  </defs>
+  <rect width="1080" height="430" rx="22" fill="#f7f9fc"/>
+  <text class="title" x="540" y="42" text-anchor="middle">Inside one Linear(3, 2) layer</text>
+  <text class="label" x="98" y="94" text-anchor="middle">3 inputs</text>
+  <text class="label" x="382" y="94" text-anchor="middle">weight matrix W</text>
+  <text class="label" x="626" y="94" text-anchor="middle">sum</text>
+  <text class="label" x="748" y="94" text-anchor="middle">add bias</text>
+  <text class="label" x="900" y="94" text-anchor="middle">2 outputs</text>
+
+  <g class="edge">
+    <path d="M124 151L258 152M124 212L258 205M124 273L258 258"/>
+  </g>
+  <circle class="input" cx="98" cy="151" r="24"/><circle class="input" cx="98" cy="212" r="24"/><circle class="input" cx="98" cy="273" r="24"/>
+  <text x="98" y="157" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">x₁</text><text x="98" y="218" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">x₂</text><text x="98" y="279" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">x₃</text>
+  <rect class="box" x="258" y="119" width="248" height="179"/>
+  <text class="small" x="382" y="157" text-anchor="middle">6 learned weights</text>
+  <text class="small" x="382" y="190" text-anchor="middle">w₁₁  w₁₂  w₁₃</text>
+  <text class="small" x="382" y="224" text-anchor="middle">w₂₁  w₂₂  w₂₃</text>
+  <text class="hint" x="382" y="269" text-anchor="middle">one weight per connection</text>
+  <path class="flow" d="M508 165h68"/><path class="flow" d="M508 252h68"/>
+  <circle cx="612" cy="165" r="28" fill="#fff3dd" stroke="#e3a53c" stroke-width="2"/><circle cx="612" cy="252" r="28" fill="#fff3dd" stroke="#e3a53c" stroke-width="2"/>
+  <text class="label" x="612" y="172" text-anchor="middle">Σ</text><text class="label" x="612" y="259" text-anchor="middle">Σ</text>
+  <path class="flow" d="M641 165h35"/><path class="flow" d="M641 252h35"/>
+  <rect class="box" x="681" y="136" width="98" height="58"/><rect class="box" x="681" y="223" width="98" height="58"/>
+  <text class="small" x="730" y="171" text-anchor="middle">+ b₁</text><text class="small" x="730" y="258" text-anchor="middle">+ b₂</text>
+  <path class="flow" d="M781 165h71"/><path class="flow" d="M781 252h71"/>
+  <circle class="output" cx="884" cy="165" r="26"/><circle class="output" cx="884" cy="252" r="26"/>
+  <text x="884" y="171" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">y₁</text><text x="884" y="258" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">y₂</text>
+
+  <text class="small" x="540" y="351" text-anchor="middle">Each output = sum of (input × its weight) + that output unit's bias</text>
+  <text class="hint" x="540" y="383" text-anchor="middle">For MNIST: 784 inputs connect to each of 256 output units in the first layer.</text>
+</svg>

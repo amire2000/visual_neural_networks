@@ -9,6 +9,7 @@ Learn how neural networks make sense of images, from the first pixel to real-tim
 - Move to color images, deeper CNNs, ResNet, and transfer learning.
 - Explore Vision Transformers, self-supervised learning, and object detection.
 - Finish with inference optimization and real-time deployment concepts.
+- Apply the ideas in standalone projects, including MNIST MLP-to-ONNX, MNIST Vision Transformer, and traffic-sign classification.
 
 ## Learning approach
 

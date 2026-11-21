@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="260" viewBox="0 0 1120 260" role="img" aria-labelledby="title desc">
+  <title id="title">MNIST Vision Transformer training and inference pipeline</title>
+  <desc id="desc">A digit image is divided into patches, embedded as tokens, processed by a Transformer encoder, classified into ten logits, and compared with the label during training.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#52627a"/></marker></defs>
+  <rect width="1120" height="260" rx="18" fill="#f5f8fc"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#172b4d">
+    <g><rect x="24" y="74" width="145" height="104" rx="14" fill="#fff" stroke="#91a7c4" stroke-width="2"/><text x="96" y="105" font-size="17" font-weight="bold">28 × 28 digit</text><text x="96" y="136" font-size="14">grayscale image</text><text x="96" y="159" font-size="13">[1, 28, 28]</text></g>
+    <g><rect x="215" y="74" width="145" height="104" rx="14" fill="#e7f2ff" stroke="#6092c6" stroke-width="2"/><text x="287" y="105" font-size="17" font-weight="bold">16 patches</text><text x="287" y="136" font-size="14">each 7 × 7 pixels</text><text x="287" y="159" font-size="13">49 values per patch</text></g>
+    <g><rect x="406" y="74" width="145" height="104" rx="14" fill="#e9f8f2" stroke="#5aa68a" stroke-width="2"/><text x="478" y="105" font-size="17" font-weight="bold">17 tokens</text><text x="478" y="136" font-size="14">16 patch + [CLS]</text><text x="478" y="159" font-size="13">each has 64 values</text></g>
+    <g><rect x="597" y="74" width="145" height="104" rx="14" fill="#f3ebff" stroke="#9874c2" stroke-width="2"/><text x="669" y="105" font-size="17" font-weight="bold">2 encoder layers</text><text x="669" y="136" font-size="14">4 attention heads</text><text x="669" y="159" font-size="13">tokens exchange context</text></g>
+    <g><rect x="788" y="74" width="145" height="104" rx="14" fill="#fff3dc" stroke="#c89542" stroke-width="2"/><text x="860" y="105" font-size="17" font-weight="bold">10 logits</text><text x="860" y="136" font-size="14">one score per digit</text><text x="860" y="159" font-size="13">largest score = guess</text></g>
+    <g><rect x="979" y="74" width="116" height="104" rx="14" fill="#fff" stroke="#91a7c4" stroke-width="2"/><text x="1037" y="105" font-size="17" font-weight="bold">Training</text><text x="1037" y="136" font-size="14">compare with</text><text x="1037" y="159" font-size="13">known label</text></g>
+    <path d="M169 126 H208 M360 126 H399 M551 126 H590 M742 126 H781 M933 126 H972" stroke="#52627a" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="560" y="224" font-size="14" fill="#52627a">After training, inference follows the same path without updating weights.</text>
+  </g>
+</svg>

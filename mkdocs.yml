@@ -57,4 +57,7 @@ nav:
   - Stage 4:
       - 14 - Model Optimization: modules/04-practical-computer-vision/lesson-14-model-optimization/index.md
       - 15 - Real-Time Computer Vision: modules/04-practical-computer-vision/lesson-15-real-time-computer-vision/index.md
-  - Capstone - German Traffic Signs: capstone-gtsrb/index.md
+  - Capstone projects:
+      - MNIST MLP to ONNX: capstone-mnist-onnx/index.md
+      - MNIST Vision Transformer: capstone-mnist-vit/index.md
+      - German Traffic Signs: capstone-gtsrb/index.md

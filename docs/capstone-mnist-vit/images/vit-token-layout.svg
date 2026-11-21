@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="285" viewBox="0 0 960 285" role="img" aria-labelledby="title desc">
+  <title id="title">From image patches to ViT tokens</title>
+  <desc id="desc">A 28 by 28 image is divided into sixteen 7 by 7 patches, projected to 64-value vectors, prepended with a class token, and assigned position embeddings.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#52627a"/></marker></defs>
+  <rect width="960" height="285" rx="18" fill="#f5f8fc"/>
+  <g font-family="Arial, sans-serif" fill="#172b4d">
+    <text x="32" y="35" font-size="17" font-weight="bold">1. Cut into a 4 × 4 grid</text>
+    <rect x="50" y="65" width="180" height="180" rx="4" fill="#fff" stroke="#223b5a" stroke-width="2"/>
+    <path d="M95 65V245 M140 65V245 M185 65V245 M50 110H230 M50 155H230 M50 200H230" stroke="#6d8db3" stroke-width="2"/>
+    <rect x="140" y="110" width="45" height="45" fill="#ffc857" fill-opacity=".78" stroke="#d19419" stroke-width="2"/>
+    <text x="140" y="264" text-anchor="middle" font-size="14">16 patches, each 7 × 7 pixels</text>
+    <path d="M246 155H310" stroke="#52627a" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="335" y="82" font-size="17" font-weight="bold">2. Project each patch</text>
+    <rect x="335" y="106" width="165" height="60" rx="10" fill="#e7f2ff" stroke="#6092c6" stroke-width="2"/>
+    <text x="417" y="132" text-anchor="middle" font-size="14">49 pixel values</text><text x="417" y="153" text-anchor="middle" font-size="14">→ 64-value vector</text>
+    <path d="M511 136H560" stroke="#52627a" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="585" y="82" font-size="17" font-weight="bold">3. Add class + position</text>
+    <rect x="585" y="106" width="88" height="60" rx="10" fill="#ffe7bd" stroke="#c89542" stroke-width="2"/><text x="629" y="141" text-anchor="middle" font-size="15" font-weight="bold">[CLS]</text>
+    <text x="683" y="142" font-size="22">+</text>
+    <g fill="#e9f8f2" stroke="#5aa68a" stroke-width="1.5">
+      <rect x="712" y="106" width="34" height="60" rx="6"/><rect x="752" y="106" width="34" height="60" rx="6"/><rect x="792" y="106" width="34" height="60" rx="6"/><rect x="832" y="106" width="34" height="60" rx="6"/><rect x="872" y="106" width="34" height="60" rx="6"/>
+    </g>
+    <g font-size="11" text-anchor="middle"><text x="729" y="141">P₁</text><text x="769" y="141">P₂</text><text x="809" y="141">P₃</text><text x="849" y="141">…</text><text x="889" y="141">P₁₆</text></g>
+    <text x="756" y="193" font-size="14">each token gets a learned position vector</text>
+    <text x="32" y="270" font-size="14" fill="#52627a">The class token gathers context from all 16 patches; its final representation feeds the digit classifier.</text>
+  </g>
+</svg>

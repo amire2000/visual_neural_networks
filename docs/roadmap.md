@@ -19,4 +19,8 @@ See the [syllabus](syllabus.md) for each lesson's concepts and intended outcome.
 
 ## Capstone project
 
-After Stage 4, apply the course ideas in the standalone [German Traffic Sign Recognition capstone](capstone-gtsrb/index.md). Design and train a 43-class classifier with a custom CNN, then optionally compare it with pretrained ResNet-18. This project is separate from the numbered lesson sequence.
+After Stage 4, apply the course ideas in standalone projects, separate from the numbered lessons:
+
+- [MNIST MLP to ONNX](capstone-mnist-onnx/index.md): train a fully connected network, export it, and run predictions with ONNX Runtime.
+- [MNIST Vision Transformer](capstone-mnist-vit/index.md): build a small ViT, train it on MNIST, and classify unseen digits with PyTorch.
+- [German Traffic Sign Recognition](capstone-gtsrb/index.md): design and train a 43-class CNN, then optionally compare it with pretrained ResNet-18.

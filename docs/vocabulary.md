@@ -75,10 +75,13 @@ Short definitions of the key ideas used throughout the course. Select **Learn mo
 | Matplotlib | A Python library used in the course to display images and plots. | [0 - Setup Lab](lesson-00-setup-lab/index.md) |
 | Max pooling | Keeping the largest value from each small feature-map region to reduce its size. | [3 - CNN Layer Transformations](modules/01-cnn-fundamentals/lesson-03-how-cnn-layers-transform-images/index.md) |
 | MNIST | A dataset of 70,000 small grayscale images of handwritten digits. | [1 - How Neural Networks See Images](modules/01-cnn-fundamentals/lesson-01-how-neural-networks-see-images/index.md) |
+| Multilayer perceptron (MLP) | A network of fully connected layers that transforms input values into class scores. | [MNIST MLP to ONNX capstone](capstone-mnist-onnx/index.md) |
 | Model parameter | A learned number in a model, such as a filter weight or bias. | [2 - How Filters Learn Patterns](modules/01-cnn-fundamentals/lesson-02-how-cnn-filters-learn-patterns/index.md) |
 | Model size | The storage needed for model weights and related data. | [14 - Model Optimization](modules/04-practical-computer-vision/lesson-14-model-optimization/index.md) |
 | Non-maximum suppression (NMS) | A detection step that removes duplicate boxes around the same object. | [13 - Object Detection](modules/03-modern-computer-vision/lesson-13-object-detection/index.md) |
 | Normalization | Scaling image values into the range or distribution expected by a model. | [15 - Real-Time Computer Vision](modules/04-practical-computer-vision/lesson-15-real-time-computer-vision/index.md) |
+| ONNX | A model exchange format that stores a model's computation and learned parameters. | [MNIST MLP to ONNX capstone](capstone-mnist-onnx/index.md) |
+| ONNX Runtime | A runtime that loads and executes models saved in ONNX format. | [MNIST MLP to ONNX capstone](capstone-mnist-onnx/index.md) |
 | Object detection | Predicting both what objects appear in an image and where they are. | [13 - Object Detection](modules/03-modern-computer-vision/lesson-13-object-detection/index.md) |
 | Optimizer | A method that uses gradients to update model parameters and reduce loss. | [2 - How Filters Learn Patterns](modules/01-cnn-fundamentals/lesson-02-how-cnn-filters-learn-patterns/index.md) |
 | Overfitting | When a model fits its training examples well but performs worse on new examples. | [6 - Training and Overfitting](modules/01-cnn-fundamentals/lesson-06-training-overfitting-improve-accuracy/index.md) |
@@ -114,6 +117,7 @@ Short definitions of the key ideas used throughout the course. Select **Learn mo
 | Throughput | The number of frames or examples a system processes per unit of time. | [15 - Real-Time Computer Vision](modules/04-practical-computer-vision/lesson-15-real-time-computer-vision/index.md) |
 | Token | A vector in the sequence that a Vision Transformer processes; image patches become tokens. | [11 - Vision Transformers](modules/03-modern-computer-vision/lesson-11-vision-transformers/index.md) |
 | TorchVision | PyTorch's vision library, including image datasets, transforms, and pretrained models. | [7 - From MNIST to CIFAR-10](modules/02-modern-cnns/lesson-07-from-mnist-to-cifar10/index.md) |
+| TorchAO | PyTorch's library for model quantization and related optimization workflows. | [MNIST MLP to ONNX capstone](capstone-mnist-onnx/index.md) |
 | Training | Updating model parameters from labeled examples to reduce loss. | [4 - Build a CNN in PyTorch](modules/01-cnn-fundamentals/lesson-04-build-first-cnn-pytorch/index.md) |
 | Training set | Examples used to calculate loss and update model parameters. | [6 - Training and Overfitting](modules/01-cnn-fundamentals/lesson-06-training-overfitting-improve-accuracy/index.md) |
 | Transfer learning | Reusing a model trained on one task and adapting it to another. | [10 - Transfer Learning](modules/02-modern-cnns/lesson-10-transfer-learning/index.md) |

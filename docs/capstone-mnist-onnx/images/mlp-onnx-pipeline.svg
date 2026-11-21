@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="405" viewBox="0 0 1100 405" role="img" aria-labelledby="title desc">
+  <title id="title">MNIST multilayer perceptron from training to ONNX inference</title>
+  <desc id="desc">A 28 by 28 digit becomes 784 pixel values, passes through two fully connected hidden layers and ten output scores, is trained in PyTorch, exported as ONNX, and run by ONNX Runtime to predict a digit.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#53647c"/></marker>
+    <style>
+      text{font-family:Arial,sans-serif;fill:#17243b}.label{font-size:19px;font-weight:700}.small{font-size:15px}.sub{font-size:14px;fill:#53647c}.box{stroke:#c5d1df;stroke-width:2;rx:16}.arrow{stroke:#53647c;stroke-width:3;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1100" height="405" rx="22" fill="#f7f9fc"/>
+  <text x="550" y="40" text-anchor="middle" font-size="25" font-weight="700">One digit, three stages: learn → export → predict</text>
+  <rect class="box" x="22" y="92" width="155" height="205" fill="#e8f3ff"/>
+  <rect x="68" y="119" width="62" height="62" rx="4" fill="#222"/>
+  <text x="99" y="160" text-anchor="middle" font-size="46" font-family="serif" font-weight="700" fill="#fff">7</text>
+  <text class="label" x="99" y="218" text-anchor="middle">MNIST</text><text class="small" x="99" y="245" text-anchor="middle">28 × 28 grayscale</text><text class="sub" x="99" y="272" text-anchor="middle">[1, 28, 28]</text>
+  <path class="arrow" d="M181 194h32"/>
+  <rect class="box" x="220" y="92" width="168" height="205" fill="#fff3dd"/>
+  <text class="label" x="304" y="137" text-anchor="middle">Flatten</text><text class="small" x="304" y="174" text-anchor="middle">keep pixel values</text><text class="small" x="304" y="201" text-anchor="middle">in one vector</text><text class="sub" x="304" y="250" text-anchor="middle">784 inputs</text>
+  <path class="arrow" d="M392 194h30"/>
+  <rect class="box" x="429" y="74" width="224" height="241" fill="#e8f7ef"/>
+  <text class="label" x="541" y="111" text-anchor="middle">PyTorch MLP</text>
+  <rect x="454" y="135" width="174" height="38" rx="8" fill="#fff" stroke="#b8c9db"/><text class="small" x="541" y="160" text-anchor="middle">784 → 256 → 128 → 10</text>
+  <text class="small" x="541" y="203" text-anchor="middle">Train on labeled digits</text><text class="sub" x="541" y="231" text-anchor="middle">validation selects weights</text>
+  <rect x="476" y="250" width="130" height="38" rx="8" fill="#d7f1df"/><text class="small" x="541" y="275" text-anchor="middle">best_mlp.pth</text>
+  <path class="arrow" d="M657 194h30"/>
+  <rect class="box" x="694" y="92" width="166" height="205" fill="#f1eaff"/>
+  <text class="label" x="777" y="140" text-anchor="middle">Export</text><text class="small" x="777" y="178" text-anchor="middle">PyTorch → ONNX</text><text class="small" x="777" y="210" text-anchor="middle">dynamic batch</text><text class="sub" x="777" y="258" text-anchor="middle">mnist_mlp.onnx</text>
+  <path class="arrow" d="M864 194h30"/>
+  <rect class="box" x="901" y="92" width="177" height="205" fill="#ffe9e7"/>
+  <text class="label" x="989" y="140" text-anchor="middle">ONNX Runtime</text><text class="small" x="989" y="178" text-anchor="middle">unseen test images</text><text class="small" x="989" y="210" text-anchor="middle">10 digit scores</text><text class="sub" x="989" y="258" text-anchor="middle">prediction PNG</text>
+  <line x1="461" y1="350" x2="638" y2="350" stroke="#9ab2cb" stroke-width="3"/><text class="sub" x="550" y="378" text-anchor="middle">The MLP learns from pixel positions directly, without convolution filters.</text>
+</svg>
