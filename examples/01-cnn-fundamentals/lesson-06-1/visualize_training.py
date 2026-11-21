@@ -123,8 +123,21 @@ def main():
     # A run-specific event folder lets TensorBoard compare separate experiments.
     writer = SummaryWriter(log_dir=str(run_dir))
     best_validation_loss = float("inf")
+    parameter_count = sum(parameter.numel() for parameter in model.parameters())
+    run_settings = (
+        f"- Learning rate: {args.learning_rate:g}\n"
+        f"- Optimizer: Adam\n"
+        f"- Batch size: {BATCH_SIZE}\n"
+        f"- Epochs: {EPOCHS}\n"
+        f"- Training images: {TRAIN_SIZE}\n"
+        f"- Validation images: {VALIDATION_SIZE}\n"
+        f"- Random seed: {SEED}\n"
+        f"- Model: SimpleCNN ({parameter_count:,} trainable parameters)"
+    )
 
     try:
+        # Record this run's settings beside its scalar and histogram data.
+        writer.add_text("Run settings", run_settings, global_step=0)
         sample_images, _ = next(iter(validation_loader))
         writer.add_image(
             "MNIST/Validation examples",

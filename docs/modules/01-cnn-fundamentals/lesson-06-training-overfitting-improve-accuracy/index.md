@@ -157,4 +157,20 @@ There is no fixed diagnosis because the values depend on initialization and hard
 - Learning rate and training duration should be adjusted based on observed curves.
 - Keep the test set for one final evaluation after choices are complete.
 
-**CNN Basics complete:** You can now trace, train, visualize, and diagnose a basic MNIST CNN. Optionally, [Lesson 6.1: See CNN Training with TensorBoard](../lesson-06-1-tensorboard-dashboard/index.md) adds a dashboard workflow. Continue to [Lesson 7: From MNIST to CIFAR-10](../../../syllabus.md#modern-cnns-lessons-710) to see why color images are more challenging.
+### Training-session settings and changes
+
+In this course's baseline, the model settings stay fixed during a run, while the CNN's learned weights and biases update after each training batch. The hands-on activity changes two settings to demonstrate the effect of less training data and more epochs:
+
+| Setting or value | Lesson 4 baseline | Lesson 6 experiment | What it means |
+|---|---:|---:|---|
+| Training images | 54,000 | 600 | Examples used to update the model weights |
+| Validation images | 6,000 | 6,000 | Held-out examples used to track generalization |
+| Epochs | 5 | 20 | Full passes over the training images |
+| Batch size | 64 | 64 | Images processed before one weight update |
+| Learning rate | 0.001 | 0.001 | Step size used by the optimizer |
+| CNN architecture | SimpleCNN | SimpleCNN | Same layers and capacity in both runs |
+| Learned weights and biases | 20,490 values | 20,490 values | Updated during training; not manually set in this experiment |
+
+Restore the baseline values after the experiment. The exact loss and accuracy changes depend on initialization and hardware, so compare the training and validation curves rather than expecting fixed numbers.
+
+**CNN Basics complete:** You can now trace, train, visualize, and diagnose a basic MNIST CNN. Optionally, [Lesson 6.1: See CNN Training with TensorBoard](../lesson-06-1-tensorboard-dashboard/index.md) adds a dashboard workflow. Continue to the [CNN Basics stage review](../review/index.md), then move on to [Lesson 7: From MNIST to CIFAR-10](../../02-modern-cnns/lesson-07-from-mnist-to-cifar10/index.md).

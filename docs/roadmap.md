@@ -11,9 +11,16 @@ Build an intuitive understanding of how modern vision models learn from images a
 | Beyond CNNs | 11–13 | Modern Computer Vision | ViT, self-supervision, detection | Understand the conceptual differences among CNNs, Vision Transformers, self-supervised learning, and object detection. |
 | Vision in Practice | 14–15 | Practical Computer Vision | Optimization and deployment | Understand the fundamentals of optimizing and deploying vision models for real-time inference. |
 
+Each part ends with a short **stage review**. Reviews connect ideas across lessons, check understanding, and provide a small application prompt. They are checkpoints, not extra lessons:
+
+- CNN Basics: [review the image-to-prediction workflow](modules/01-cnn-fundamentals/review/index.md).
+- Modern CNNs: [compare deeper CNNs, ResNet, and transfer learning](modules/02-modern-cnns/review/index.md).
+- Beyond CNNs: [compare architectures and task types](modules/03-modern-computer-vision/review/index.md).
+- Vision in Practice: [review inference trade-offs](modules/04-practical-computer-vision/review/index.md).
+
 ## Recommended sequence
 
-Before CNN Basics, complete [Lesson 0: Setup Lab](lesson-00-setup-lab/index.md) to prepare the Python environment and download MNIST. Then work through the four parts in order: build the CNN mental model, expand to modern CNNs, explore other vision architectures, and finish with practical inference.
+Before CNN Basics, complete [Lesson 0: Setup Lab](lesson-00-setup-lab/index.md) to prepare the Python environment and download MNIST. Then work through the four parts in order: build the CNN mental model, expand to modern CNNs, explore other vision architectures, and finish with practical inference. Complete the linked review at the end of each part before moving on.
 
 See the [syllabus](syllabus.md) for each lesson's concepts and intended outcome.
 

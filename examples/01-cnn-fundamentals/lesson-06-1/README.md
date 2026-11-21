@@ -45,9 +45,10 @@ The seed, architecture, data split, batch size, and epoch count stay fixed. Only
 ## Expected outputs
 
 - TensorBoard event data under `outputs/tensorboard/runs/<run-name>/`
+- A run-settings summary in TensorBoard's **Text** tab, including the learning rate and fixed experiment settings
 - The best-validation-loss checkpoint under `outputs/tensorboard/checkpoints/<run-name>.pth`
 - Console output with train and validation metrics for each epoch. The separate `evaluate_best.py` command prints final test loss and accuracy after a run is selected.
 
 ## Limitations
 
-The example logs one scalar learning rate per epoch and histograms every five epochs. Training time and accuracy vary by hardware. Each run name maps to one event directory and checkpoint; rerunning the same name reuses that directory. Compare/select using validation metrics and run `evaluate_best.py` only for the selected checkpoint.
+The example logs one scalar learning rate per epoch and histograms every five epochs. It records convolution weights in those histograms, not biases or classifier weights. Training time and accuracy vary by hardware. Each run name maps to one event directory and checkpoint; rerunning the same name reuses that directory. Compare/select using validation metrics and run `evaluate_best.py` only for the selected checkpoint.

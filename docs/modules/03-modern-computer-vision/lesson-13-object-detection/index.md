@@ -110,4 +110,4 @@ The left panel is the input scene. The right panel shows the detected color regi
 - YOLO predicts candidate boxes and classes in one model pass, then filters duplicate candidates.
 - The runnable color-mask example explains box output but does not replace a trained detector.
 
-**Beyond CNNs complete.** Continue to [Vision in Practice](../../../syllabus.md#vision-in-practice-lessons-1415) to explore efficient inference and deployment. Revisit [Lesson 12 — Self-Supervised Learning](../lesson-12-self-supervised-learning/index.md) for the label-free representation example.
+**Beyond CNNs complete.** Revisit [Lesson 12 — Self-Supervised Learning](../lesson-12-self-supervised-learning/index.md) for the label-free representation example, then complete the [Beyond CNNs stage review](../review/index.md) before moving to Lesson 14.

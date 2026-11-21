@@ -45,19 +45,24 @@ nav:
       - 5 - What CNNs Learn: modules/01-cnn-fundamentals/lesson-05-what-cnn-learns/index.md
       - 6 - Training and Overfitting: modules/01-cnn-fundamentals/lesson-06-training-overfitting-improve-accuracy/index.md
       - 6.1 - TensorBoard (optional): modules/01-cnn-fundamentals/lesson-06-1-tensorboard-dashboard/index.md
+      - CNN Basics Review: modules/01-cnn-fundamentals/review/index.md
   - Modern CNNs:
       - 7 - From MNIST to CIFAR-10: modules/02-modern-cnns/lesson-07-from-mnist-to-cifar10/index.md
       - 8 - Building Deeper CNNs: modules/02-modern-cnns/lesson-08-building-deeper-cnns/index.md
       - 9 - Understanding ResNet: modules/02-modern-cnns/lesson-09-understanding-resnet/index.md
       - 10 - Transfer Learning: modules/02-modern-cnns/lesson-10-transfer-learning/index.md
+      - Modern CNNs Review: modules/02-modern-cnns/review/index.md
   - Beyond CNNs:
       - 11 - Vision Transformers: modules/03-modern-computer-vision/lesson-11-vision-transformers/index.md
       - 12 - Self-Supervised Learning: modules/03-modern-computer-vision/lesson-12-self-supervised-learning/index.md
       - 13 - Object Detection: modules/03-modern-computer-vision/lesson-13-object-detection/index.md
+      - Beyond CNNs Review: modules/03-modern-computer-vision/review/index.md
   - Vision in Practice:
       - 14 - Model Optimization: modules/04-practical-computer-vision/lesson-14-model-optimization/index.md
       - 15 - Real-Time Computer Vision: modules/04-practical-computer-vision/lesson-15-real-time-computer-vision/index.md
+      - Vision in Practice Review: modules/04-practical-computer-vision/review/index.md
   - Capstone projects:
       - MNIST MLP to ONNX: capstone-mnist-onnx/index.md
       - MNIST Vision Transformer: capstone-mnist-vit/index.md
       - German Traffic Signs: capstone-gtsrb/index.md
+  - TODO: todo.md

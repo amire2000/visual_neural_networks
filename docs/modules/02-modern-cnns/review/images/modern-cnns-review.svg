@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="230" viewBox="0 0 1100 230" role="img" aria-labelledby="title desc">
+  <title id="title">Modern CNNs stage recap</title>
+  <desc id="desc">An RGB image becomes local features, deeper feature combinations, and an object-class prediction, with residual connections helping deeper learning.</desc>
+  <rect width="1100" height="230" rx="18" fill="#f8fafc"/><style>text{font:17px Arial,sans-serif;fill:#172554}.label{font-weight:700}.box{fill:#dcfce7;stroke:#16a34a;stroke-width:2;rx:14}.arrow{stroke:#64748b;stroke-width:3;marker-end:url(#arrow)}</style><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#64748b"/></marker></defs>
+  <text x="550" y="38" text-anchor="middle" font-size="23" font-weight="700">From RGB pixels to reusable object features</text>
+  <rect class="box" x="35" y="85" width="190" height="95"/><text class="label" x="130" y="125" text-anchor="middle">RGB image</text><text x="130" y="153" text-anchor="middle">color + variation</text>
+  <path class="arrow" d="M230 132H285"/>
+  <rect class="box" x="295" y="85" width="190" height="95"/><text class="label" x="390" y="125" text-anchor="middle">Local features</text><text x="390" y="153" text-anchor="middle">edges + textures</text>
+  <path class="arrow" d="M490 132H545"/>
+  <rect class="box" x="555" y="85" width="190" height="95"/><text class="label" x="650" y="125" text-anchor="middle">Deeper CNN</text><text x="650" y="153" text-anchor="middle">ResNet skips help</text>
+  <path class="arrow" d="M750 132H805"/>
+  <rect class="box" x="815" y="85" width="245" height="95"/><text class="label" x="937" y="125" text-anchor="middle">Transfer learning</text><text x="937" y="153" text-anchor="middle">reuse features for a new task</text>
+</svg>

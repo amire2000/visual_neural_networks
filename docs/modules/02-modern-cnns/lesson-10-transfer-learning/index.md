@@ -137,4 +137,4 @@ The first run downloads the pretrained weights. The example uses a random-shaped
 - Freezing the backbone trains only the new head; fine-tuning updates selected pretrained layers too.
 - Replace the final classifier to match the new class count and validate the result on task-specific images.
 
-**Previous:** [Lesson 9 — Understanding ResNet](../lesson-09-understanding-resnet/index.md). **Next:** [Lesson 11 — Vision Transformers](../../03-modern-computer-vision/lesson-11-vision-transformers/index.md) explores a different way to process image features.
+**Previous:** [Lesson 9 — Understanding ResNet](../lesson-09-understanding-resnet/index.md). **Next:** Complete the [Modern CNNs stage review](../review/index.md), then continue to [Lesson 11 — Vision Transformers](../../03-modern-computer-vision/lesson-11-vision-transformers/index.md).

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="260" viewBox="0 0 1100 260" role="img" aria-labelledby="title desc">
+  <title id="title">Beyond CNNs stage recap</title>
+  <desc id="desc">A vision task can use CNN feature maps, Transformer patch tokens, or self-supervised representations. Detection adds object locations and classes to its output.</desc>
+  <rect width="1100" height="260" rx="18" fill="#f8fafc"/><style>text{font:16px Arial,sans-serif;fill:#172554}.label{font-weight:700}.box{fill:#f3e8ff;stroke:#9333ea;stroke-width:2;rx:14}.arrow{stroke:#64748b;stroke-width:3;marker-end:url(#arrow)}</style><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#64748b"/></marker></defs>
+  <text x="550" y="38" text-anchor="middle" font-size="23" font-weight="700">Different ways to represent and locate visual content</text>
+  <rect class="box" x="35" y="88" width="190" height="100"/><text class="label" x="130" y="126" text-anchor="middle">Image</text><text x="130" y="155" text-anchor="middle">pixels</text>
+  <path class="arrow" d="M230 138H285"/>
+  <rect class="box" x="295" y="88" width="210" height="100"/><text class="label" x="400" y="126" text-anchor="middle">CNN</text><text x="400" y="155" text-anchor="middle">feature maps</text>
+  <rect class="box" x="545" y="88" width="210" height="100"/><text class="label" x="650" y="126" text-anchor="middle">Vision Transformer</text><text x="650" y="155" text-anchor="middle">patch tokens</text>
+  <rect class="box" x="795" y="88" width="270" height="100"/><text class="label" x="930" y="126" text-anchor="middle">Detection output</text><text x="930" y="155" text-anchor="middle">object classes + locations</text>
+  <path class="arrow" d="M510 138H535"/><path class="arrow" d="M760 138H785"/>
+  <rect x="295" y="210" width="460" height="35" rx="10" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/><text x="525" y="233" text-anchor="middle">Self-supervision: learn reusable features without class labels</text>
+</svg>

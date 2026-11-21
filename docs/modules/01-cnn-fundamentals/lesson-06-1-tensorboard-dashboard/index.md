@@ -119,6 +119,19 @@ For this experiment, start with **Loss/Validation** and **Accuracy/Validation**.
 
 The example only records weight histograms every five epochs, so those tabs update less often than the scalar graphs. A histogram can show how weights change, but it cannot prove that a filter detects a meaningful feature. See the official [TensorBoard visualization guide](https://github.com/tensorflow/tensorboard#the-visualizations) for more on the dashboard views.
 
+### Summarize what changed in a training session
+
+“Parameters” can mean the model's **learned weights and biases**, or the **settings** chosen for training. During one run, the optimizer updates weights and biases after each training batch. Settings such as learning rate, batch size, and epoch count stay fixed for that run. In this lesson's comparisons, only the learning rate changes between runs.
+
+| Item | What happens during one run? | Where to inspect it |
+|---|---|---|
+| Convolution and classifier weights and biases | Updated by backpropagation and Adam after each training batch | Histograms show `conv1` and `conv2` weights every five epochs; biases and classifier weights are not histogrammed |
+| Learning rate | Fixed within a run; changed between comparison runs | `Scalars` → `Learning rate` and `Text` → `Run settings` |
+| Batch size, epoch count, data split, random seed, and model | Fixed for fair comparisons | `Text` → `Run settings` |
+| Loss and accuracy | Measured each epoch; they are not model parameters | `Scalars` |
+
+The training script records the run settings in TensorBoard's **Text** tab, so each run has a configuration summary beside its graphs. The model has 20,490 trainable weights and biases; the histograms show only some of them. Compare the settings first, then use validation curves to see how each learning rate affected training.
+
 ---
 
 ## 4. Compare independent runs
