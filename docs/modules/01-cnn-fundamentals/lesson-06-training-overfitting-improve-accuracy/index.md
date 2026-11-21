@@ -66,7 +66,25 @@ For example, 99% training accuracy and 72% validation accuracy would show a larg
 
 ## 3. Choose an improvement that matches the signal
 
-A **learning rate** controls how large the optimizer's weight updates are. If it is too high, the updates can jump past useful values and loss may oscillate or grow. If it is too low, learning may make very slow progress.
+A **learning rate** is a scale factor the optimizer uses when updating the model's weights. It has no standard physical unit like seconds or meters; in ordinary neural-network training, it is treated as a unitless setting. The gradient gives the optimizer information about which direction changes would increase loss. The learning rate helps set the size of the update in the direction that should reduce it.
+
+For a simple gradient-descent update:
+
+$$
+\text{new weight} = \text{old weight} - (\text{learning rate} \times \text{gradient})
+$$
+
+For example, if a weight is `0.20`, its gradient is `0.4`, and the learning rate is `0.001`, a simple SGD update changes it by `0.0004`:
+
+```text
+0.20 − (0.001 × 0.4) = 0.1996
+```
+
+This is an illustrative **SGD** calculation. The course code uses **Adam**: after `loss.backward()` calculates gradients, `optimizer.step()` uses Adam's running gradient estimates and scales its proposed update with the learning rate. The optimizer applies an update after each training batch, not just once per epoch.
+
+![Update path: the loss produces gradients, Adam shapes an update, and the learning rate sets its scale before the weights change.](images/learning-rate-update.svg)
+
+If the learning rate is too high, updates can jump past useful values and loss may oscillate or grow. If it is too low, learning may make very slow progress.
 
 ![Schematic loss curves showing unstable updates from a high learning rate, steady progress in a useful range, and slow progress from a low learning rate.](images/learning-rate.svg)
 

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="225" viewBox="0 0 1000 225" role="img" aria-labelledby="title desc">
+  <title id="title">How the learning rate is used by an optimizer</title>
+  <desc id="desc">The loss is backpropagated into gradients, Adam shapes an update, the learning rate scales it, and the optimizer updates the model weights.</desc>
+  <rect width="1000" height="225" rx="18" fill="#f8fafc"/>
+  <style>text{font:16px Arial,sans-serif;fill:#172554}.label{font-weight:700}.box{fill:#e0f2fe;stroke:#0284c7;stroke-width:2;rx:14}.rate{fill:#fef3c7;stroke:#d97706;stroke-width:2;rx:14}.arrow{stroke:#64748b;stroke-width:3;marker-end:url(#arrow)}</style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#64748b"/></marker></defs>
+  <text x="500" y="35" text-anchor="middle" font-size="22" font-weight="700">One optimizer update after a training batch</text>
+  <rect class="box" x="25" y="78" width="155" height="92"/><text class="label" x="102" y="116" text-anchor="middle">Loss</text><text x="102" y="143" text-anchor="middle">prediction error</text>
+  <path class="arrow" d="M185 124H220"/>
+  <rect class="box" x="230" y="78" width="170" height="92"/><text class="label" x="315" y="116" text-anchor="middle">Backpropagation</text><text x="315" y="143" text-anchor="middle">calculates gradients</text>
+  <path class="arrow" d="M405 124H440"/>
+  <rect class="box" x="450" y="78" width="150" height="92"/><text class="label" x="525" y="116" text-anchor="middle">Adam</text><text x="525" y="143" text-anchor="middle">shapes the step</text>
+  <path class="arrow" d="M605 124H640"/>
+  <rect class="rate" x="650" y="78" width="145" height="92"/><text class="label" x="722" y="116" text-anchor="middle">Learning rate</text><text x="722" y="143" text-anchor="middle">scales the step</text>
+  <path class="arrow" d="M800 124H835"/>
+  <rect class="box" x="845" y="78" width="130" height="92"/><text class="label" x="910" y="116" text-anchor="middle">Weights</text><text x="910" y="143" text-anchor="middle">are updated</text>
+  <text x="500" y="202" text-anchor="middle" fill="#475569">Smaller rate → smaller steps. Larger rate → larger steps.</text>
+</svg>
