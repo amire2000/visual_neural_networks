@@ -4,7 +4,7 @@
 
 **Scope:** 15 lessons across four stages. This page defines course structure only. It does not contain lesson materials, code implementations, or exercises.
 
-After the 15 lessons, learners can apply the course in the standalone [MNIST MLP to ONNX](capstone-mnist-onnx/index.md), [MNIST Vision Transformer](capstone-mnist-vit/index.md), and [German Traffic Sign Recognition](capstone-gtsrb/index.md) capstones. These are separate projects, not additional numbered lessons.
+After the 15 lessons, learners can apply the course in the standalone [MNIST MLP to ONNX](capstone-mnist-onnx/index.md), [MNIST Vision Transformer](capstone-mnist-vit/index.md), [German Traffic Sign Recognition](capstone-gtsrb/index.md), [ResNet-20 Paper to Code](capstone-resnet-cifar10/index.md), and [MobileNetV2 Paper to Deployment](capstone-mobilenetv2-gtsrb/index.md) capstones. These are separate projects, not additional numbered lessons.
 
 ## Course overview
 

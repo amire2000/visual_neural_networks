@@ -6,6 +6,8 @@
 - Explain the trade-off between **[latency and numeric agreement](#3-measure-the-inference-trade-off)**.
 - Describe **[TensorRT](#4-where-tensorrt-fits)** as an inference optimization runtime.
 - Interpret a **[camera-workload benchmark](#5-run-the-optimization-example)** without treating speed as model accuracy.
+- Convert and compare a trained MNIST model with **[TensorRT](#6-optimize-a-trained-mnist-model)**.
+- Explain **[scale, zero point, and calibration](#7-how-float-values-map-to-int8)** in post-training quantization.
 
 ## In this lesson
 
@@ -13,6 +15,7 @@
 - Compare model storage at different numeric precisions.
 - Measure CPU/GPU inference latency and FP16 output differences.
 - Connect precision and graph optimization to TensorRT deployment.
+- Build TensorRT FP32, FP16, and calibrated INT8 engines from the same ONNX classifier.
 
 ---
 
@@ -105,6 +108,77 @@ The script saves and displays `outputs/optimization_tradeoffs.png`. It needs no 
 
 ---
 
+## 6. Optimize a trained MNIST model
+
+The earlier parcel benchmark measures a CNN's compute footprint. For an end-to-end deployment example, use the trained MLP in the [MNIST ONNX capstone](../../../capstone-mnist-onnx/index.md). It gives us real task accuracy, a portable ONNX Runtime CPU baseline, and a fixed test batch. TensorRT is optional and needs a compatible NVIDIA GPU and TensorRT installation.
+
+First train and export the model by following the capstone README. For TensorRT 11, use NVIDIA Model Optimizer to prepare FP16 and calibrated INT8 ONNX graphs, then build each graph into an engine:
+
+```bash
+uv pip install --python .venv/bin/python --extra-index-url https://pypi.nvidia.com 'nvidia-modelopt[onnx]'
+uv run python examples/capstone-mnist-onnx/prepare_calibration_data.py
+uv run python -m modelopt.onnx.autocast --onnx_path examples/capstone-mnist-onnx/outputs/mnist_mlp.onnx --output_path examples/capstone-mnist-onnx/outputs/mnist_mlp_fp16.onnx
+uv run python -m modelopt.onnx.quantization --onnx_path examples/capstone-mnist-onnx/outputs/mnist_mlp.onnx --quantize_mode int8 --calibration_data_path examples/capstone-mnist-onnx/outputs/mnist_calibration.npz --output_path examples/capstone-mnist-onnx/outputs/mnist_mlp_int8_qdq.onnx
+trtexec --onnx=examples/capstone-mnist-onnx/outputs/mnist_mlp.onnx --saveEngine=examples/capstone-mnist-onnx/outputs/mnist_fp32.plan
+trtexec --onnx=examples/capstone-mnist-onnx/outputs/mnist_mlp_fp16.onnx --saveEngine=examples/capstone-mnist-onnx/outputs/mnist_fp16.plan
+trtexec --onnx=examples/capstone-mnist-onnx/outputs/mnist_mlp_int8_qdq.onnx --saveEngine=examples/capstone-mnist-onnx/outputs/mnist_int8.plan
+```
+
+Compare load and inference with:
+
+```bash
+trtexec --loadEngine=examples/capstone-mnist-onnx/outputs/mnist_fp32.plan
+trtexec --loadEngine=examples/capstone-mnist-onnx/outputs/mnist_fp16.plan
+trtexec --loadEngine=examples/capstone-mnist-onnx/outputs/mnist_int8.plan
+```
+
+`trtexec` prints engine startup and inference performance, including latency and throughput. Engine build time is an offline cost. Compare all three on the same device. Then evaluate each engine's predictions on the same MNIST test set; timing alone does not establish accuracy. TensorRT engines are tied to the target GPU and compatible TensorRT environment. See the [full run guide](../../../capstone-mnist-onnx/index.md) for prerequisites and the CPU ONNX Runtime comparison.
+
+---
+
+## 7. How float values map to INT8
+
+An 8-bit signed integer has 256 available codes, from -128 through 127. Quantization uses a **scale** to set the real-value step size and a **zero point** to say which integer represents real zero. For one tensor, a common affine mapping is:
+
+```text
+q = clip(round(x / scale) + zero_point, -128, 127)
+x_approx = scale * (q - zero_point)
+```
+
+For example, represent a real range from -1.0 to 1.0 with symmetric INT8. Choose `scale = 1/127` and `zero_point = 0`: `x = 0.5` maps to `round(0.5 / (1/127)) = 64`; converting back gives `64/127 ≈ 0.504`. The rounding error is the price of using fewer representable values. An input beyond the selected range is clipped, which can create a larger error.
+
+**Calibration** runs representative inputs through the model and estimates useful ranges for activations. The example uses 256 randomly selected training images, not test images, and Model Optimizer writes the resulting scales into ONNX Quantize/Dequantize (Q/DQ) nodes. Weights have known values and can be quantized directly; activations depend on real inputs, so they need representative data. Calibration is not training and uses no labels. Afterward, measure task accuracy on held-out test data and adjust the calibration set or quantization approach if accuracy drops too much.
+
+```mermaid
+flowchart LR
+    A[FP32 activation] --> B[Divide by scale]
+    B --> C[Round and add zero point]
+    C --> D[Clip to INT8 range]
+    D --> E[INT8 value]
+    E --> F[Subtract zero point and multiply scale]
+    F --> G[Approximate FP value]
+```
+
+<div class="quiz" data-answer="b" data-explanation="Scale sets the spacing between real values represented by adjacent integers; zero point maps real zero to an integer code.">
+  <p><strong>Checkpoint 4:</strong> What do scale and zero point control?</p>
+  <label><input type="radio" name="lesson14-scale-zero" value="a"> Scale selects the class count and zero point selects the image size</label><br>
+  <label><input type="radio" name="lesson14-scale-zero" value="b"> Scale sets the quantization step and zero point represents real zero</label><br>
+  <label><input type="radio" name="lesson14-scale-zero" value="c"> Both values store the model labels</label><br>
+  <button class="quiz-check" type="button">Check answer</button>
+  <p class="quiz-result" aria-live="polite"></p>
+</div>
+
+<div class="quiz" data-answer="a" data-explanation="Calibration uses representative inputs to estimate activation ranges and scales; held-out data is then used to evaluate task accuracy.">
+  <p><strong>Checkpoint 5:</strong> Why does INT8 post-training quantization use calibration images?</p>
+  <label><input type="radio" name="lesson14-calibration-purpose" value="a"> To estimate activation ranges and useful quantization scales</label><br>
+  <label><input type="radio" name="lesson14-calibration-purpose" value="b"> To retrain all weights with new labels</label><br>
+  <label><input type="radio" name="lesson14-calibration-purpose" value="c"> To measure only the ONNX file size</label><br>
+  <button class="quiz-check" type="button">Check answer</button>
+  <p class="quiz-result" aria-live="polite"></p>
+</div>
+
+---
+
 ## Hands-on: compare precision on your device
 
 1. Run the benchmark and note the storage estimate and median latency for each available mode.
@@ -117,5 +191,7 @@ The script saves and displays `outputs/optimization_tradeoffs.png`. It needs no 
 - Lower precision can reduce storage and accelerate supported hardware, but its output must be validated.
 - INT8 storage and actual INT8 inference are separate claims; this example estimates only storage.
 - TensorRT can optimize supported inference graphs for NVIDIA devices, but target hardware and task accuracy matter.
+- INT8 approximates real values using scale and zero point; representative calibration inputs help choose activation ranges.
+- Benchmark engine loading/building separately from inference, and measure accuracy on held-out task data.
 
 **Next:** [Lesson 15 — Real-Time Computer Vision](../lesson-15-real-time-computer-vision/index.md) adds preprocessing, batching, and a camera frame-rate budget. Review [Lesson 13 — Object Detection](../../03-modern-computer-vision/lesson-13-object-detection/index.md) for object locations and classes.

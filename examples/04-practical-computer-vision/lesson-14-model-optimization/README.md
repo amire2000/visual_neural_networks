@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Use the course `.venv` with PyTorch, TorchVision, Pillow, and Matplotlib installed. The script uses a randomly initialized MobileNetV3-Small as an inference workload; it downloads no weights or data. A CUDA GPU is needed to compare GPU FP32 and FP16 timings. CPU-only systems still run the benchmark.
+Use the course `.venv` with PyTorch, TorchVision, Pillow, and Matplotlib installed. The script uses a randomly initialized MobileNetV3-Small as an inference workload; it downloads no weights or data. A CUDA GPU is needed to compare GPU FP32 and FP16 timings. CPU-only systems still run this benchmark. For a trained model, CPU ONNX Runtime comparison, and optional TensorRT FP32/FP16/calibrated INT8 workflow, follow the [MNIST optimization guide](../../capstone-mnist-onnx/README.md).
 
 ## Run
 

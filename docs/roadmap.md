@@ -31,3 +31,5 @@ After the four parts, apply the course ideas in standalone projects, separate fr
 - [MNIST MLP to ONNX](capstone-mnist-onnx/index.md): train a fully connected network, export it, and run predictions with ONNX Runtime.
 - [MNIST Vision Transformer](capstone-mnist-vit/index.md): build a small ViT, train it on MNIST, and classify unseen digits with PyTorch.
 - [German Traffic Sign Recognition](capstone-gtsrb/index.md): design and train a 43-class CNN, then optionally compare it with pretrained ResNet-18.
+- [ResNet-20 Paper to Code](capstone-resnet-cifar10/index.md): learn to read an architecture paper, implement its CIFAR network, and interpret training graphs.
+- [MobileNetV2 Paper to Deployment](capstone-mobilenetv2-gtsrb/index.md): read the architecture paper, implement and train a small MobileNetV2 on GTSRB, then compare ONNX precision and runtimes.
