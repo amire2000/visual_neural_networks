@@ -10,6 +10,7 @@ The course is for learners building a foundation in neural networks and computer
 
 - 15 numbered lessons and an optional TensorBoard supplement.
 - Visual, step-by-step explanations, quizzes, exercises, and runnable examples.
+- Optional Netron lab for inspecting ONNX graphs and comparing theoretical compute with measured latency.
 - Standalone projects for MNIST-to-ONNX, an MNIST Vision Transformer, GTSRB traffic-sign classification, ResNet paper-to-code, and MobileNetV2 paper-to-deployment.
 
 ## Architecture
@@ -118,6 +119,9 @@ Automated test-runner configuration is unspecified. Runnable examples include th
 - [Roadmap](docs/roadmap.md) and [syllabus](docs/syllabus.md)
 - [Vocabulary](docs/vocabulary.md)
 - [MobileNetV2 Paper-to-Deployment capstone](docs/capstone-mobilenetv2-gtsrb/index.md)
+- [Optional Netron Network Optimization Lab](docs/modules/04-practical-computer-vision/netron-network-optimization-lab/index.md)
+- [Netron Lab 2 — Channel Width](docs/modules/04-practical-computer-vision/netron-network-optimization-lab/lab-2-channel-width/index.md)
+- [Netron Lab 3 — Kernel Size and Receptive Field](docs/modules/04-practical-computer-vision/netron-network-optimization-lab/lab-3-kernel-receptive-field/index.md)
 - [ResNet-20 Paper-to-Code capstone](docs/capstone-resnet-cifar10/index.md)
 - [German Traffic Sign Recognition capstone](docs/capstone-gtsrb/index.md)
 - [MNIST MLP to ONNX capstone](docs/capstone-mnist-onnx/index.md)

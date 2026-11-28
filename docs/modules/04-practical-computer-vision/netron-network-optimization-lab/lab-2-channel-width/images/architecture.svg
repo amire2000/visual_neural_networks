@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420"><rect width="100%" height="100%" fill="#0b1220"/><style>text{font-family:DejaVu Sans,Arial,sans-serif;fill:#eef4ff}.title{font-size:25px;font-weight:700}.small{font-size:15px;fill:#bac9dc}.label{font-size:19px;font-weight:600}.number{font-size:22px;font-weight:700}.edge{stroke:#9db5cf;stroke-width:3;fill:none}.a{fill:#173653;stroke:#69c5ff;stroke-width:2}.b{fill:#1e483e;stroke:#63dfac;stroke-width:2}.c{fill:#493722;stroke:#f5bb67;stroke-width:2}</style><text x="32" y="42" class="title">Lab 2: narrow a feature layer while preserving 10 output classes</text>
+<text x="90" y="93" class="label">Baseline: 64 channels</text><text x="585" y="93" class="label">Narrow: 32 channels</text>
+<rect class="a" x="70" y="110" rx="10" width="330" height="54"/><text x="98" y="144">Input [1,3,224,224]</text>
+<rect class="a" x="570" y="110" rx="10" width="330" height="54"/><text x="596" y="144">Input [1,3,224,224]</text>
+<path class="edge" d="M235 164v25 M735 164v25"/>
+<rect class="a" x="70" y="189" rx="10" width="330" height="54"/><text x="97" y="223">Stem Conv 3→32, stride 2</text>
+<rect class="a" x="570" y="189" rx="10" width="330" height="54"/><text x="597" y="223">Stem Conv 3→32, stride 2</text>
+<path class="edge" d="M235 243v24 M735 243v24"/>
+<rect class="c" x="70" y="267" rx="10" width="330" height="54"/><text x="94" y="300">Conv 3×3: 32→64 (target)</text>
+<rect class="b" x="570" y="267" rx="10" width="330" height="54"/><text x="594" y="300">Conv 3×3: 32→32 (changed)</text>
+<path class="edge" d="M235 321v21 M735 321v21"/>
+<rect class="c" x="70" y="342" rx="10" width="330" height="52"/><text x="104" y="374">Pool → Linear 64→10</text>
+<rect class="b" x="570" y="342" rx="10" width="330" height="52"/><text x="604" y="374">Pool → Linear 32→10</text></svg>

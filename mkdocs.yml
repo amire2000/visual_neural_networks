@@ -63,6 +63,10 @@ nav:
       - 14 - Model Optimization: modules/04-practical-computer-vision/lesson-14-model-optimization/index.md
       - 15 - Real-Time Computer Vision: modules/04-practical-computer-vision/lesson-15-real-time-computer-vision/index.md
       - Vision in Practice Review: modules/04-practical-computer-vision/review/index.md
+      - Netron Network Optimization Lab:
+        - Netron Network Optimization Lab: modules/04-practical-computer-vision/netron-network-optimization-lab/index.md
+        - Netron Lab 2 — Channel Width: modules/04-practical-computer-vision/netron-network-optimization-lab/lab-2-channel-width/index.md
+        - Netron Lab 3 — Kernel Size: modules/04-practical-computer-vision/netron-network-optimization-lab/lab-3-kernel-receptive-field/index.md
   - Capstone projects:
       - MNIST MLP to ONNX: capstone-mnist-onnx/index.md
       - MNIST Vision Transformer: capstone-mnist-vit/index.md

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="550" viewBox="0 0 1100 550">
+<rect width="1100" height="550" fill="#f7fafc"/><text x="550" y="48" font-family="Arial" font-size="29" font-weight="bold" fill="#17324d" text-anchor="middle">Target Block: Computation and Parameters</text>
+<text x="75" y="119" font-family="Arial" font-size="22" fill="#17324d">MACs (millions)</text><rect x="75" y="139" width="888" height="69" fill="#efaa62" rx="9"/><text x="93" y="181" font-family="Arial" font-size="26" font-weight="bold">5×5: 642.3M</text>
+<rect x="75" y="226" width="479" height="69" fill="#69c3a1" rx="9"/><text x="93" y="268" font-family="Arial" font-size="26" font-weight="bold">2× 3×3: 346.8M</text>
+<text x="75" y="358" font-family="Arial" font-size="22" fill="#17324d">Convolution weights</text><rect x="75" y="377" width="888" height="59" fill="#efaa62" rx="8"/><text x="92" y="416" font-family="Arial" font-size="24" font-weight="bold">5×5: 51,200</text>
+<rect x="75" y="450" width="479" height="59" fill="#69c3a1" rx="8"/><text x="92" y="488" font-family="Arial" font-size="24" font-weight="bold">2× 3×3: 27,648</text>
+<text x="810" y="269" font-family="Arial" font-size="27" font-weight="bold" fill="#237c60" text-anchor="middle">46.0% fewer MACs</text></svg>

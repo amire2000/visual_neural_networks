@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="590" viewBox="0 0 1120 590" role="img" aria-labelledby="title desc">
+<title id="title">Standard and depthwise-separable convolutions compared</title>
+<desc id="desc">A standard convolution uses one filter bank spanning all 32 input channels to produce each output channel. The depthwise-separable version first applies one independent 3 by 3 filter to each channel, then uses a 1 by 1 convolution to combine the 32 channels into 64 output channels. It reduces target kernel weights from 18,432 to 2,336.</desc>
+<defs>
+ <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#f9fbff"/><stop offset="1" stop-color="#edf3fa"/></linearGradient>
+ <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7187a0"/></marker>
+ <style>
+  text{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#182b43}
+  .title{font-size:25px;font-weight:700}.head{font-size:17px;font-weight:700}.body{font-size:14px;fill:#485e76}.small{font-size:12px;fill:#61758d}.formula{font-size:16px;font-weight:700;fill:#23405e}
+  .panel{fill:#fff;stroke:#d7e2ed;stroke-width:1.5}.arrow{stroke:#758aa2;stroke-width:2.5;marker-end:url(#arrow)}
+ </style>
+</defs>
+<rect width="1120" height="590" rx="22" fill="url(#bg)"/>
+<text x="40" y="47" class="title">Two ways to turn 32 input channels into 64 outputs</text>
+<text x="40" y="73" class="small">The input and final output shapes match. The internal steps, learned filters, and amount of work differ.</text>
+
+<!-- Standard convolution -->
+<rect class="panel" x="32" y="98" width="345" height="390" rx="18"/>
+<text x="204" y="132" text-anchor="middle" class="head">Standard convolution</text>
+<text x="204" y="155" text-anchor="middle" class="small">One layer mixes space and channels together</text>
+<g transform="translate(58 190)">
+ <rect width="66" height="66" rx="7" fill="#e4f1ff" stroke="#79a9d2"/>
+ <path d="M22 0v66M44 0v66M0 22h66M0 44h66" stroke="#9bbbd9"/>
+ <rect x="22" y="22" width="22" height="22" fill="#ffd77d" stroke="#d99c2c" stroke-width="2"/>
+ <text x="33" y="87" text-anchor="middle" class="small">input ch 1</text>
+ <text x="78" y="39" text-anchor="middle" class="head">…</text>
+ <rect x="100" width="66" height="66" rx="7" fill="#e8e2f7" stroke="#9c86c4"/>
+ <path d="M122 0v66M144 0v66M100 22h66M100 44h66" stroke="#b0a1cf"/>
+ <rect x="122" y="22" width="22" height="22" fill="#ffd77d" stroke="#d99c2c" stroke-width="2"/>
+ <text x="133" y="87" text-anchor="middle" class="small">input ch 2</text>
+ <text x="178" y="39" text-anchor="middle" class="head">…</text>
+ <rect x="200" width="66" height="66" rx="7" fill="#e5f5eb" stroke="#67af87"/>
+ <path d="M222 0v66M244 0v66M200 22h66M200 44h66" stroke="#a1cdb1"/>
+ <rect x="222" y="22" width="22" height="22" fill="#ffd77d" stroke="#d99c2c" stroke-width="2"/>
+ <text x="233" y="87" text-anchor="middle" class="small">input ch 32</text>
+</g>
+<text x="204" y="300" text-anchor="middle" class="body">One output filter spans all 32 channels.</text>
+<text x="204" y="323" text-anchor="middle" class="body">It combines every highlighted 3×3 patch.</text>
+<path class="arrow" d="M204 339v28"/>
+<rect x="115" y="373" width="178" height="46" rx="10" fill="#f2ecfb" stroke="#b7a4d9"/>
+<text x="204" y="402" text-anchor="middle" class="formula">one output channel</text>
+<text x="204" y="447" text-anchor="middle" class="formula">64 × 32 × 3 × 3 = 18,432</text>
+<text x="204" y="468" text-anchor="middle" class="small">kernel weights</text>
+
+<!-- Separable convolution -->
+<rect class="panel" x="395" y="98" width="693" height="390" rx="18"/>
+<text x="741" y="132" text-anchor="middle" class="head">Depthwise-separable convolution</text>
+<text x="741" y="155" text-anchor="middle" class="small">Do spatial filtering and channel mixing in two separate steps</text>
+
+<!-- Depthwise -->
+<g transform="translate(425 193)">
+ <text x="96" y="-5" text-anchor="middle" class="head">1. Depthwise</text>
+ <rect x="15" y="16" width="52" height="52" rx="6" fill="#e4f1ff" stroke="#79a9d2"/>
+ <path d="M32 16v52M49 16v52M15 33h52M15 50h52" stroke="#9bbbd9"/>
+ <rect x="32" y="33" width="17" height="17" fill="#ffd77d" stroke="#d99c2c" stroke-width="2"/>
+ <text x="41" y="88" text-anchor="middle" class="small">channel 1</text>
+ <text x="97" y="48" text-anchor="middle" class="head">…</text>
+ <rect x="127" y="16" width="52" height="52" rx="6" fill="#e5f5eb" stroke="#67af87"/>
+ <path d="M144 16v52M161 16v52M127 33h52M127 50h52" stroke="#a1cdb1"/>
+ <rect x="144" y="33" width="17" height="17" fill="#ffd77d" stroke="#d99c2c" stroke-width="2"/>
+ <text x="153" y="88" text-anchor="middle" class="small">channel 32</text>
+ <text x="97" y="119" text-anchor="middle" class="body">One 3×3 filter per channel</text>
+ <text x="97" y="141" text-anchor="middle" class="small">groups = 32, no channel mixing</text>
+ <text x="97" y="176" text-anchor="middle" class="formula">32 × 1 × 3 × 3 = 288</text>
+ <text x="97" y="196" text-anchor="middle" class="small">kernel weights</text>
+</g>
+<path class="arrow" d="M630 275H671"/>
+
+<!-- Pointwise -->
+<g transform="translate(681 193)">
+ <text x="167" y="-5" text-anchor="middle" class="head">2. Pointwise</text>
+ <rect x="0" y="27" width="81" height="56" rx="8" fill="#eef3fa" stroke="#9aadc1"/>
+ <text x="40" y="51" text-anchor="middle" class="body">32 values</text>
+ <text x="40" y="70" text-anchor="middle" class="small">at one pixel</text>
+ <path class="arrow" d="M87 55H119"/>
+ <rect x="128" y="16" width="99" height="78" rx="8" fill="#fff4dc" stroke="#d8ad5b"/>
+ <text x="177" y="47" text-anchor="middle" class="head">1×1</text>
+ <text x="177" y="70" text-anchor="middle" class="small">mix channels</text>
+ <path class="arrow" d="M232 55H263"/>
+ <rect x="272" y="17" width="66" height="76" rx="8" fill="#f2ecfb" stroke="#b7a4d9"/>
+ <text x="305" y="48" text-anchor="middle" class="body">64</text>
+ <text x="305" y="69" text-anchor="middle" class="small">outputs</text>
+ <text x="169" y="125" text-anchor="middle" class="body">No neighboring pixels are used here.</text>
+ <text x="169" y="176" text-anchor="middle" class="formula">64 × 32 × 1 × 1 = 2,048</text>
+ <text x="169" y="196" text-anchor="middle" class="small">kernel weights</text>
+</g>
+<text x="742" y="455" text-anchor="middle" class="formula">288 + 2,048 = 2,336 kernel weights</text>
+<text x="742" y="476" text-anchor="middle" class="small">The pointwise layer also has 64 bias values.</text>
+
+<rect x="32" y="512" width="1056" height="50" rx="12" fill="#e8f1fa" stroke="#d1e0ef"/>
+<text x="560" y="543" text-anchor="middle" class="body">Both produce 64 output channels. The split uses fewer weights, with a more restricted way of combining spatial and channel information.</text>
+</svg>

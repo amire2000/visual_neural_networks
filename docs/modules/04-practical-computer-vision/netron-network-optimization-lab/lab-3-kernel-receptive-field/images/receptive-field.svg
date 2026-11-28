@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="500" viewBox="0 0 1100 500">
+<rect width="1100" height="500" fill="#f7fafc"/><text x="550" y="43" font-family="Arial" font-size="28" font-weight="bold" fill="#17324d" text-anchor="middle">Why two 3×3 convolutions see a 5×5 region</text>
+<text x="235" y="96" font-family="Arial" font-size="22" font-weight="bold" fill="#17324d" text-anchor="middle">Single 5×5 kernel</text><text x="835" y="96" font-family="Arial" font-size="22" font-weight="bold" fill="#17324d" text-anchor="middle">Two stacked 3×3 kernels</text>
+<g stroke="#fff" stroke-width="3">
+<rect x="110" y="120" width="250" height="250" rx="5" fill="#f0b66f"/>
+<rect x="710" y="120" width="250" height="250" rx="5" fill="#b1dfcf"/>
+</g>
+<g stroke="#fff" stroke-width="2">
+<path d="M160 120V370 M210 120V370 M260 120V370 M310 120V370 M110 170H360 M110 220H360 M110 270H360 M110 320H360"/>
+<path d="M760 120V370 M810 120V370 M860 120V370 M910 120V370 M710 170H960 M710 220H960 M710 270H960 M710 320H960"/>
+</g>
+<rect x="760" y="170" width="150" height="150" fill="#45a886" opacity="0.65" stroke="#155540" stroke-width="4"/><rect x="810" y="220" width="50" height="50" fill="#125b48"/>
+<text x="235" y="409" text-anchor="middle" font-family="Arial" font-size="18">One output depends on 25 input positions</text><text x="835" y="409" text-anchor="middle" font-family="Arial" font-size="18">Each 3×3 extends radius by one pixel</text>
+<text x="550" y="466" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#17324d">Effective receptive field: 1 + (3−1) + (3−1) = 5</text></svg>

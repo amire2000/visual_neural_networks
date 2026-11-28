@@ -195,3 +195,5 @@ flowchart LR
 - Benchmark engine loading/building separately from inference, and measure accuracy on held-out task data.
 
 **Next:** [Lesson 15 — Real-Time Computer Vision](../lesson-15-real-time-computer-vision/index.md) adds preprocessing, batching, and a camera frame-rate budget. Review [Lesson 13 — Object Detection](../../03-modern-computer-vision/lesson-13-object-detection/index.md) for object locations and classes.
+
+**Optional hands-on extension:** The [Netron optimization labs](../netron-network-optimization-lab/index.md) progress from inspecting an ONNX graph to reducing channel width and comparing kernel designs. They connect operator shapes and MAC estimates to measured runtime latency.

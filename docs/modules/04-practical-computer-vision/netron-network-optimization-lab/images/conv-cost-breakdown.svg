@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="500" viewBox="0 0 1120 500" role="img" aria-labelledby="title desc">
+<title id="title">How a convolution uses weights and compute</title>
+<desc id="desc">A standard convolution takes 32 input channels and produces 64 output channels. One output channel has 32 three-by-three kernels, or 288 weights. The 64 output channels use 18,432 weights total. The same filters are reused at 112 by 112 output positions, yielding 231,211,008 multiply-accumulate operations.</desc>
+<defs>
+  <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#edf3fb"/></linearGradient>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7187a0"/></marker>
+  <style>
+    text{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#182b43}
+    .title{font-size:24px;font-weight:700}.head{font-size:17px;font-weight:700}.body{font-size:14px;fill:#455c76}.small{font-size:12px;fill:#61758d}.formula{font-size:17px;font-weight:700;fill:#213d5c}
+    .card{fill:#fff;stroke:#d5e1ed;stroke-width:1.5}.arrow{stroke:#7187a0;stroke-width:2.5;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect width="1120" height="500" rx="22" fill="url(#bg)"/>
+<text x="42" y="48" class="title">One convolution, two different costs</text>
+<text x="42" y="74" class="small">Example layer: input [1, 32, 112, 112] → output [1, 64, 112, 112], kernel 3×3, group 1</text>
+
+<rect class="card" x="35" y="110" width="270" height="270" rx="18"/>
+<text x="170" y="145" text-anchor="middle" class="head">1. Build one output value</text>
+<text x="170" y="176" text-anchor="middle" class="body">One output channel sees all 32</text>
+<text x="170" y="197" text-anchor="middle" class="body">input channels. Each has a 3×3 slice.</text>
+<g transform="translate(68 220)">
+ <rect width="52" height="52" rx="6" fill="#e1f0ff" stroke="#76a9d6"/>
+ <path d="M17.3 0v52M34.6 0v52M0 17.3h52M0 34.6h52" stroke="#76a9d6"/>
+ <text x="26" y="72" text-anchor="middle" class="small">channel 1</text>
+ <text x="75" y="35" text-anchor="middle" class="head">+</text>
+ <rect x="99" width="52" height="52" rx="6" fill="#e9e2fa" stroke="#9b83c6"/>
+ <path d="M116.3 0v52M133.6 0v52M99 17.3h52M99 34.6h52" stroke="#9b83c6"/>
+ <text x="125" y="72" text-anchor="middle" class="small">channel 2</text>
+ <text x="174" y="35" text-anchor="middle" class="head">…</text>
+ <rect x="198" width="52" height="52" rx="6" fill="#e3f5eb" stroke="#67af87"/>
+ <path d="M215.3 0v52M232.6 0v52M198 17.3h52M198 34.6h52" stroke="#67af87"/>
+ <text x="224" y="72" text-anchor="middle" class="small">channel 32</text>
+</g>
+<text x="170" y="337" text-anchor="middle" class="formula">32 × (3 × 3) = 288 weights</text>
+<path class="arrow" d="M312 245H344"/>
+
+<rect class="card" x="353" y="110" width="300" height="270" rx="18"/>
+<text x="503" y="145" text-anchor="middle" class="head">2. Make all 64 channels</text>
+<g transform="translate(403 181)">
+ <rect width="56" height="56" rx="8" fill="#e1f0ff" stroke="#76a9d6"/><text x="28" y="37" text-anchor="middle" class="head">288</text>
+ <text x="83" y="37" text-anchor="middle" class="head">× 64 filters</text>
+ <rect x="173" width="56" height="56" rx="8" fill="#e3f5eb" stroke="#67af87"/><text x="201" y="37" text-anchor="middle" class="head">64</text>
+</g>
+<text x="503" y="278" text-anchor="middle" class="body">Each filter bank makes one output channel.</text>
+<text x="503" y="307" text-anchor="middle" class="formula">18,432 kernel weights</text>
+<text x="503" y="333" text-anchor="middle" class="small">+ 64 bias values = 18,496 parameters</text>
+<path class="arrow" d="M660 245H692"/>
+
+<rect class="card" x="701" y="110" width="384" height="270" rx="18"/>
+<text x="893" y="145" text-anchor="middle" class="head">3. Reuse weights across the image</text>
+<g transform="translate(755 177)">
+ <rect width="112" height="88" rx="8" fill="#f0f6fd" stroke="#7d9fbe" stroke-width="2"/>
+ <path d="M28 0v88M56 0v88M84 0v88M0 22h112M0 44h112M0 66h112" stroke="#a9bfd5"/>
+ <rect x="28" y="22" width="28" height="22" fill="#ffd98d" fill-opacity=".85" stroke="#d69d32" stroke-width="2"/>
+ <text x="56" y="111" text-anchor="middle" class="small">one 112×112 feature map</text>
+ <path d="M140 26h52M140 50h52M140 74h52" stroke="#8a9db2" stroke-width="2" marker-end="url(#arrow)"/>
+ <text x="221" y="34" text-anchor="middle" class="body">same filter</text>
+ <text x="221" y="56" text-anchor="middle" class="body">at each position</text>
+ <text x="221" y="79" text-anchor="middle" class="small">112 × 112 × 64 outputs</text>
+</g>
+<text x="893" y="328" text-anchor="middle" class="formula">802,816 outputs × 288 MACs each</text>
+<text x="893" y="355" text-anchor="middle" class="head" fill="#a34b3a">= 231,211,008 MACs</text>
+
+<rect x="35" y="411" width="1050" height="55" rx="13" fill="#e8f1fa" stroke="#d1e0ef"/>
+<text x="560" y="445" text-anchor="middle" class="body"><tspan font-weight="700">Parameters</tspan> count stored learned values.  <tspan font-weight="700">MACs</tspan> count repeated multiply-and-add work at every output position.</text>
+</svg>
